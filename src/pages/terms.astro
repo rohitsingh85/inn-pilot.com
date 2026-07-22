@@ -1,0 +1,108 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+---
+
+<Base
+  title="Terms of Service"
+  description="InnPilot terms of service. Read the terms governing your use of our hospitality platform."
+  canonical="https://inn-pilot.com/terms/"
+  robots="noindex, follow"
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Terms of Service"
+    description="Please read these terms carefully before using InnPilot."
+  />
+
+  <section class="legal-content section">
+    <div class="container container--narrow">
+      <div class="legal prose reveal">
+        <h2>1. Acceptance of Terms</h2>
+        <p>
+          By accessing or using InnPilot, you agree to be bound by these Terms of Service.
+          If you do not agree to these terms, please do not use our services.
+        </p>
+
+        <h2>2. Description of Service</h2>
+        <p>
+          InnPilot is a hospitality operating system that provides property management, booking
+          engine, and channel management tools. We reserve the right to modify, suspend, or
+          discontinue any part of the service at any time.
+        </p>
+
+        <h2>3. Account Registration</h2>
+        <p>
+          You must provide accurate and complete information when creating an account. You are
+          responsible for safeguarding your account credentials and for all activity under your
+          account.
+        </p>
+
+        <h2>4. Acceptable Use</h2>
+        <p>
+          You agree not to misuse our services, interfere with their operation, or attempt to
+          access them using unauthorised methods. You will comply with all applicable laws and
+          regulations.
+        </p>
+
+        <h2>5. Intellectual Property</h2>
+        <p>
+          All content, features, and functionality of InnPilot are owned by us and are protected
+          by copyright, trademark, and other intellectual property laws. You may not reproduce,
+          distribute, or create derivative works without our written permission.
+        </p>
+
+        <h2>6. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by law, InnPilot shall not be liable for any indirect,
+          incidental, special, consequential, or punitive damages, or any loss of profits or
+          revenue, whether incurred directly or indirectly.
+        </p>
+
+        <h2>7. Termination</h2>
+        <p>
+          We may terminate or suspend your access to our services at any time, with or without
+          cause, and with or without notice. Upon termination, your right to use the service
+          will cease immediately.
+        </p>
+
+        <h2>8. Changes to Terms</h2>
+        <p>
+          We reserve the right to update these terms at any time. We will notify you of any
+          changes by posting the new terms on this page. Your continued use of the service
+          after any changes constitutes acceptance of the new terms.
+        </p>
+
+        <h2>9. Contact</h2>
+        <p>
+          If you have any questions about these Terms of Service, please contact us through
+          our website or WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .legal {
+    padding-bottom: var(--space-16);
+  }
+
+  .prose h2 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-4);
+    color: var(--color-text);
+  }
+
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+
+  .prose p {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-4);
+  }
+</style>

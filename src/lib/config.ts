@@ -100,7 +100,10 @@ export const config = {
       { label: "Pricing", href: "/pricing/" },
     ],
     company: [] as { label: string; href: string }[],
-    legal: [] as { label: string; href: string }[],
+    legal: [
+      { label: "Privacy Policy", href: "/privacy/" },
+      { label: "Terms of Service", href: "/terms/" },
+    ],
   },
 } as const;
 

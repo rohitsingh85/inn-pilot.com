@@ -1,5 +1,5 @@
 /* =============================================================================
-   InnPilot Public Website — Global Styles
+   InnPilot Public Website — Global Styles (Dark Theme)
    ============================================================================= */
 
 @import "./tokens.css";
@@ -151,13 +151,13 @@ p {
 
 .btn--primary {
   background-color: var(--color-accent);
-  color: white;
+  color: #0a0f1a;
 }
 
 .btn--primary:hover {
   background-color: var(--color-accent-light);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
 }
 
 .btn--primary:active {
@@ -171,7 +171,7 @@ p {
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-surface);
   border-color: var(--color-text-muted);
 }
 
@@ -183,18 +183,18 @@ p {
 
 .btn--ghost:hover {
   color: var(--color-text);
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-surface);
 }
 
 .btn--accent {
   background-color: var(--color-accent);
-  color: white;
+  color: #0a0f1a;
 }
 
 .btn--accent:hover {
   background-color: var(--color-accent-light);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
 }
 
 /* ── Eyebrow ──────────────────────────────────────────────────────────────── */
@@ -253,8 +253,8 @@ p {
   left: var(--space-4);
   z-index: 9999;
   padding: var(--space-3) var(--space-6);
-  background: var(--color-bg-dark);
-  color: white;
+  background: var(--color-accent);
+  color: #0a0f1a;
   font-weight: 600;
   font-size: var(--text-sm);
   border-radius: var(--radius-md);

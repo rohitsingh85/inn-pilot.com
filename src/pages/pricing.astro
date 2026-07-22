@@ -10,6 +10,48 @@ import { config } from "@/lib/config";
   description="InnPilot plans for every property size. Free, Starter, Professional, and Enterprise — choose the plan that fits your property operations and growth."
   canonical="https://inn-pilot.com/pricing/"
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "InnPilot — Hospitality Operating System",
+    "description": "A hospitality operating system that brings property management, direct bookings, and channel distribution together in one connected platform.",
+    "brand": { "@type": "Organization", "name": "InnPilot" },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "PMS, booking engine, and channel manager for one property.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://app.inn-pilot.com/admin/login",
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter",
+        "priceCurrency": "USD",
+        "description": "For growing properties needing automation and advanced tools.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://inn-pilot.com/pricing/",
+      },
+      {
+        "@type": "Offer",
+        "name": "Professional",
+        "priceCurrency": "USD",
+        "description": "For multi-property operations with revenue management.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://inn-pilot.com/pricing/",
+      },
+      {
+        "@type": "Offer",
+        "name": "Enterprise",
+        "priceCurrency": "USD",
+        "description": "Custom plan with dedicated support and advanced integrations.",
+        "availability": "https://schema.org/InStock",
+        "url": "https://inn-pilot.com/pricing/",
+      },
+    ],
+  })} />
   <PageHero
     eyebrow="Pricing"
     title="Plans that grow with your property."
@@ -123,8 +165,8 @@ import { config } from "@/lib/config";
     height: 200%;
     background: radial-gradient(
       ellipse at center,
-      rgba(4, 120, 87, 0.18) 0%,
-      transparent 70%
+      rgba(16, 185, 129, 0.12) 0%,
+      transparent 60%
     );
     pointer-events: none;
   }

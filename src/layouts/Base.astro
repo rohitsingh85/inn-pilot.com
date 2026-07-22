@@ -38,7 +38,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#0a0f1a" />
     <meta name="robots" content={robots} />
 
     <!-- Open Graph -->
@@ -79,6 +79,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
       "name": config.productName,
       "url": config.seo.url,
     })} />
+    <slot name="head" />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
