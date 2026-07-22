@@ -1,0 +1,155 @@
+---
+import { config } from "@/lib/config";
+
+const icons = {
+  grid: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>`,
+  chart: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-7"/></svg>`,
+  globe: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+} as const;
+---
+
+<section class="pillars section" id="pillars">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow reveal">The Platform</span>
+      <h2 class="reveal reveal-delay-1">One system. Three essential jobs.</h2>
+      <p class="reveal reveal-delay-2">
+        Every property needs to operate, sell, and distribute. InnPilot connects all three
+        so your team works from one place.
+      </p>
+    </div>
+
+    <div class="pillars__grid">
+      {config.pillars.map((pillar, i) => (
+        <div class={`pillar-card reveal reveal-delay-${i + 1}`}>
+          <div class="pillar-card__icon">
+            <Fragment set:html={icons[pillar.icon]} />
+          </div>
+          <span class="pillar-card__label">{pillar.name}</span>
+          <h3 class="pillar-card__title">{pillar.title}</h3>
+          <p class="pillar-card__desc">{pillar.description}</p>
+          <ul class="pillar-card__features" aria-label={`${pillar.name} capabilities`}>
+            {pillar.features.map((feature) => (
+              <li class="pillar-card__feature">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 8l3 3 5-5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <div class="pillar-card__connector" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .pillars__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .pillar-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    position: relative;
+    transition: box-shadow var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out);
+  }
+
+  .pillar-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+    border-color: var(--color-accent-light);
+  }
+
+  .pillar-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    margin-bottom: var(--space-5);
+  }
+
+  .pillar-card__label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .pillar-card__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+  }
+
+  .pillar-card__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-5);
+  }
+
+  .pillar-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pillar-card__feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .pillar-card__feature svg {
+    flex-shrink: 0;
+  }
+
+  .pillar-card__connector {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    color: var(--color-border);
+    z-index: 1;
+  }
+
+  @media (min-width: 768px) {
+    .pillar-card__connector {
+      display: flex;
+    }
+
+    .pillar-card:last-child .pillar-card__connector {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import PricingCard from "./PricingCard.astro";
+import { config } from "@/lib/config";
+
+const plans = [
+  {
+    plan: "Free",
+    position: "Operate one property completely.",
+    features: [
+      "Property Management System",
+      "Website Booking Engine",
+      "Channel Manager",
+      "Guest Profiles",
+      "Room Management",
+      "Service Requests",
+      "Maintenance",
+      "Tax Engine",
+      "Operational Reports",
+    ],
+    highlighted: true,
+    cta: { label: "Get Started", href: config.urls.startFree },
+  },
+  {
+    plan: "Starter",
+    position: "Optimise revenue and operations.",
+    features: [
+      "Everything in Free",
+      "Room Assignment",
+      "Revenue Management",
+      "Inventory",
+      "Procurement",
+      "Activities",
+      "Commission Management",
+      "Operations Dashboard",
+      "Advanced Business Reports",
+    ],
+    cta: { label: "Get Started", href: config.urls.startFree },
+  },
+  {
+    plan: "Professional",
+    position: "Automation and smarter decisions.",
+    features: [
+      "Everything in Starter",
+      "Dynamic Pricing",
+      "Forecasting",
+      "WhatsApp Communication",
+      "Third-party Integrations",
+    ],
+    cta: { label: "Get Started", href: config.urls.startFree },
+  },
+  {
+    plan: "Enterprise",
+    position: "Run hotel groups at scale.",
+    features: [
+      "Everything in Professional",
+      "AI Revenue Advisor",
+      "Multi-property",
+      "Loyalty",
+      "Smart Alerts",
+      "BI",
+      "Advanced Reports",
+      "White Label",
+      "Custom Domain",
+    ],
+    cta: { label: "Get Started", href: config.urls.startFree },
+  },
+];
+---
+
+<div class="pricing-grid">
+  {plans.map((plan, i) => (
+    <div class={`reveal reveal-delay-${(i % 3) + 1}`}>
+      <PricingCard {...plan} />
+    </div>
+  ))}
+</div>
+
+<style>
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .pricing-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+  }
+</style>

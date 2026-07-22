@@ -1,0 +1,555 @@
+---
+import { config } from "@/lib/config";
+---
+
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero__content">
+      <span class="eyebrow reveal">Hospitality Operating System</span>
+
+      <h1 class="hero__title reveal reveal-delay-1">
+        Manage your property.<br />
+        Sell more rooms.
+      </h1>
+
+      <p class="hero__subtitle reveal reveal-delay-2">
+        A complete hospitality platform that brings your property operations, direct bookings,
+        and distribution together in one connected system.
+      </p>
+
+      <div class="hero__actions reveal reveal-delay-3">
+        <a href={config.urls.startFree} class="btn btn--primary btn--lg">
+          Get Started
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/platform/" class="btn btn--secondary">
+          Explore Platform
+        </a>
+      </div>
+
+      <p class="hero__microcopy reveal reveal-delay-3">
+        Built for hotels, resorts, boutique properties, farmstays, and growing hospitality businesses.
+      </p>
+      <p class="hero__microcopy reveal reveal-delay-3">
+        Access is currently invitation-based. Contact us to get started.
+      </p>
+    </div>
+
+    <div class="hero__visual reveal reveal-delay-2" aria-hidden="true">
+      <div class="hero__ui">
+        <!-- Browser chrome -->
+        <div class="hero__ui-bar">
+          <div class="hero__ui-dots">
+            <span class="hero__ui-dot hero__ui-dot--red"></span>
+            <span class="hero__ui-dot hero__ui-dot--yellow"></span>
+            <span class="hero__ui-dot hero__ui-dot--green"></span>
+          </div>
+          <span class="hero__ui-url">app.inn-pilot.com</span>
+        </div>
+        <div class="hero__ui-body">
+          <!-- Sidebar -->
+          <div class="hero__ui-sidebar">
+            <div class="hero__ui-sidebar-logo"></div>
+            <div class="hero__ui-nav-items">
+              <div class="hero__ui-nav-item hero__ui-nav-item--active"></div>
+              <div class="hero__ui-nav-item"></div>
+              <div class="hero__ui-nav-item"></div>
+              <div class="hero__ui-nav-item"></div>
+              <div class="hero__ui-nav-item"></div>
+            </div>
+          </div>
+          <!-- Main content -->
+          <div class="hero__ui-main">
+            <!-- Stats row -->
+            <div class="hero__ui-stats">
+              <div class="hero__ui-stat">
+                <span class="hero__ui-stat-label">Occupancy</span>
+                <span class="hero__ui-stat-value hero__ui-stat-value--accent">87%</span>
+              </div>
+              <div class="hero__ui-stat">
+                <span class="hero__ui-stat-label">Revenue</span>
+                <span class="hero__ui-stat-value">₹2.4L</span>
+              </div>
+              <div class="hero__ui-stat">
+                <span class="hero__ui-stat-label">Arrivals</span>
+                <span class="hero__ui-stat-value">12</span>
+              </div>
+            </div>
+            <!-- Chart area -->
+            <div class="hero__ui-chart">
+              <div class="hero__ui-chart-header">
+                <span class="hero__ui-chart-title">Weekly Revenue</span>
+                <span class="hero__ui-chart-badge">+18%</span>
+              </div>
+              <svg viewBox="0 0 360 80" fill="none" class="hero__ui-chart-line" aria-hidden="true">
+                <defs>
+                  <linearGradient id="heroChartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <polygon
+                  points="0,65 30,58 60,60 90,42 120,45 150,35 180,38 210,22 240,25 270,18 300,20 330,12 360,14 360,80 0,80"
+                  fill="url(#heroChartGrad)"
+                />
+                <polyline
+                  points="0,65 30,58 60,60 90,42 120,45 150,35 180,38 210,22 240,25 270,18 300,20 330,12 360,14"
+                  stroke="var(--color-accent)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <!-- Room grid -->
+            <div class="hero__ui-rooms">
+              <div class="hero__ui-rooms-header">
+                <span class="hero__ui-rooms-title">Room Status</span>
+                <span class="hero__ui-rooms-date">Today</span>
+              </div>
+              <div class="hero__ui-room-grid">
+                <span class="hero__ui-room hero__ui-room--occupied" title="101 — Occupied">101</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="102 — Occupied">102</span>
+                <span class="hero__ui-room hero__ui-room--available" title="103 — Available">103</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="104 — Occupied">104</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="105 — Occupied">105</span>
+                <span class="hero__ui-room hero__ui-room--available" title="106 — Available">106</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="201 — Occupied">201</span>
+                <span class="hero__ui-room hero__ui-room--maintenance" title="202 — Maintenance">202</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="203 — Occupied">203</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="204 — Occupied">204</span>
+                <span class="hero__ui-room hero__ui-room--available" title="205 — Available">205</span>
+                <span class="hero__ui-room hero__ui-room--occupied" title="206 — Occupied">206</span>
+              </div>
+              <div class="hero__ui-room-legend">
+                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--occupied"></i>Occupied</span>
+                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--available"></i>Available</span>
+                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--maintenance"></i>Maintenance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__glow"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    padding-bottom: var(--space-20);
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding-top: calc(var(--header-height) + var(--space-20));
+      padding-bottom: var(--space-24);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      padding-top: calc(var(--header-height) + var(--space-24));
+      padding-bottom: var(--space-32);
+    }
+  }
+
+  .hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero .container {
+      flex-direction: row;
+      gap: var(--space-16);
+    }
+  }
+
+  .hero__content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .hero__title {
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-7xl));
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(var(--text-base), 2vw, var(--text-lg));
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    max-width: 480px;
+    margin-bottom: var(--space-8);
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .hero__microcopy {
+    margin-top: var(--space-6);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    max-width: 480px;
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* ── Dashboard Visual ────────────────────────────────────────────────────── */
+
+  .hero__visual {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+
+  .hero__ui {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl), 0 0 0 1px var(--color-border-light);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Browser chrome */
+  .hero__ui-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-subtle);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero__ui-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .hero__ui-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+  }
+
+  .hero__ui-dot--red { background: #fca5a5; }
+  .hero__ui-dot--yellow { background: #fde68a; }
+  .hero__ui-dot--green { background: #86efac; }
+
+  .hero__ui-url {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    padding: 4px var(--space-3);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-light);
+  }
+
+  .hero__ui-body {
+    display: flex;
+    min-height: 320px;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-body {
+      min-height: 380px;
+    }
+  }
+
+  /* Sidebar */
+  .hero__ui-sidebar {
+    width: 52px;
+    background: var(--color-bg-dark);
+    padding: var(--space-3) var(--space-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-sidebar {
+      width: 64px;
+      padding: var(--space-4) var(--space-3);
+    }
+  }
+
+  .hero__ui-sidebar-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    background: var(--color-accent);
+    opacity: 0.9;
+  }
+
+  .hero__ui-nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero__ui-nav-item {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero__ui-nav-item--active {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 2px 0 0 var(--color-accent);
+  }
+
+  /* Main content */
+  .hero__ui-main {
+    flex: 1;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-main {
+      padding: var(--space-5);
+      gap: var(--space-4);
+    }
+  }
+
+  /* Stats row */
+  .hero__ui-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-stats {
+      gap: var(--space-3);
+    }
+  }
+
+  .hero__ui-stat {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero__ui-stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .hero__ui-stat-value {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-stat-value {
+      font-size: var(--text-xl);
+    }
+  }
+
+  .hero__ui-stat-value--accent {
+    color: var(--color-accent);
+  }
+
+  /* Chart area */
+  .hero__ui-chart {
+    border-radius: var(--radius-md);
+    background: var(--color-bg-subtle);
+    padding: var(--space-3);
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero__ui-chart-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .hero__ui-chart-badge {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__ui-chart-line {
+    width: 100%;
+    flex: 1;
+  }
+
+  /* Room grid */
+  .hero__ui-rooms {
+    border-radius: var(--radius-md);
+    background: var(--color-bg-subtle);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-rooms-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero__ui-rooms-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+  }
+
+  .hero__ui-rooms-date {
+    font-size: 10px;
+    color: var(--color-text-muted);
+  }
+
+  .hero__ui-room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-room-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .hero__ui-room {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 5px 0;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero__ui-room--occupied {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .hero__ui-room--available {
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+  }
+
+  .hero__ui-room--maintenance {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .hero__ui-room-legend {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: 2px;
+  }
+
+  .hero__ui-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    color: var(--color-text-muted);
+  }
+
+  .hero__ui-legend-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .hero__ui-legend-dot--occupied {
+    background: var(--color-accent);
+  }
+
+  .hero__ui-legend-dot--available {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .hero__ui-legend-dot--maintenance {
+    background: #fef3c7;
+  }
+
+  /* Glow effect */
+  .hero__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(
+      ellipse at center,
+      var(--color-accent-subtle) 0%,
+      transparent 70%
+    );
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>

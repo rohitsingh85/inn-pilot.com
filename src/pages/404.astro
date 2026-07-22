@@ -1,0 +1,127 @@
+---
+import Base from "@/layouts/Base.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist or has been moved."
+  canonical="https://inn-pilot.com/404"
+  robots="noindex, nofollow"
+>
+  <section class="not-found">
+    <div class="container container--narrow">
+      <div class="not-found__inner reveal">
+        <span class="not-found__code">404</span>
+        <h1 class="not-found__title">Page not found</h1>
+        <p class="not-found__desc">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="not-found__actions">
+          <a href="/" class="btn btn--primary btn--lg">
+            Back to Home
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href={config.urls.signIn} class="btn btn--secondary">
+            Sign In
+          </a>
+        </div>
+        <div class="not-found__links">
+          <p class="not-found__links-label">Popular pages:</p>
+          <ul class="not-found__links-list">
+            <li><a href="/platform/">Platform</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .not-found {
+    padding-top: calc(var(--header-height) + var(--space-24));
+    padding-bottom: var(--space-32);
+    text-align: center;
+  }
+
+  .not-found__inner {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .not-found__code {
+    display: block;
+    font-size: clamp(var(--text-6xl), 12vw, var(--text-8xl));
+    font-weight: 800;
+    color: var(--color-accent-subtle);
+    line-height: 1;
+    margin-bottom: var(--space-4);
+    user-select: none;
+  }
+
+  .not-found__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .not-found__desc {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+  }
+
+  .not-found__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-10);
+  }
+
+  .not-found__links {
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .not-found__links-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+  }
+
+  .not-found__links-list {
+    display: flex;
+    gap: var(--space-6);
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  .not-found__links-list a {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .not-found__links-list a:hover {
+    color: var(--color-accent-light);
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
+  }
+</style>

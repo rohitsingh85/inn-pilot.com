@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#047857" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="200" y1="0" x2="200" y2="630"/>
+    <line x1="400" y1="0" x2="400" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="800" y1="0" x2="800" y2="630"/>
+    <line x1="1000" y1="0" x2="1000" y2="630"/>
+  </g>
+
+  <!-- Glow orb -->
+  <ellipse cx="900" cy="315" rx="400" ry="300" fill="url(#glow)"/>
+
+  <!-- Logo icon -->
+  <g transform="translate(80, 70)">
+    <path d="M20 2 L23 7 L34 20 L28 20 L28 38 L12 38 L12 20 L6 20 L17 7 Z" fill="#047857"/>
+  </g>
+
+  <!-- Logo text -->
+  <text x="120" y="108" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="36" font-weight="700" fill="#ffffff">
+    <tspan fill="#ffffff">Inn</tspan><tspan fill="#34d399">Pilot</tspan>
+  </text>
+
+  <!-- Main headline -->
+  <text x="80" y="230" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1">
+    Manage your property.
+  </text>
+  <text x="80" y="310" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="64" font-weight="800" fill="#34d399" letter-spacing="-1">
+    Sell more rooms.
+  </text>
+
+  <!-- Tagline -->
+  <text x="80" y="370" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">
+    Hospitality Operating System — PMS · Booking Engine · Channel Manager
+  </text>
+
+  <!-- Pillars -->
+  <g transform="translate(80, 420)">
+    <!-- Operate -->
+    <rect x="0" y="0" width="180" height="56" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="16" y="14" width="28" height="28" rx="6" fill="#047857" opacity="0.2"/>
+    <path d="M22 20 L26 20 L32 28 L28 28 L28 36 L20 36 L20 28 L16 28 L22 20 Z" fill="#34d399" transform="translate(2, 3) scale(0.6)"/>
+    <text x="56" y="27" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#34d399" letter-spacing="0.08em">OPERATE</text>
+    <text x="56" y="42" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">PMS</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(276, 440)">
+    <line x1="0" y1="8" x2="24" y2="8" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <path d="M20 4 L28 8 L20 12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(316, 420)">
+    <rect x="0" y="0" width="180" height="56" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="16" y="14" width="28" height="28" rx="6" fill="#047857" opacity="0.2"/>
+    <path d="M16 32 L22 22 L28 26 L38 16" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" transform="translate(2, 4) scale(0.6)"/>
+    <text x="56" y="27" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#34d399" letter-spacing="0.08em">SELL</text>
+    <text x="56" y="42" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">Booking Engine</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(512, 440)">
+    <line x1="0" y1="8" x2="24" y2="8" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <path d="M20 4 L28 8 L20 12" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(552, 420)">
+    <rect x="0" y="0" width="200" height="56" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="16" y="14" width="28" height="28" rx="6" fill="#047857" opacity="0.2"/>
+    <circle cx="30" cy="28" r="10" fill="none" stroke="#34d399" stroke-width="2" transform="translate(0, 3) scale(0.6)"/>
+    <path d="M20 28 L40 28 M30 18 L30 38" fill="none" stroke="#34d399" stroke-width="1.5" transform="translate(0, 3) scale(0.6)"/>
+    <text x="56" y="27" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="11" font-weight="600" fill="#34d399" letter-spacing="0.08em">DISTRIBUTE</text>
+    <text x="56" y="42" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">Channel Manager</text>
+  </g>
+
+  <!-- URL -->
+  <text x="80" y="560" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="18" fill="rgba(255,255,255,0.35)">inn-pilot.com</text>
+</svg>

@@ -1,0 +1,668 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="InnPilot Platform — Hospitality Operating System"
+  description="InnPilot connects property management, direct bookings, and channel distribution in one hospitality operating system. Operate, Sell, and Distribute from a single platform."
+  canonical="https://inn-pilot.com/platform/"
+>
+  <PageHero
+    eyebrow="Hospitality Operating System"
+    title="Everything your property needs to operate and grow."
+    description="Bring day-to-day operations, direct bookings, and distribution together in one connected hospitality platform."
+  />
+
+  <!-- ── Connected System ──────────────────────────────────────────────────── -->
+  <section class="connected-system section" id="connected">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow reveal">The Connected System</span>
+        <h2 class="reveal reveal-delay-1">Operate. Sell. Distribute. Connected.</h2>
+        <p class="reveal reveal-delay-2">
+          The system is designed around the actual property workflow — not three isolated tools.
+          Every update flows through one source of truth.
+        </p>
+      </div>
+
+      <div class="cs__flow reveal">
+        <div class="cs__step">
+          <span class="cs__num" aria-hidden="true">01</span>
+          <div class="cs__icon cs__icon--operate" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="cs__name">Operate</h3>
+          <p class="cs__sub">Property Management System</p>
+        </div>
+
+        <div class="cs__arrow" aria-hidden="true">
+          <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+            <line x1="0" y1="12" x2="40" y2="12" stroke="var(--color-border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="M38 6l6 6-6 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="cs__step">
+          <span class="cs__num" aria-hidden="true">02</span>
+          <div class="cs__icon cs__icon--sell" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-7"/>
+            </svg>
+          </div>
+          <h3 class="cs__name">Sell</h3>
+          <p class="cs__sub">Website Booking Engine</p>
+        </div>
+
+        <div class="cs__arrow" aria-hidden="true">
+          <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+            <line x1="0" y1="12" x2="40" y2="12" stroke="var(--color-border)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="M38 6l6 6-6 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="cs__step">
+          <span class="cs__num" aria-hidden="true">03</span>
+          <div class="cs__icon cs__icon--dist" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="cs__name">Distribute</h3>
+          <p class="cs__sub">Channel Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OPERATE ────────────────────────────────────────────────────────────── -->
+  <section class="pillar-detail section section--alt" id="operate">
+    <div class="container">
+      <div class="pillar-detail__grid">
+        <div class="pillar-detail__content reveal">
+          <span class="eyebrow">Operate</span>
+          <h2 class="pillar-detail__title">Run the property from one place.</h2>
+          <p class="pillar-detail__desc">
+            Front desk, reservations, guest profiles, housekeeping, billing, and maintenance —
+            all connected in one system. Your team works from a single view of every
+            guest, every room, and every transaction.
+          </p>
+          <a href="/features/pms/" class="btn btn--primary">
+            Explore PMS
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="pillar-detail__features reveal reveal-delay-1">
+          <div class="pf__group">
+            <h3 class="pf__group-title">Front Desk</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Check-in / Check-out</li>
+              <li class="pf__item">Room assignments</li>
+              <li class="pf__item">Walk-in management</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Reservations</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Booking management</li>
+              <li class="pf__item">Availability tracking</li>
+              <li class="pf__item">Rate management</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Guest Profiles</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Guest history</li>
+              <li class="pf__item">Preferences</li>
+              <li class="pf__item">Communication log</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Room Management</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Room status</li>
+              <li class="pf__item">Housekeeping schedule</li>
+              <li class="pf__item">Maintenance requests</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Billing &amp; Payments</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Invoice generation</li>
+              <li class="pf__item">GST-ready invoicing</li>
+              <li class="pf__item">Payment tracking</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Operational Reports</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Occupancy reports</li>
+              <li class="pf__item">Revenue summary</li>
+              <li class="pf__item">Daily flash reports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SELL ───────────────────────────────────────────────────────────────── -->
+  <section class="pillar-detail section" id="sell">
+    <div class="container">
+      <div class="pillar-detail__grid pillar-detail__grid--reverse">
+        <div class="pillar-detail__content reveal">
+          <span class="eyebrow">Sell</span>
+          <h2 class="pillar-detail__title">Turn your website into a direct booking channel.</h2>
+          <p class="pillar-detail__desc">
+            A fast, branded booking engine that lets guests check availability,
+            select rooms, and complete bookings online. Real-time inventory
+            from your PMS means guests always see accurate options.
+          </p>
+          <a href="/features/booking-engine/" class="btn btn--primary">
+            Explore Booking Engine
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="pillar-detail__features reveal reveal-delay-1">
+          <div class="pf__group">
+            <h3 class="pf__group-title">Direct Bookings</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Commission-free reservations</li>
+              <li class="pf__item">Branded checkout experience</li>
+              <li class="pf__item">Mobile-optimized flow</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Room Selection</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Real-time availability</li>
+              <li class="pf__item">Room types and photos</li>
+              <li class="pf__item">Rate display</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Booking Flow</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Guest details capture</li>
+              <li class="pf__item">Special requests</li>
+              <li class="pf__item">Confirmation emails</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Online Payments</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Secure payment collection</li>
+              <li class="pf__item">Advance payment support</li>
+              <li class="pf__item">Payment status tracking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DISTRIBUTE ─────────────────────────────────────────────────────────── -->
+  <section class="pillar-detail section section--alt" id="distribute">
+    <div class="container">
+      <div class="pillar-detail__grid">
+        <div class="pillar-detail__content reveal">
+          <span class="eyebrow">Distribute</span>
+          <h2 class="pillar-detail__title">Keep your rooms available where guests are looking.</h2>
+          <p class="pillar-detail__desc">
+            Update availability and rates once in the PMS — it propagates to
+            every connected sales channel. Reduce manual updates and keep your
+            inventory synchronised across platforms.
+          </p>
+          <a href="/features/channel-manager/" class="btn btn--primary">
+            Explore Channel Manager
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <div class="pillar-detail__features reveal reveal-delay-1">
+          <div class="pf__group">
+            <h3 class="pf__group-title">Distribution</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Multi-channel publishing</li>
+              <li class="pf__item">Connected sales channels</li>
+              <li class="pf__item">Central inventory control</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Synchronisation</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Real-time inventory sync</li>
+              <li class="pf__item">Rate synchronisation</li>
+              <li class="pf__item">Restriction updates</li>
+            </ul>
+          </div>
+          <div class="pf__group">
+            <h3 class="pf__group-title">Booking Updates</h3>
+            <ul class="pf__list">
+              <li class="pf__item">Automatic reservation pull</li>
+              <li class="pf__item">Modification handling</li>
+              <li class="pf__item">Cancellation sync</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY CONNECTED MATTERS ──────────────────────────────────────────────── -->
+  <section class="why-connected section" id="why-connected">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow reveal">Why Connected Matters</span>
+        <h2 class="reveal reveal-delay-1">One system means one way of working.</h2>
+        <p class="reveal reveal-delay-2">
+          When your PMS, booking engine, and channel manager share the same data,
+          everything moves faster and nothing gets lost.
+        </p>
+      </div>
+
+      <div class="wc__grid">
+        <div class="wc__card reveal">
+          <div class="wc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <h3 class="wc__title">One operational view</h3>
+          <p class="wc__desc">Keep property activity visible in one system instead of switching between tools.</p>
+        </div>
+        <div class="wc__card reveal reveal-delay-1">
+          <div class="wc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3 class="wc__title">Less duplicate work</h3>
+          <p class="wc__desc">Reduce repetitive updates across disconnected spreadsheets, OTAs, and your website.</p>
+        </div>
+        <div class="wc__card reveal reveal-delay-2">
+          <div class="wc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="wc__title">More direct opportunities</h3>
+          <p class="wc__desc">Make direct bookings part of the property's sales mix with real-time availability.</p>
+        </div>
+        <div class="wc__card reveal reveal-delay-3">
+          <div class="wc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-7"/>
+            </svg>
+          </div>
+          <h3 class="wc__title">Clearer decisions</h3>
+          <p class="wc__desc">Bring operational and commercial information closer together for better visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FREE PLAN CTA ──────────────────────────────────────────────────────── -->
+  <section class="platform-cta section section--alt">
+    <div class="container container--narrow">
+      <div class="platform-cta__card reveal">
+        <div class="platform-cta__content">
+          <span class="eyebrow" style="color: var(--color-accent-subtle);">InnPilot Free</span>
+          <h2 class="platform-cta__title">Operate one property completely.</h2>
+          <p class="platform-cta__desc">
+            The Free plan includes all three pillars — PMS, website booking engine,
+            and channel manager. Start running your property on one connected system.
+          </p>
+          <div class="platform-cta__pillars">
+            <span class="platform-cta__tag">PMS</span>
+            <span class="platform-cta__tag">Booking Engine</span>
+            <span class="platform-cta__tag">Channel Manager</span>
+          </div>
+          <div class="platform-cta__actions">
+            <a href={config.urls.startFree} class="btn btn--primary btn--lg">
+              Get Started
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Connected System Flow ──────────────────────────────────────────────── */
+
+  .cs__flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 768px) {
+    .cs__flow {
+      flex-direction: row;
+      justify-content: center;
+      gap: var(--space-6);
+    }
+  }
+
+  .cs__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-8) var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    min-width: 200px;
+    position: relative;
+    transition: border-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .cs__step:hover {
+    border-color: var(--color-accent-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cs__num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-3);
+  }
+
+  .cs__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .cs__name {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+
+  .cs__sub {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .cs__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-border);
+  }
+
+  @media (max-width: 767px) {
+    .cs__arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* ── Pillar Detail Sections ─────────────────────────────────────────────── */
+
+  .pillar-detail__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .pillar-detail__grid {
+      flex-direction: row;
+      gap: var(--space-16);
+      align-items: flex-start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pillar-detail__grid--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .pillar-detail__content {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  .pillar-detail__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-5);
+  }
+
+  .pillar-detail__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-8);
+    max-width: 480px;
+  }
+
+  .pillar-detail__features {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .pillar-detail__features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .pillar-detail__features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .pf__group-title {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .pf__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pf__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .pf__item::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* ── Why Connected ──────────────────────────────────────────────────────── */
+
+  .wc__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .wc__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .wc__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .wc__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out);
+  }
+
+  .wc__card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-accent-light);
+  }
+
+  .wc__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    margin-bottom: var(--space-4);
+  }
+
+  .wc__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+
+  .wc__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Platform CTA ───────────────────────────────────────────────────────── */
+
+  .platform-cta__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .platform-cta__card {
+      padding: var(--space-16);
+    }
+  }
+
+  .platform-cta__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(4, 120, 87, 0.18) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .platform-cta__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .platform-cta__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .platform-cta__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: var(--space-6);
+  }
+
+  .platform-cta__pillars {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-8);
+  }
+
+  .platform-cta__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .platform-cta__actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
+  }
+</style>

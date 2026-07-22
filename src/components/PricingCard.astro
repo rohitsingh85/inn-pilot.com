@@ -1,0 +1,121 @@
+---
+import { config } from "@/lib/config";
+
+export interface Props {
+  plan: string;
+  position: string;
+  features: string[];
+  highlighted?: boolean;
+  cta?: { label: string; href: string };
+}
+
+const {
+  plan,
+  position,
+  features,
+  highlighted = false,
+  cta = { label: "Get Started", href: config.urls.startFree },
+} = Astro.props;
+---
+
+<div class={`pricing-card ${highlighted ? "pricing-card--highlighted" : ""}`}>
+  <div class="pricing-card__header">
+    <h2 class="pricing-card__plan">{plan}</h2>
+    <p class="pricing-card__position">{position}</p>
+  </div>
+  <ul class="pricing-card__features" aria-label={`${plan} plan includes`}>
+    {features.map((feature) => (
+      <li class="pricing-card__feature">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M4 8l3 3 5-5" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {feature}
+      </li>
+    ))}
+  </ul>
+  <div class="pricing-card__cta">
+    <a href={cta.href} class={`btn ${highlighted ? "btn--primary" : "btn--secondary"} pricing-card__btn`}>
+      {cta.label}
+    </a>
+  </div>
+</div>
+
+<style>
+  .pricing-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out),
+      transform var(--duration-normal) var(--ease-out);
+  }
+
+  .pricing-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-text-muted);
+  }
+
+  .pricing-card--highlighted {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md), 0 0 0 1px var(--color-accent-subtle);
+    position: relative;
+  }
+
+  .pricing-card--highlighted:hover {
+    box-shadow: var(--shadow-card-hover), 0 0 0 1px var(--color-accent);
+    transform: translateY(-4px);
+  }
+
+  .pricing-card__header {
+    margin-bottom: var(--space-6);
+  }
+
+  .pricing-card__plan {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .pricing-card__position {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .pricing-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-8);
+    flex: 1;
+  }
+
+  .pricing-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .pricing-card__feature svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pricing-card__cta {
+    margin-top: auto;
+  }
+
+  .pricing-card__btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+  }
+</style>

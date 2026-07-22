@@ -1,0 +1,52 @@
+---
+import Base from "@/layouts/Base.astro";
+---
+
+<Base
+  title="InnPilot Booking Engine — Direct Booking Website"
+  description="InnPilot Booking Engine lets guests check availability, select rooms, and complete bookings directly on your website."
+  canonical="https://inn-pilot.com/features/booking-engine/"
+>
+  <section class="feature-redirect">
+    <div class="container container--narrow">
+      <div class="feature-redirect__inner reveal">
+        <span class="eyebrow">Website Booking Engine</span>
+        <h1 class="feature-redirect__title">Sell</h1>
+        <p class="feature-redirect__desc">
+          The booking engine page is being built. Explore the website booking engine as part of the complete platform.
+        </p>
+        <a href="/platform/#sell" class="btn btn--primary">
+          View on Platform Page
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .feature-redirect {
+    padding-top: calc(var(--header-height) + var(--space-24));
+    padding-bottom: var(--space-32);
+    text-align: center;
+  }
+
+  .feature-redirect__inner {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+
+  .feature-redirect__title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 800;
+    margin-bottom: var(--space-4);
+  }
+
+  .feature-redirect__desc {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+  }
+</style>

@@ -1,0 +1,242 @@
+---
+import { config } from "@/lib/config";
+---
+
+<section class="connected section section--alt" id="connected">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow reveal">Connected System</span>
+      <h2 class="reveal reveal-delay-1">One property. One system. One connected flow.</h2>
+      <p class="reveal reveal-delay-2">
+        When operations, bookings, and distribution share the same data, your team
+        saves time and your guests get a better experience.
+      </p>
+    </div>
+
+    <div class="connected__diagram reveal reveal-delay-1">
+      <div class="connected__flow">
+        <div class="connected__node connected__node--pms">
+          <div class="connected__node-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="connected__node-label">Operate</span>
+          <span class="connected__node-sub">PMS</span>
+        </div>
+
+        <div class="connected__arrow connected__arrow--vertical" aria-hidden="true">
+          <svg width="24" height="48" viewBox="0 0 24 48" fill="none">
+            <line x1="12" y1="0" x2="12" y2="48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <circle cx="12" cy="24" r="4" fill="var(--color-accent)" stroke="none"/>
+          </svg>
+        </div>
+
+        <div class="connected__node connected__node--sell">
+          <div class="connected__node-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-7"/>
+            </svg>
+          </div>
+          <span class="connected__node-label">Sell</span>
+          <span class="connected__node-sub">Booking Engine</span>
+        </div>
+
+        <div class="connected__arrow connected__arrow--vertical" aria-hidden="true">
+          <svg width="24" height="48" viewBox="0 0 24 48" fill="none">
+            <line x1="12" y1="0" x2="12" y2="48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <circle cx="12" cy="24" r="4" fill="var(--color-accent)" stroke="none"/>
+          </svg>
+        </div>
+
+        <div class="connected__node connected__node--dist">
+          <div class="connected__node-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <span class="connected__node-label">Distribute</span>
+          <span class="connected__node-sub">Channel Manager</span>
+        </div>
+      </div>
+
+      <div class="connected__detail">
+        <div class="connected__item reveal">
+          <div class="connected__item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>One source of truth</strong>
+            <p>Update a rate or restriction once in the PMS. It propagates to your booking engine and every connected channel.</p>
+          </div>
+        </div>
+        <div class="connected__item reveal reveal-delay-1">
+          <div class="connected__item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Reduce duplicate work</strong>
+            <p>No more manually updating availability across spreadsheets, OTAs, and your website. Set it once, sync everywhere.</p>
+          </div>
+        </div>
+        <div class="connected__item reveal reveal-delay-2">
+          <div class="connected__item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Capture more direct bookings</strong>
+            <p>Your booking engine pulls real-time availability from the PMS, so guests always see accurate options.</p>
+          </div>
+        </div>
+        <div class="connected__item reveal reveal-delay-3">
+          <div class="connected__item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Clearer view of performance</strong>
+            <p>See occupancy, revenue, and channel performance from one dashboard instead of stitching together reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .connected__diagram {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .connected__diagram {
+      flex-direction: row;
+      gap: var(--space-16);
+      align-items: flex-start;
+    }
+  }
+
+  .connected__flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .connected__flow {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  .connected__node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-6) var(--space-8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    min-width: 160px;
+    transition: border-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .connected__node:hover {
+    border-color: var(--color-accent-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  .connected__node-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
+  .connected__node-label {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .connected__node-sub {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .connected__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-border);
+    padding: var(--space-2) 0;
+  }
+
+  @media (min-width: 768px) {
+    .connected__arrow {
+      padding: 0 var(--space-2);
+      transform: rotate(0deg);
+    }
+
+    .connected__arrow--vertical svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  .connected__detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    flex: 1;
+    max-width: 480px;
+  }
+
+  .connected__item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .connected__item-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .connected__item strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .connected__item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+</style>

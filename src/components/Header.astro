@@ -1,0 +1,405 @@
+---
+import { config } from "@/lib/config";
+---
+
+<header class="header" id="header">
+  <div class="header__inner container">
+    <a href="/" class="header__logo" aria-label={`${config.productName} — Home`}>
+      <img src="/assets/logos/innpilot-logo.svg" alt="" class="header__logo-img" width="140" height="28" loading="eager" />
+    </a>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      {config.nav.map((item) => (
+        <a href={item.href} class="header__nav-link">{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="header__actions">
+      <a href={config.urls.signIn} class="btn btn--ghost header__sign-in">Sign In</a>
+      <a href={config.urls.startFree} class="btn btn--primary header__cta">Get Started</a>
+    </div>
+
+    <button
+      class="header__hamburger"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button"
+    >
+      <span class="header__hamburger-line"></span>
+      <span class="header__hamburger-line"></span>
+      <span class="header__hamburger-line"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <div class="mobile-menu__overlay" data-menu-overlay></div>
+  <nav class="mobile-menu__panel" aria-label="Mobile navigation">
+    <div class="mobile-menu__header-bar">
+      <img src="/assets/logos/innpilot-logo.svg" alt="" class="mobile-menu__logo-img" width="120" height="24" />
+        <button class="mobile-menu__close" aria-label="Close menu" type="button" data-menu-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <div class="mobile-menu__links">
+      {config.nav.map((item) => (
+        <a href={item.href} class="mobile-menu__link">{item.label}</a>
+      ))}
+    </div>
+    <div class="mobile-menu__actions">
+      <a href={config.urls.startFree} class="btn btn--primary mobile-menu__cta">Get Started</a>
+      <a href={config.urls.signIn} class="btn btn--secondary mobile-menu__sign-in">Sign In</a>
+    </div>
+  </nav>
+</div>
+
+<style>
+  /* ── Header ──────────────────────────────────────────────────────────────── */
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-header);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--color-border-light);
+    height: var(--header-height);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    gap: var(--space-8);
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .header__logo-img {
+    height: 28px;
+    width: auto;
+  }
+
+  /* ── Desktop Nav ─────────────────────────────────────────────────────────── */
+
+  .header__nav {
+    display: none;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  @media (min-width: 1024px) {
+    .header__nav {
+      display: flex;
+    }
+  }
+
+  .header__nav-link {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .header__nav-link:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg-subtle);
+  }
+
+  /* ── Desktop Actions ─────────────────────────────────────────────────────── */
+
+  .header__actions {
+    display: none;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 1024px) {
+    .header__actions {
+      display: flex;
+    }
+  }
+
+  .header__sign-in {
+    font-size: var(--text-sm);
+  }
+
+  .header__cta {
+    font-size: var(--text-sm);
+  }
+
+  /* ── Hamburger ───────────────────────────────────────────────────────────── */
+
+  .header__hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: var(--space-3);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .header__hamburger:hover {
+    background-color: var(--color-bg-subtle);
+  }
+
+  @media (min-width: 1024px) {
+    .header__hamburger {
+      display: none;
+    }
+  }
+
+  .header__hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 1px;
+    transition: transform var(--duration-normal) var(--ease-out),
+      opacity var(--duration-fast) var(--ease-out);
+  }
+
+  .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header__hamburger[aria-expanded="true"] .header__hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Mobile Menu (OUTSIDE header — no backdrop-filter inheritance) ──────── */
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-drawer);
+  }
+
+  .mobile-menu[aria-hidden="false"] {
+    display: block;
+  }
+
+  .mobile-menu__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-out);
+  }
+
+  .mobile-menu[aria-hidden="false"] .mobile-menu__overlay {
+    opacity: 1;
+  }
+
+  .mobile-menu__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(85vw, 400px);
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-out);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .mobile-menu[aria-hidden="false"] .mobile-menu__panel {
+    transform: translateX(0);
+  }
+
+  .mobile-menu__header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    height: var(--header-height);
+    background: var(--color-bg);
+  }
+
+  .mobile-menu__logo-img {
+    height: 24px;
+    width: auto;
+  }
+
+  .mobile-menu__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    transition: background-color var(--duration-fast) var(--ease-out),
+      color var(--duration-fast) var(--ease-out);
+  }
+
+  .mobile-menu__close:hover {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text);
+  }
+
+  .mobile-menu__close:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .mobile-menu__links {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) var(--space-6);
+    gap: var(--space-1);
+    background: var(--color-bg);
+  }
+
+  .mobile-menu__link {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-md);
+    transition: color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  .mobile-menu__link:hover {
+    color: var(--color-text);
+    background-color: var(--color-bg-subtle);
+  }
+
+  .mobile-menu__link:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .mobile-menu__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+    padding: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .mobile-menu__cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mobile-menu__sign-in {
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-6);
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  function initHeader() {
+    const hamburger = document.querySelector(".header__hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (!hamburger || !mobileMenu) return;
+
+    const closeBtn = mobileMenu.querySelector("[data-menu-close]");
+    const overlay = mobileMenu.querySelector("[data-menu-overlay]");
+    const menuLinks = mobileMenu.querySelectorAll(".mobile-menu__link");
+
+    function openMenu() {
+      hamburger.setAttribute("aria-expanded", "true");
+      hamburger.setAttribute("aria-label", "Close menu");
+      mobileMenu.setAttribute("aria-hidden", "false");
+      mobileMenu.setAttribute("aria-modal", "true");
+      document.body.style.overflow = "hidden";
+      document.querySelector(".whatsapp-btn")?.setAttribute("aria-hidden", "true");
+      closeBtn?.focus();
+    }
+
+    function closeMenu() {
+      hamburger.setAttribute("aria-expanded", "false");
+      hamburger.setAttribute("aria-label", "Open menu");
+      mobileMenu.setAttribute("aria-hidden", "true");
+      mobileMenu.removeAttribute("aria-modal");
+      document.body.style.overflow = "";
+      document.querySelector(".whatsapp-btn")?.removeAttribute("aria-hidden");
+    }
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    closeBtn?.addEventListener("click", closeMenu);
+    overlay?.addEventListener("click", closeMenu);
+    menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+    function trapFocus(e: KeyboardEvent) {
+      if (mobileMenu.getAttribute("aria-hidden") === "true") return;
+      if (e.key !== "Tab") return;
+
+      const focusable = mobileMenu.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.getAttribute("aria-hidden") === "false") {
+        closeMenu();
+        hamburger.focus();
+      }
+      trapFocus(e);
+    });
+  }
+
+  initHeader();
+  document.addEventListener("astro:page-load", initHeader);
+</script>

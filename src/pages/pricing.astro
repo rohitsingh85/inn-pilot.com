@@ -1,0 +1,166 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import PricingGrid from "@/components/PricingGrid.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="InnPilot Pricing — Hospitality Software Plans"
+  description="InnPilot plans for every property size. Free, Starter, Professional, and Enterprise — choose the plan that fits your property operations and growth."
+  canonical="https://inn-pilot.com/pricing/"
+>
+  <PageHero
+    eyebrow="Pricing"
+    title="Plans that grow with your property."
+    description="Start with the Free plan. Upgrade when you need automation, advanced revenue management, or multi-property capabilities."
+  />
+
+  <section class="pricing-cards section" id="pricing">
+    <div class="container">
+      <PricingGrid />
+    </div>
+  </section>
+
+  <section class="pricing-note section section--alt">
+    <div class="container container--narrow">
+      <div class="pn__inner reveal">
+        <p class="pn__text">
+          Plan availability and pricing may vary by property requirements.
+          Contact us to discuss the right plan for your property.
+        </p>
+        <a href={config.urls.startFree} class="btn btn--secondary">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-cta section">
+    <div class="container container--narrow">
+      <div class="pricing-cta__card reveal">
+        <span class="eyebrow" style="color: var(--color-accent-subtle);">InnPilot Free</span>
+        <h2 class="pricing-cta__title">Start with the full core platform.</h2>
+        <p class="pricing-cta__desc">
+          PMS, booking engine, and channel manager — included in the Free plan.
+          No feature gates. Operate one property completely.
+        </p>
+        <div class="pricing-cta__actions">
+          <a href={config.urls.startFree} class="btn btn--primary btn--lg">
+            Get Started
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pricing-cards {
+    padding-top: 0;
+  }
+
+  .pricing-note {
+    padding-block: var(--space-12);
+  }
+
+  .pn__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  @media (min-width: 768px) {
+    .pn__inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      padding: var(--space-6) var(--space-8);
+    }
+  }
+
+  .pn__text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    max-width: 480px;
+  }
+
+  .pricing-cta {
+    padding-top: 0;
+  }
+
+  .pricing-cta__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .pricing-cta__card {
+      padding: var(--space-16);
+    }
+  }
+
+  .pricing-cta__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(4, 120, 87, 0.18) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .pricing-cta__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+
+  .pricing-cta__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+    position: relative;
+  }
+
+  .pricing-cta__actions {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
+  }
+</style>

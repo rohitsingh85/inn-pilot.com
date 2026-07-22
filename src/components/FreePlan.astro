@@ -1,0 +1,148 @@
+---
+import { config } from "@/lib/config";
+---
+
+<section class="free-plan section" id="free-plan">
+  <div class="container container--narrow">
+    <div class="free-plan__card reveal">
+      <div class="free-plan__content">
+        <span class="eyebrow">InnPilot Free</span>
+        <h2 class="free-plan__title">Operate one property completely.</h2>
+        <p class="free-plan__desc">
+          InnPilot Free gives you the full core platform — PMS, booking engine, and channel manager —
+          for one property. Upgrade when you need automation, advanced revenue management,
+          or multi-property capabilities.
+        </p>
+        <div class="free-plan__actions">
+          <a href={config.urls.startFree} class="btn btn--primary btn--lg">
+            Get Started
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <p class="free-plan__note">No credit card required. Access is currently invitation-based.</p>
+      </div>
+
+      <div class="free-plan__features" aria-label="Free plan includes">
+        {config.freePlanFeatures.map((feature) => (
+          <div class="free-plan__feature">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+              <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .free-plan__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    overflow: hidden;
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .free-plan__card {
+      padding: var(--space-10);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .free-plan__card {
+      padding: var(--space-16);
+      flex-direction: row;
+      gap: var(--space-12);
+      align-items: center;
+    }
+  }
+
+  .free-plan__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(4, 120, 87, 0.18) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .free-plan__content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .free-plan__card .eyebrow {
+    color: var(--color-accent-subtle);
+  }
+
+  .free-plan__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+  }
+
+  .free-plan__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-normal);
+    max-width: 480px;
+    margin-bottom: var(--space-8);
+  }
+
+  .free-plan__actions {
+    margin-bottom: var(--space-4);
+  }
+
+  .free-plan__actions .btn--primary {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  .free-plan__actions .btn--primary:hover {
+    background: var(--color-accent-light);
+  }
+
+  .free-plan__note {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .free-plan__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    position: relative;
+    z-index: 1;
+  }
+
+  .free-plan__feature {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .free-plan__feature svg {
+    flex-shrink: 0;
+  }
+</style>
