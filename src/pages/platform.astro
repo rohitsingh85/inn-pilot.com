@@ -9,6 +9,24 @@ import { config } from "@/lib/config";
   description="InnPilot connects property management, direct bookings, and channel distribution in one hospitality operating system. Operate, Sell, and Distribute from a single platform."
   canonical="https://inn-pilot.com/platform/"
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": config.productName,
+    "description": config.seo.description,
+    "url": `${config.seo.url}/platform/`,
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "logo": `${config.seo.url}/assets/logos/innpilot-logo.svg`,
+  })} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
+      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.seo.url}/platform/` },
+    ],
+  })} />
   <PageHero
     eyebrow="Hospitality Operating System"
     title="Everything your property needs to operate and grow."
