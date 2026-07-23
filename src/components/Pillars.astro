@@ -12,7 +12,7 @@ const icons = {
   <div class="container">
     <div class="section-header">
       <span class="eyebrow reveal">The Platform</span>
-      <h2 class="reveal reveal-delay-1">One system. Three essential jobs.</h2>
+      <h2 class="reveal reveal-delay-1" style="white-space: nowrap;">One system. Three essential jobs.</h2>
       <p class="reveal reveal-delay-2">
         Every property needs to operate, sell, and distribute. InnPilot connects all three
         so your team works from one place.
@@ -38,8 +38,8 @@ const icons = {
               </li>
             ))}
           </ul>
-          <a href={config.urls.requestAccess} class="pillar-card__link" data-track={`pillar_${pillar.name.toLowerCase()}_cta`}>
-            Request Access
+          <a href={`/platform/#${pillar.id}`} class="pillar-card__link" data-track={`pillar_${pillar.name.toLowerCase()}_click`}>
+            Learn more
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4"/>
             </svg>

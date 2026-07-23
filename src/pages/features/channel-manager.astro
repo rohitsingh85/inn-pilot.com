@@ -1,52 +1,683 @@
 ---
 import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import { config } from "@/lib/config";
+
+const title = "Channel Manager — Distribute to Every Booking Source";
+const description =
+  "Connect your hotel to every online travel agency and booking platform. Manage rates, availability, and reservations across Booking.com, MakeMyTrip, Expedia, and more from one dashboard.";
 ---
 
-<Base
-  title="InnPilot Channel Manager — OTA Distribution"
-  description="InnPilot Channel Manager keeps availability and rates synchronised across connected sales channels from one central system."
-  canonical="https://inn-pilot.com/features/channel-manager/"
->
-  <section class="feature-redirect">
-    <div class="container container--narrow">
-      <div class="feature-redirect__inner reveal">
-        <span class="eyebrow">Channel Manager</span>
-        <h1 class="feature-redirect__title">Distribute</h1>
-        <p class="feature-redirect__desc">
-          The channel manager page is being built. Explore the channel manager as part of the complete platform.
-        </p>
-        <a href="/platform/#distribute" class="btn btn--primary">
-          View on Platform Page
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+<Base title={title} description={description}>
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${config.urls.site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.urls.site}/platform/` },
+      { "@type": "ListItem", "position": 3, "name": "Channel Manager", "item": `${config.urls.site}/features/channel-manager/` }
+    ]
+  })} />
+
+  <!-- FAQPage -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does a channel manager do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A channel manager automatically synchronises your room rates, availability, and reservations across all connected online travel agencies (OTAs) and booking platforms. When a room is booked on one channel, availability updates across every other channel in real time — preventing overbookings and eliminating manual updates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which OTAs and booking platforms are supported?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InnPilot connects to all major Indian and international OTAs including Booking.com, MakeMyTrip, Goibibo, Expedia, Agoda, Airbnb, OYO, EaseMyTrip, FabHotels, and Yatra. New channels are added regularly as the platform grows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InnPilot prevent overbookings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When a reservation comes in on any connected channel, the Channel Manager immediately reduces available inventory across all other channels. The sync engine runs continuously, so overbooking risk is virtually eliminated — even during high-demand periods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the Channel Manager without the PMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Channel Manager works as a standalone tool, but its real power comes from integration with InnPilot's PMS. When both are active, walk-in and phone reservations automatically update OTA availability, and direct bookings from your booking engine sync instantly to every connected channel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does room type mapping work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Room type mapping links your internal room types (as defined in the PMS) to the corresponding room types on each OTA. You map once, and the system automatically sends the right rates and inventory to the correct room types on every channel — even when different OTAs use different naming conventions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Channel Manager really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. InnPilot's free plan includes the Channel Manager along with the PMS and Booking Engine. There are no monthly fees, no per-booking commissions, and no hidden costs. You only need to request access to get started."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get started with the Channel Manager?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Request access through the InnPilot website. Once approved, you can connect your OTA accounts, map your room types, and begin distributing rates and availability across all channels — all from a single dashboard."
+        }
+      }
+    ]
+  })} />
+
+  <PageHero
+    eyebrow="Channel Manager"
+    title="Connect to Every Booking Source"
+    description="Push your rates and inventory to every OTA from one place. No more switching between extranets. No more overbookings."
+    primaryCta={{ label: "Request Access", href: config.urls.requestAccess }}
+    secondaryCta={{ label: "See the Platform", href: `${config.urls.platform}/#channel-manager` }}
+  />
+
+  <!-- Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Why Channel Manager</span>
+        <h2 class="section__heading">Stop managing channels.<br/>Start growing revenue.</h2>
+        <p>Most hoteliers spend hours every morning updating rates on each OTA. The Channel Manager eliminates that entirely — syncing inventory, rates, and reservations across every connected platform automatically.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-card__icon">01</div>
+          <h3 class="benefit-card__title">Zero overbookings</h3>
+          <p class="benefit-card__desc">When a room is booked on any channel, availability updates everywhere instantly. Overbookings become impossible — even during peak season.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-card__icon">02</div>
+          <h3 class="benefit-card__title">Reach more guests</h3>
+          <p class="benefit-card__desc">List on Booking.com, MakeMyTrip, Goibibo, Expedia, Agoda, Airbnb, and more — without the admin overhead. More channels means more bookings.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-card__icon">03</div>
+          <h3 class="benefit-card__title">Save hours every day</h3>
+          <p class="benefit-card__desc">No more logging into five different extranets to update rates. Change a price once and it propagates to every connected channel in real time.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-card__icon">04</div>
+          <h3 class="benefit-card__title">Real-time sync</h3>
+          <p class="benefit-card__desc">Rates and inventory update across all channels the moment you make a change. No delays, no stale availability, no manual sync required.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-card__icon">05</div>
+          <h3 class="benefit-card__title">One dashboard</h3>
+          <p class="benefit-card__desc">View performance across every channel from a single place. See which OTAs drive the most revenue, monitor commission costs, and make smarter distribution decisions.</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-card__icon">06</div>
+          <h3 class="benefit-card__title">Built for India</h3>
+          <p class="benefit-card__desc">Supports Indian OTAs like MakeMyTrip, Goibibo, OYO, and Yatra alongside international platforms. Designed for Indian hospitality workflows from day one.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Channel Manager Features</span>
+        <h2 class="section__heading">Everything you need to distribute smarter</h2>
+        <p>The Channel Manager handles the complexity of multi-channel distribution so you can focus on your guests.</p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card feature-card--wide">
+          <h3 class="feature-card__title">Real-time inventory sync</h3>
+          <p class="feature-card__desc">
+            Every connected channel receives updated rates and availability the instant you make a change.
+            The sync engine runs continuously across all OTAs — conflict resolution handles overlapping updates automatically.
+            Walk-in and phone reservations in the PMS instantly reduce OTA availability.
+            Direct bookings from your booking engine sync to every channel without delay.
+            Sub-minute synchronization keeps all platforms perfectly aligned.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3 class="feature-card__title">Centralized channel dashboard</h3>
+          <p class="feature-card__desc">
+            See all connected channels in one place.
+            View performance metrics, commission rates, and booking volumes by channel.
+            Manage room type mappings and rate plans without switching between OTA extranets.
+            Monitor sync health and get alerted if a channel falls out of sync.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3 class="feature-card__title">Intelligent rate management</h3>
+          <p class="feature-card__desc">
+            Set different rates per channel to account for commission structures.
+            Adjust pricing for peak seasons, weekends, and special events from one place.
+            Override rates for specific channels when needed.
+            Rate parity controls ensure consistent pricing across your distribution mix.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integration — Connected System -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Connected System</span>
+        <h2 class="section__heading">Three pillars. One system. Zero gaps.</h2>
+        <p>The Channel Manager is powerful alone, but its real value comes from working with the PMS and Booking Engine as a connected system.</p>
+      </div>
+
+      <div class="integration-diagram">
+        <a href="/features/pms/" class="integration-node" data-track="cm_connects_pms">
+          <span class="integration-node__label">PMS</span>
+          <p class="integration-node__desc">Front desk, reservations, billing, housekeeping</p>
         </a>
+        <div class="integration-arrow">⟷</div>
+        <a href="/features/booking-engine/" class="integration-node" data-track="cm_connects_booking_engine">
+          <span class="integration-node__label">Booking Engine</span>
+          <p class="integration-node__desc">Direct bookings from your website</p>
+        </a>
+        <div class="integration-arrow">⟷</div>
+        <div class="integration-node">
+          <span class="integration-node__label">Channel Manager</span>
+          <p class="integration-node__desc">Distribution to OTAs and booking platforms</p>
+        </div>
+      </div>
+
+      <div class="integration-flow">
+        <div class="integration-flow__item">
+          <p><strong>Front desk → All channels:</strong> A walk-in guest books a room at the front desk. The PMS instantly tells the Channel Manager, which updates availability across every connected OTA. Overbooking prevented.</p>
+        </div>
+        <div class="integration-flow__item">
+          <p><strong>Booking engine → All channels:</strong> A guest books directly through your website. The Channel Manager immediately reduces inventory on every OTA, keeping your distribution perfectly in sync.</p>
+        </div>
+        <div class="integration-flow__item">
+          <p><strong>OTA → PMS:</strong> A reservation comes in from Booking.com or MakeMyTrip. The Channel Manager pushes it straight into the PMS — no manual entry, no double-bookings, no errors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">How It Works</span>
+        <h2 class="section__heading">Three steps to full distribution</h2>
+        <p>Getting started with the Channel Manager takes minutes — not days.</p>
+      </div>
+
+      <div class="how-it-works">
+        <div class="step">
+          <div class="step__number">1</div>
+          <h3 class="step__title">Connect your OTAs</h3>
+          <p class="step__desc">Link your existing OTA accounts — Booking.com, MakeMyTrip, Expedia, and others. The Channel Manager handles authentication and secure API connections.</p>
+        </div>
+        <div class="step">
+          <div class="step__number">2</div>
+          <h3 class="step__title">Map your room types</h3>
+          <p class="step__desc">Match your internal room types to each OTA's room categories. You only do this once — the system remembers your mappings and sends the right data to the right channels.</p>
+        </div>
+        <div class="step">
+          <div class="step__number">3</div>
+          <h3 class="step__title">Sync automatically</h3>
+          <p class="step__desc">Rates, availability, and reservations sync in real time across every connected channel. No manual updates. No extranet logins. No overbookings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Frequently Asked Questions</span>
+        <h2 class="section__heading">Channel Manager questions, answered</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-item__question">What does a channel manager do?</summary>
+          <p class="faq-item__answer">A channel manager automatically synchronises your room rates, availability, and reservations across all connected online travel agencies (OTAs) and booking platforms. When a room is booked on one channel, availability updates across every other channel in real time — preventing overbookings and eliminating manual updates.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Which OTAs and booking platforms are supported?</summary>
+          <p class="faq-item__answer">InnPilot connects to all major Indian and international OTAs including Booking.com, MakeMyTrip, Goibibo, Expedia, Agoda, Airbnb, OYO, EaseMyTrip, FabHotels, and Yatra. New channels are added regularly as the platform grows.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">How does InnPilot prevent overbookings?</summary>
+          <p class="faq-item__answer">When a reservation comes in on any connected channel, the Channel Manager immediately reduces available inventory across all other channels. The sync engine runs continuously, so overbooking risk is virtually eliminated — even during high-demand periods.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Can I use the Channel Manager without the PMS?</summary>
+          <p class="faq-item__answer">Yes. The Channel Manager works as a standalone tool, but its real power comes from integration with InnPilot's PMS. When both are active, walk-in and phone reservations automatically update OTA availability, and direct bookings from your booking engine sync instantly to every connected channel.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">How does room type mapping work?</summary>
+          <p class="faq-item__answer">Room type mapping links your internal room types (as defined in the PMS) to the corresponding room types on each OTA. You map once, and the system automatically sends the right rates and inventory to the correct room types on every channel — even when different OTAs use different naming conventions.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Is the Channel Manager really free?</summary>
+          <p class="faq-item__answer">Yes. InnPilot's free plan includes the Channel Manager along with the PMS and Booking Engine. There are no monthly fees, no per-booking commissions, and no hidden costs. You only need to request access to get started.</p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">How do I get started with the Channel Manager?</summary>
+          <p class="faq-item__answer">Request access through the InnPilot website. Once approved, you can connect your OTA accounts, map your room types, and begin distributing rates and availability across all channels — all from a single dashboard.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ───────────────────────────────────────────────────────────── -->
+  <section class="fcta section">
+    <div class="container container--narrow">
+      <div class="fcta__card reveal">
+        <span class="eyebrow" style="color: var(--color-accent-subtle);">Channel Manager</span>
+        <h2 class="fcta__title">Ready to connect to every booking source?</h2>
+        <p class="fcta__desc">
+          Start with InnPilot Free. The PMS, booking engine, and channel manager
+          are included — no feature gates.
+        </p>
+        <div class="fcta__actions">
+          <a href={config.urls.requestAccess} class="btn btn--primary btn--lg" data-track="cm_cta_request_access">
+            Request Access
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          {config.whatsapp.link && (
+            <a
+              href={config.whatsapp.link}
+              class="btn btn--whatsapp btn--lg"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="cm_whatsapp_cta"
+              aria-label="Chat with us on WhatsApp about InnPilot Channel Manager"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Chat on WhatsApp
+            </a>
+          )}
+        </div>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .feature-redirect {
-    padding-top: calc(var(--header-height) + var(--space-24));
-    padding-bottom: var(--space-32);
-    text-align: center;
+  /* ── Benefits Grid ──────────────────────────────────────────────────────── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 
-  .feature-redirect__inner {
-    max-width: 480px;
+  @media (min-width: 640px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .benefits-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .benefit-card {
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .benefit-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.06);
+  }
+
+  .benefit-card__icon {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+
+  .benefit-card__title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .benefit-card__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ── Features Grid ──────────────────────────────────────────────────────── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .feature-card {
+    padding: var(--space-8);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .feature-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: 768px) {
+    .feature-card--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .feature-card__title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .feature-card__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ── Integration Diagram ────────────────────────────────────────────────── */
+  .integration-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+  }
+
+  .integration-node {
+    text-align: center;
+    padding: var(--space-6) var(--space-8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    min-width: 180px;
+    flex: 1;
+    max-width: 280px;
+  }
+
+  .integration-node__label {
+    display: block;
+    font-weight: 600;
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .integration-node__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .integration-arrow {
+    font-size: var(--text-2xl);
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Integration Flow ───────────────────────────────────────────────────── */
+  .integration-flow {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    max-width: 720px;
     margin-inline: auto;
   }
 
-  .feature-redirect__title {
-    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-    font-weight: 800;
+  .integration-flow__item {
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .integration-flow__item p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .integration-flow__item strong {
+    color: var(--color-text);
+  }
+
+  /* ── How It Works ────────────────────────────────────────────────────────── */
+  .how-it-works {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 768px) {
+    .how-it-works {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-accent);
+    color: #0a0f1a;
+    font-weight: 700;
+    font-size: var(--text-xl);
+    border-radius: 50%;
     margin-bottom: var(--space-4);
   }
 
-  .feature-redirect__desc {
+  .step__title {
     font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .step__desc {
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ── FAQ ────────────────────────────────────────────────────────────────── */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 720px;
+    margin-inline: auto;
+  }
+
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .faq-item__question {
+    padding: var(--space-5) var(--space-6);
+    font-weight: 600;
+    font-size: var(--text-base);
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background var(--duration-fast) var(--ease-out);
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::after {
+    content: "+";
+    font-size: var(--text-xl);
+    color: var(--color-accent);
+    transition: transform var(--duration-fast) var(--ease-out);
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-item__question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-item__question:hover {
+    background: var(--color-surface);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-6) var(--space-6);
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* ── Final CTA ───────────────────────────────────────────────────────────── */
+
+  .fcta__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .fcta__card {
+      padding: var(--space-16);
+    }
+  }
+
+  .fcta__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(16, 185, 129, 0.12) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .fcta__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+
+  .fcta__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    margin-inline: auto;
     margin-bottom: var(--space-8);
+    position: relative;
+  }
+
+  .fcta__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
   }
 </style>
+
+<script>
+  function initChannelManagerFAQ() {
+    document.querySelectorAll(".faq-item__question").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item") as HTMLDetailsElement;
+        const isOpen = item?.open;
+        document.querySelectorAll(".faq-item[open]").forEach((d) => {
+          if (d !== item) d.removeAttribute("open");
+        });
+        if (!isOpen) {
+          window.plausible?.("channel_manager_faq", { props: { question: btn.textContent?.trim() } });
+        }
+      });
+    });
+
+    const heroActions = document.querySelector(".page-hero__actions");
+    if (heroActions) {
+      const primaryBtn = heroActions.querySelector(".btn--primary");
+      const secondaryBtn = heroActions.querySelector(".btn--secondary");
+      primaryBtn?.addEventListener("click", () => window.plausible?.("cm_cta_request_access"));
+      secondaryBtn?.addEventListener("click", () => window.plausible?.("cm_cta_platform"));
+    }
+  }
+
+  initChannelManagerFAQ();
+  document.addEventListener("astro:page-load", initChannelManagerFAQ);
+</script>
