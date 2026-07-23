@@ -20,10 +20,12 @@ export const config = {
 
   whatsapp: {
     number: import.meta.env.WHATSAPP_NUMBER || "",
+    message: "Hi. I want to request access to InnPilot's free plan",
     get link() {
       if (!this.number) return "";
       const digits = this.number.replace(/\D/g, "");
-      return `https://wa.me/${digits}`;
+      const text = encodeURIComponent(this.message);
+      return `https://wa.me/${digits}?text=${text}`;
     },
   },
 
