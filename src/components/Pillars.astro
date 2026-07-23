@@ -38,6 +38,12 @@ const icons = {
               </li>
             ))}
           </ul>
+          <a href={config.urls.requestAccess} class="pillar-card__link" data-track={`pillar_${pillar.name.toLowerCase()}_cta`}>
+            Request Access
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
           <div class="pillar-card__connector" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
               <path d="M5 12h14M13 6l6 6-6 6"/>
@@ -131,6 +137,22 @@ const icons = {
 
   .pillar-card__feature svg {
     flex-shrink: 0;
+  }
+
+  .pillar-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-top: var(--space-5);
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .pillar-card__link:hover {
+    color: var(--color-accent-light);
   }
 
   .pillar-card__connector {

@@ -1,0 +1,200 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="About"
+  description="InnPilot is built by RENAISSANCE STRATEGICS CONSULTING. We build technology for hospitality businesses that want to operate and grow."
+  canonical="https://inn-pilot.com/about/"
+  robots="index, follow"
+>
+  <PageHero
+    eyebrow="About"
+    title="Built for hospitality businesses."
+    description="InnPilot is the hospitality operating system built by RENAISSANCE STRATEGICS CONSULTING — combining deep industry knowledge with modern technology."
+  />
+
+  <section class="about section">
+    <div class="container container--narrow">
+      <div class="about__content reveal">
+        <p>
+          InnPilot is built by <strong>RENAISSANCE STRATEGICS CONSULTING</strong>, a company
+          dedicated to helping hospitality businesses operate efficiently and grow sustainably.
+        </p>
+
+        <p>
+          We believe every property — from independent hotels and guesthouses to multi-property
+          chains — deserves access to professional-grade tools. Too many hospitality businesses
+          still manage operations across spreadsheets, disconnected systems, and manual processes.
+        </p>
+
+        <p>
+          InnPilot brings property management, direct booking, and channel distribution into
+          one connected system, so your team can focus on delivering great guest experiences
+          instead of wrestling with software.
+        </p>
+
+        <h2>Our approach</h2>
+
+        <div class="about__values">
+          <div class="about__value reveal">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>India-first, globally relevant</strong>
+              <p>
+                We build for the realities of Indian hospitality — from pricing in INR to
+                workflows that match how Indian properties actually operate — while maintaining
+                standards that work anywhere.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__value reveal reveal-delay-1">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Privacy and security</strong>
+              <p>
+                Your property data is yours. We use encryption in transit and at rest, and
+                we never sell or share your information with third parties.
+              </p>
+            </div>
+          </div>
+
+          <div class="about__value reveal reveal-delay-2">
+            <div class="about__value-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Real support, not just software</strong>
+              <p>
+                We provide responsive human support because we know that when your property
+                management system isn't working, it affects real guests and real revenue.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Start using InnPilot</h2>
+
+        <p>
+          InnPilot is available through an invitation-based model. We work directly with each
+          property to ensure a smooth setup and successful onboarding.
+        </p>
+
+        <div class="about__cta reveal">
+          <a
+            href={config.urls.requestAccess}
+            class="btn btn--primary btn--lg"
+            data-track="about_cta_request_access"
+          >
+            Request Access
+          </a>
+          <span class="about__cta-note">Free to get started. No credit card required.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About InnPilot",
+    "description": "InnPilot is built by RENAISSANCE STRATEGICS CONSULTING. We build technology for hospitality businesses.",
+    "url": "https://inn-pilot.com/about/",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "RENAISSANCE STRATEGICS CONSULTING",
+      "description": "Technology company building software for hospitality businesses.",
+      "url": config.seo.url
+    }
+  })} />
+</Base>
+
+<style>
+  .about__content p {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+  }
+
+  .about__content p strong {
+    color: var(--color-text);
+  }
+
+  .about__content h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-8);
+  }
+
+  .about__values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .about__value {
+    display: flex;
+    gap: var(--space-5);
+    align-items: flex-start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+  }
+
+  .about__value-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .about__value strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .about__value p {
+    font-size: var(--text-sm) !important;
+    color: var(--color-text-secondary);
+    margin-bottom: 0 !important;
+  }
+
+  .about__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  .about__cta-note {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+</style>

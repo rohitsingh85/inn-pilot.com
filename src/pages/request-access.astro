@@ -33,6 +33,34 @@ import { config } from "@/lib/config";
     </div>
   </section>
 
+  <section class="ra-process section">
+    <div class="container container--narrow">
+      <div class="ra-process__steps reveal">
+        <div class="ra-process__step">
+          <div class="ra-process__num" aria-hidden="true">1</div>
+          <div>
+            <strong>Submit your request</strong>
+            <p>Fill in your details and tell us about your property.</p>
+          </div>
+        </div>
+        <div class="ra-process__step">
+          <div class="ra-process__num" aria-hidden="true">2</div>
+          <div>
+            <strong>We review and respond</strong>
+            <p>Our team reviews your request and gets back to you within 1–2 working days.</p>
+          </div>
+        </div>
+        <div class="ra-process__step">
+          <div class="ra-process__num" aria-hidden="true">3</div>
+          <div>
+            <strong>Get started</strong>
+            <p>Once approved, we set up your property and walk you through the platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="ra-form-section section">
     <div class="container container--narrow">
       <div class="ra-form-card reveal">
@@ -144,7 +172,7 @@ import { config } from "@/lib/config";
           </div>
           <h2 class="ra-result__title">Request submitted</h2>
           <p class="ra-result__desc">
-            Thank you for your interest in InnPilot. Our team will review your request and get back to you shortly.
+            Thank you for your interest in InnPilot. Our team will review your request and get back to you at your email address within 1–2 working days.
           </p>
           <a href="/" class="btn btn--secondary">Back to Home</a>
         </div>
@@ -259,6 +287,65 @@ import { config } from "@/lib/config";
 
   .ra-hero__link:hover {
     color: var(--color-accent-light);
+  }
+
+  /* ── Process Steps ─────────────────────────────────────────────────────────── */
+
+  .ra-process {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-12);
+  }
+
+  .ra-process__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .ra-process__steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .ra-process__step {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+
+  .ra-process__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .ra-process__step strong {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .ra-process__step p {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
   }
 
   /* ── Form Card ────────────────────────────────────────────────────────────── */

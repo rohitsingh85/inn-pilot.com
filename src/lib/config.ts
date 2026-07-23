@@ -101,6 +101,7 @@ export const config = {
       { label: "Pricing", href: "/pricing/" },
     ],
     company: [
+      { label: "About", href: "/about/" },
       { label: "Request Access", href: "/request-access/" },
     ] as { label: string; href: string }[],
     legal: [
