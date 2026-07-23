@@ -15,7 +15,7 @@ import { config } from "@/lib/config";
     </nav>
 
     <div class="header__actions">
-      <a href={config.urls.signIn} class="btn btn--ghost header__sign-in" data-track="sign_in_click">Sign In</a>
+      <a href={config.urls.signIn} class="btn btn--ghost header__sign-in" data-track="sign_in_click" target="_blank" rel="noopener noreferrer">Sign In</a>
       <a href={config.urls.requestAccess} class="btn btn--primary header__cta" data-track="request_access_click">Request Access</a>
     </div>
 
@@ -49,7 +49,7 @@ import { config } from "@/lib/config";
     </div>
     <div class="mobile-menu__actions">
       <a href={config.urls.requestAccess} class="btn btn--primary mobile-menu__cta" data-track="request_access_click">Request Access</a>
-      <a href={config.urls.signIn} class="btn btn--secondary mobile-menu__sign-in">Sign In</a>
+      <a href={config.urls.signIn} class="btn btn--secondary mobile-menu__sign-in" target="_blank" rel="noopener noreferrer">Sign In</a>
     </div>
   </nav>
 </div>

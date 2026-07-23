@@ -8,9 +8,14 @@ const description =
   "Connect your hotel to every online travel agency and booking platform. Manage rates, availability, and reservations across Booking.com, MakeMyTrip, Expedia, and more from one dashboard.";
 ---
 
-<Base title={title} description={description}>
+<Base
+  title={title}
+  description={description}
+  canonical="https://inn-pilot.com/features/channel-manager/"
+  robots="index, follow"
+>
   <!-- BreadcrumbList -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -21,7 +26,7 @@ const description =
   })} />
 
   <!-- FAQPage -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
@@ -89,7 +94,7 @@ const description =
     title="Connect to Every Booking Source"
     description="Push your rates and inventory to every OTA from one place. No more switching between extranets. No more overbookings."
     primaryCta={{ label: "Request Access", href: config.urls.requestAccess }}
-    secondaryCta={{ label: "See the Platform", href: "/platform/#channel-manager" }}
+    secondaryCta={{ label: "Explore Platform", href: "/platform/#distribute" }}
   />
 
   <!-- Benefits -->
