@@ -14,9 +14,9 @@ const description =
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${config.urls.site}/` },
-      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.urls.site}/platform/` },
-      { "@type": "ListItem", "position": 3, "name": "Channel Manager", "item": `${config.urls.site}/features/channel-manager/` }
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
+      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.seo.url}/platform/` },
+      { "@type": "ListItem", "position": 3, "name": "Channel Manager", "item": `${config.seo.url}/features/channel-manager/` }
     ]
   })} />
 
@@ -89,7 +89,7 @@ const description =
     title="Connect to Every Booking Source"
     description="Push your rates and inventory to every OTA from one place. No more switching between extranets. No more overbookings."
     primaryCta={{ label: "Request Access", href: config.urls.requestAccess }}
-    secondaryCta={{ label: "See the Platform", href: `${config.urls.platform}/#channel-manager` }}
+    secondaryCta={{ label: "See the Platform", href: "/platform/#channel-manager" }}
   />
 
   <!-- Benefits -->
