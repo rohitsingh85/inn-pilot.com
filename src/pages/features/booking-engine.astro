@@ -1,22 +1,350 @@
 ---
 import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import { config } from "@/lib/config";
 ---
 
 <Base
-  title="InnPilot Booking Engine — Direct Booking Website"
-  description="InnPilot Booking Engine lets guests check availability, select rooms, and complete bookings directly on your website."
+  title="Hotel Booking Engine for Direct Bookings"
+  description="InnPilot's website booking engine helps hotels and hospitality properties accept direct bookings through their own website. Real-time availability, dynamic pricing, and a connected booking experience — part of a complete hospitality operating system."
   canonical="https://inn-pilot.com/features/booking-engine/"
 >
-  <section class="feature-redirect">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
+      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.seo.url}/platform/` },
+      { "@type": "ListItem", "position": 3, "name": "Booking Engine", "item": `${config.seo.url}/features/booking-engine/` },
+    ],
+  })} />
+
+  <PageHero
+    eyebrow="Website Booking Engine"
+    title="Turn your website into a direct booking channel."
+    description="A fast, branded booking engine that lets guests check real-time availability, compare rooms and rates, and complete reservations directly on your website — connected to your property management system."
+    primaryCta={{ label: "Request Access", href: config.urls.requestAccess }}
+    secondaryCta={{ label: "Explore Platform", href: "/platform/" }}
+  />
+
+  <!-- ── Direct Booking Value ────────────────────────────────────────────────── -->
+  <section class="dbv section" id="why-direct">
     <div class="container container--narrow">
-      <div class="feature-redirect__inner reveal">
-        <span class="eyebrow">Website Booking Engine</span>
-        <h1 class="feature-redirect__title">Sell</h1>
-        <p class="feature-redirect__desc">
-          The booking engine page is being built. Explore the website booking engine as part of the complete platform.
+      <div class="section-header">
+        <span class="eyebrow reveal">Why Direct Bookings Matter</span>
+        <h2 class="reveal reveal-delay-1">Let guests book from your website, not someone else's.</h2>
+        <p class="reveal reveal-delay-2">
+          Your website is the one channel you fully control. A booking engine turns
+          that traffic into reservations — without commission, without redirects,
+          without friction.
         </p>
-        <a href="/platform/#sell" class="btn btn--primary">
-          View on Platform Page
+      </div>
+
+      <div class="dbv__grid">
+        <div class="dbv__card reveal">
+          <div class="dbv__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <strong>Own the guest relationship</strong>
+          <p>Build a direct connection with every guest who books through your website.</p>
+        </div>
+        <div class="dbv__card reveal reveal-delay-1">
+          <div class="dbv__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <strong>No commission per booking</strong>
+          <p>Every reservation comes straight to you — no intermediary taking a cut.</p>
+        </div>
+        <div class="dbv__card reveal reveal-delay-2">
+          <div class="dbv__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+            </svg>
+          </div>
+          <strong>Branded booking experience</strong>
+          <p>Your guests stay on your website — consistent look, consistent trust.</p>
+        </div>
+        <div class="dbv__card reveal reveal-delay-3">
+          <div class="dbv__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <strong>Connected to operations</strong>
+          <p>Reservations flow directly into your PMS — no manual re-entry, no gaps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Key Capabilities ────────────────────────────────────────────────────── -->
+  <section class="kc section section--alt" id="capabilities">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow reveal">Key Capabilities</span>
+        <h2 class="reveal reveal-delay-1">Everything guests need to book, everything you need to manage.</h2>
+        <p class="reveal reveal-delay-2">
+          The booking engine is designed to work as part of a complete hospitality
+          operating system — not as a disconnected widget.
+        </p>
+      </div>
+
+      <div class="kc__grid">
+        <div class="kc__card reveal">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Real-time availability</h3>
+          <p class="kc__desc">
+            Guests see live room availability pulled directly from your PMS.
+            No stale data, no overbookings.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-1">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Dynamic pricing</h3>
+          <p class="kc__desc">
+            Seasonal rates, occupancy-based adjustments, package pricing,
+            and coupon support — all calculated automatically.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-2">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Rate breakdown</h3>
+          <p class="kc__desc">
+            Guests see a clear, itemised breakdown — base rate, taxes, discounts,
+            and total — before they confirm.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-3">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Secure payments</h3>
+          <p class="kc__desc">
+            Stripe-powered payment collection with support for advance deposits,
+            full prepayment, and pay-at-property options.
+          </p>
+        </div>
+
+        <div class="kc__card reveal">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">India-ready tax engine</h3>
+          <p class="kc__desc">
+            Built-in GST calculation with configurable tax rules. Percentage and
+            flat-rate taxes, compound taxes, and exemption support.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-1">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Confirmation emails</h3>
+          <p class="kc__desc">
+            Automated booking confirmations, deposit reminders, and
+            check-in-ready notifications — sent without manual effort.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-2">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Guest self-service</h3>
+          <p class="kc__desc">
+            Guests can look up, view, modify, or cancel their reservations —
+            and manage their stay through a dedicated guest portal.
+          </p>
+        </div>
+
+        <div class="kc__card reveal reveal-delay-3">
+          <div class="kc__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="kc__title">Mobile-friendly booking</h3>
+          <p class="kc__desc">
+            A responsive booking experience that works smoothly on phones,
+            tablets, and desktops.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ────────────────────────────────────────────────────────── -->
+  <section class="hiw section" id="how-it-works">
+    <div class="container container--narrow">
+      <div class="section-header">
+        <span class="eyebrow reveal">How It Works</span>
+        <h2 class="reveal reveal-delay-1">From search to confirmation in four steps.</h2>
+      </div>
+
+      <div class="hiw__steps">
+        <div class="hiw__step reveal">
+          <div class="hiw__num" aria-hidden="true">1</div>
+          <div class="hiw__content">
+            <strong>Guest searches for dates</strong>
+            <p>The guest enters their check-in and check-out dates and number of guests. The engine queries real-time availability from the PMS.</p>
+          </div>
+        </div>
+        <div class="hiw__step reveal reveal-delay-1">
+          <div class="hiw__num" aria-hidden="true">2</div>
+          <div class="hiw__content">
+            <strong>Rooms and rates are displayed</strong>
+            <p>Available room types appear with dynamic pricing, rate breakdowns, and any applicable packages or restrictions.</p>
+          </div>
+        </div>
+        <div class="hiw__step reveal reveal-delay-2">
+          <div class="hiw__num" aria-hidden="true">3</div>
+          <div class="hiw__content">
+            <strong>Guest completes the booking</strong>
+            <p>The guest fills in their details, reviews the total, and pays securely through Stripe — or chooses pay-at-property if enabled.</p>
+          </div>
+        </div>
+        <div class="hiw__step reveal reveal-delay-3">
+          <div class="hiw__num" aria-hidden="true">4</div>
+          <div class="hiw__content">
+            <strong>Reservation flows into the PMS</strong>
+            <p>The booking is created in your property management system instantly. A confirmation email is sent. No manual entry required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Connected System ────────────────────────────────────────────────────── -->
+  <section class="cs section section--alt" id="connected">
+    <div class="container container--narrow">
+      <div class="section-header">
+        <span class="eyebrow reveal">Connected System</span>
+        <h2 class="reveal reveal-delay-1">One system, not three separate tools.</h2>
+        <p class="reveal reveal-delay-2">
+          The booking engine is one part of InnPilot's connected platform.
+          When it shares data with your PMS and channel manager,
+          everything moves faster.
+        </p>
+      </div>
+
+      <div class="cs__diagram reveal">
+        <div class="cs__flow">
+          <a href="/features/pms/" class="cs__node" data-track="be_connects_pms">
+            <div class="cs__node-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+              </svg>
+            </div>
+            <span class="cs__node-label">Operate</span>
+            <span class="cs__node-sub">PMS</span>
+          </a>
+
+          <div class="cs__arrow" aria-hidden="true">
+            <svg width="24" height="48" viewBox="0 0 24 48" fill="none">
+              <line x1="12" y1="0" x2="12" y2="48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <circle cx="12" cy="24" r="4" fill="var(--color-accent)" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="cs__node cs__node--active">
+            <div class="cs__node-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 20h18"/><path d="M5 16l4-5 4 3 6-7"/>
+              </svg>
+            </div>
+            <span class="cs__node-label">Sell</span>
+            <span class="cs__node-sub">Booking Engine</span>
+          </div>
+
+          <div class="cs__arrow" aria-hidden="true">
+            <svg width="24" height="48" viewBox="0 0 24 48" fill="none">
+              <line x1="12" y1="0" x2="12" y2="48" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <circle cx="12" cy="24" r="4" fill="var(--color-accent)" stroke="none"/>
+            </svg>
+          </div>
+
+          <a href="/features/channel-manager/" class="cs__node" data-track="be_connects_cm">
+            <div class="cs__node-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <span class="cs__node-label">Distribute</span>
+            <span class="cs__node-sub">Channel Manager</span>
+          </a>
+        </div>
+
+        <div class="cs__detail">
+          <div class="cs__item reveal">
+            <div class="cs__check" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Real-time inventory from the PMS</strong>
+              <p>The booking engine never shows stale availability. Every search checks the current state of your rooms.</p>
+            </div>
+          </div>
+          <div class="cs__item reveal reveal-delay-1">
+            <div class="cs__check" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Reservations land in the PMS instantly</strong>
+              <p>No double entry. The guest's booking appears in your front desk view the moment it's confirmed.</p>
+            </div>
+          </div>
+          <div class="cs__item reveal reveal-delay-2">
+            <div class="cs__check" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="8" stroke="var(--color-accent)" stroke-width="1.5"/>
+                <path d="M7 10l2 2 4-4" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <strong>One rate, one restriction set</strong>
+              <p>Update pricing or restrictions in the PMS — the booking engine reflects those changes immediately.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs__cta reveal">
+        <a href="/platform/" class="btn btn--primary" data-track="be_cta_platform">
+          Explore the Full Platform
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -24,29 +352,687 @@ import Base from "@/layouts/Base.astro";
       </div>
     </div>
   </section>
+
+  <!-- ── Why Direct Booking ──────────────────────────────────────────────────── -->
+  <section class="wdb section" id="benefits">
+    <div class="container container--narrow">
+      <div class="section-header">
+        <span class="eyebrow reveal">Why Direct Booking</span>
+        <h2 class="reveal reveal-delay-1">Build a direct channel that you control.</h2>
+        <p class="reveal reveal-delay-2">
+          Third-party channels drive bookings, but your website is where
+          you build the relationship. A booking engine makes that possible.
+        </p>
+      </div>
+
+      <div class="wdb__list">
+        <div class="wdb__item reveal">
+          <div class="wdb__num" aria-hidden="true">01</div>
+          <div>
+            <strong>Your brand, your experience</strong>
+            <p>Guests book through your website with your branding — not a third-party marketplace. The entire journey feels like you.</p>
+          </div>
+        </div>
+        <div class="wdb__item reveal reveal-delay-1">
+          <div class="wdb__num" aria-hidden="true">02</div>
+          <div>
+            <strong>Reduce channel dependency</strong>
+            <p>OTAs are a valuable discovery channel, but a direct booking engine gives you an alternative that doesn't rely on their algorithms or commission structures.</p>
+          </div>
+        </div>
+        <div class="wdb__item reveal reveal-delay-2">
+          <div class="wdb__num" aria-hidden="true">03</div>
+          <div>
+            <strong>Connected to your operations</strong>
+            <p>Unlike standalone booking widgets, InnPilot's engine is connected to your PMS — so availability, pricing, and reservations stay in sync.</p>
+          </div>
+        </div>
+        <div class="wdb__item reveal reveal-delay-3">
+          <div class="wdb__num" aria-hidden="true">04</div>
+          <div>
+            <strong>Know your guests better</strong>
+            <p>Direct bookings give you first-party guest data — preferences, history, communication — that helps you serve them better next time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ─────────────────────────────────────────────────────────────────── -->
+  <section class="faq section section--alt" id="faq">
+    <div class="container container--narrow">
+      <div class="section-header">
+        <span class="eyebrow reveal">Frequently Asked Questions</span>
+        <h2 class="reveal reveal-delay-1">Common questions about the booking engine.</h2>
+      </div>
+
+      <div class="faq__list">
+        <details class="faq__item reveal">
+          <summary class="faq__q">
+            What is a hotel website booking engine?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>A hotel website booking engine is software that lets guests check availability, view rates, and complete reservations directly on a property's own website. It connects to the property's management system so availability and pricing stay accurate in real time.</p>
+          </div>
+        </details>
+
+        <details class="faq__item reveal reveal-delay-1">
+          <summary class="faq__q">
+            How does InnPilot's booking engine differ from an OTA?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>OTAs like Booking.com or Expedia are third-party marketplaces that list many properties. InnPilot's booking engine lives on your own website and connects directly to your PMS. Guests book with you, not through an intermediary — and the reservation flows straight into your operations.</p>
+          </div>
+        </details>
+
+        <details class="faq__item reveal reveal-delay-2">
+          <summary class="faq__q">
+            Can guests book directly from my property's website?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>Yes. The booking engine can be embedded on your website as a standalone widget or integrated into your site's design. Guests search for dates, view available rooms and rates, enter their details, and confirm — all without leaving your website.</p>
+          </div>
+        </details>
+
+        <details class="faq__item reveal">
+          <summary class="faq__q">
+            Does the booking engine connect with InnPilot's PMS?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>Yes. The booking engine is part of InnPilot's connected platform. Room availability, pricing, and restrictions are pulled from the PMS in real time. When a guest books, the reservation is created in the PMS automatically — no manual re-entry needed.</p>
+          </div>
+        </details>
+
+        <details class="faq__item reveal reveal-delay-1">
+          <summary class="faq__q">
+            Is the booking experience mobile-friendly?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>Yes. The booking engine is designed to work smoothly on phones, tablets, and desktops. Guests can search, compare rooms, and complete their booking from any device.</p>
+          </div>
+        </details>
+
+        <details class="faq__item reveal reveal-delay-2">
+          <summary class="faq__q">
+            How do I get access to InnPilot?
+            <svg class="faq__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="faq__a">
+            <p>InnPilot is currently available through invitation-based access. Submit a request on our website and our team will review your property and get in touch within 1–2 working days. The Free plan includes the booking engine alongside the PMS and channel manager — no feature gates.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ───────────────────────────────────────────────────────────── -->
+  <section class="fcta section">
+    <div class="container container--narrow">
+      <div class="fcta__card reveal">
+        <span class="eyebrow" style="color: var(--color-accent-subtle);">Website Booking Engine</span>
+        <h2 class="fcta__title">Ready to accept direct bookings?</h2>
+        <p class="fcta__desc">
+          Start with InnPilot Free. The booking engine, PMS, and channel manager
+          are included — no feature gates.
+        </p>
+        <div class="fcta__actions">
+          <a href={config.urls.requestAccess} class="btn btn--primary btn--lg" data-track="be_cta_request_access">
+            Request Access
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/platform/" class="btn btn--secondary" data-track="be_cta_platform_final">
+            Explore Platform
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a hotel website booking engine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A hotel website booking engine is software that lets guests check availability, view rates, and complete reservations directly on a property's own website. It connects to the property's management system so availability and pricing stay accurate in real time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does InnPilot's booking engine differ from an OTA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OTAs like Booking.com or Expedia are third-party marketplaces that list many properties. InnPilot's booking engine lives on your own website and connects directly to your PMS. Guests book with you, not through an intermediary — and the reservation flows straight into your operations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can guests book directly from my property's website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The booking engine can be embedded on your website as a standalone widget or integrated into your site's design. Guests search for dates, view available rooms and rates, enter their details, and confirm — all without leaving your website."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the booking engine connect with InnPilot's PMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The booking engine is part of InnPilot's connected platform. Room availability, pricing, and restrictions are pulled from the PMS in real time. When a guest books, the reservation is created in the PMS automatically — no manual re-entry needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the booking experience mobile-friendly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The booking engine is designed to work smoothly on phones, tablets, and desktops. Guests can search, compare rooms, and complete their booking from any device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get access to InnPilot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "InnPilot is currently available through invitation-based access. Submit a request on our website and our team will review your property and get in touch within 1–2 working days. The Free plan includes the booking engine alongside the PMS and channel manager — no feature gates."
+        }
+      }
+    ]
+  })} />
 </Base>
 
 <style>
-  .feature-redirect {
-    padding-top: calc(var(--header-height) + var(--space-24));
-    padding-bottom: var(--space-32);
-    text-align: center;
+  /* ── Direct Booking Value ───────────────────────────────────────────────── */
+
+  .dbv__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 
-  .feature-redirect__inner {
-    max-width: 480px;
-    margin-inline: auto;
+  @media (min-width: 640px) {
+    .dbv__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  .feature-redirect__title {
-    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
-    font-weight: 800;
+  .dbv__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out);
+  }
+
+  .dbv__card:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(16, 185, 129, 0.05);
+  }
+
+  .dbv__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
     margin-bottom: var(--space-4);
   }
 
-  .feature-redirect__desc {
-    font-size: var(--text-lg);
+  .dbv__card strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .dbv__card p {
+    font-size: var(--text-sm);
     color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Key Capabilities ───────────────────────────────────────────────────── */
+
+  .kc__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .kc__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .kc__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .kc__card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: box-shadow var(--duration-normal) var(--ease-out),
+      border-color var(--duration-normal) var(--ease-out);
+  }
+
+  .kc__card:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(16, 185, 129, 0.05);
+  }
+
+  .kc__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .kc__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .kc__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── How It Works ───────────────────────────────────────────────────────── */
+
+  .hiw__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .hiw__step {
+    display: flex;
+    gap: var(--space-5);
+    align-items: flex-start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+  }
+
+  .hiw__num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    font-size: var(--text-base);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .hiw__content strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .hiw__content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+
+  /* ── Connected System ───────────────────────────────────────────────────── */
+
+  .cs__diagram {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .cs__diagram {
+      flex-direction: row;
+      gap: var(--space-12);
+      align-items: flex-start;
+    }
+  }
+
+  .cs__flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .cs__flow {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  .cs__node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    min-width: 140px;
+    text-decoration: none;
+    transition: border-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .cs__node:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(16, 185, 129, 0.05);
+  }
+
+  .cs__node--active {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+
+  .cs__node-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+  }
+
+  .cs__node-label {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .cs__node-sub {
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .cs__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-border);
+    padding: var(--space-2) 0;
+  }
+
+  @media (min-width: 768px) {
+    .cs__arrow {
+      padding: 0 var(--space-2);
+    }
+
+    .cs__arrow svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  .cs__detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    flex: 1;
+    max-width: 480px;
+  }
+
+  .cs__item {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+
+  .cs__check {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cs__item strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .cs__item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .cs__cta {
+    margin-top: var(--space-8);
+    text-align: center;
+  }
+
+  /* ── Why Direct Booking ─────────────────────────────────────────────────── */
+
+  .wdb__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .wdb__item {
+    display: flex;
+    gap: var(--space-5);
+    align-items: flex-start;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+  }
+
+  .wdb__num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-wide);
+    flex-shrink: 0;
+    padding-top: var(--space-1);
+  }
+
+  .wdb__item strong {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .wdb__item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+
+  /* ── FAQ ─────────────────────────────────────────────────────────────────── */
+
+  .faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq__item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: border-color var(--duration-normal) var(--ease-out);
+  }
+
+  .faq__item[open] {
+    border-color: var(--color-border-glow);
+  }
+
+  .faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__q::marker {
+    display: none;
+    content: "";
+  }
+
+  .faq__chevron {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .faq__item[open] .faq__chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq__a {
+    padding: 0 var(--space-6) var(--space-6);
+  }
+
+  .faq__a p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Final CTA ───────────────────────────────────────────────────────────── */
+
+  .fcta__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .fcta__card {
+      padding: var(--space-16);
+    }
+  }
+
+  .fcta__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(16, 185, 129, 0.12) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .fcta__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+
+  .fcta__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    margin-inline: auto;
     margin-bottom: var(--space-8);
+    position: relative;
+  }
+
+  .fcta__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
   }
 </style>
