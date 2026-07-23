@@ -5,7 +5,14 @@ export default defineConfig({
   output: "static",
   site: "https://inn-pilot.com",
   trailingSlash: "always",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) =>
+        !page.includes("/privacy/") &&
+        !page.includes("/terms/") &&
+        !page.includes("/404"),
+    }),
+  ],
   build: {
     assets: "_astro",
   },
