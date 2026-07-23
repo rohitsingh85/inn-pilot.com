@@ -18,13 +18,13 @@ import { config } from "@/lib/config";
       </p>
 
       <div class="hero__actions reveal reveal-delay-3">
-        <a href={config.urls.startFree} class="btn btn--primary btn--lg">
-          Get Started
+        <a href={config.urls.requestAccess} class="btn btn--primary btn--lg" data-track="request_access_click">
+          Request Access
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/platform/" class="btn btn--secondary">
+        <a href="/platform/" class="btn btn--secondary" data-track="explore_platform_click">
           Explore Platform
         </a>
       </div>
@@ -33,7 +33,7 @@ import { config } from "@/lib/config";
         Built for hotels, resorts, boutique properties, farmstays, and growing hospitality businesses.
       </p>
       <p class="hero__microcopy reveal reveal-delay-3">
-        Access is currently invitation-based. Contact us to get started.
+        Access is currently invitation-based. <a href={config.urls.requestAccess} class="hero__microcopy-link">Request access</a> or <a href={config.urls.signIn} class="hero__microcopy-link">sign in</a>.
       </p>
     </div>
 
@@ -213,6 +213,16 @@ import { config } from "@/lib/config";
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     max-width: 480px;
+  }
+
+  .hero__microcopy-link {
+    color: var(--color-accent);
+    font-weight: 500;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .hero__microcopy-link:hover {
+    color: var(--color-accent-light);
   }
 
   .btn--lg {

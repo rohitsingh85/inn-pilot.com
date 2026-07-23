@@ -14,7 +14,7 @@ const {
   position,
   features,
   highlighted = false,
-  cta = { label: "Get Started", href: config.urls.startFree },
+  cta = { label: "Request Access", href: "/request-access/" },
 } = Astro.props;
 ---
 
@@ -34,7 +34,7 @@ const {
     ))}
   </ul>
   <div class="pricing-card__cta">
-    <a href={cta.href} class={`btn ${highlighted ? "btn--primary" : "btn--secondary"} pricing-card__btn`}>
+    <a href={cta.href} class={`btn ${highlighted ? "btn--primary" : "btn--secondary"} pricing-card__btn`} data-track="request_access_click">
       {cta.label}
     </a>
   </div>

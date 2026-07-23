@@ -20,49 +20,63 @@ import PageHero from "@/components/PageHero.astro";
       <div class="legal prose reveal">
         <h2>1. Information We Collect</h2>
         <p>
-          We collect information you provide directly to us, such as when you create an account,
-          contact us, or use our services. This may include your name, email address, phone number,
-          property details, and payment information.
+          We collect information you provide directly to us, such as when you request access
+          to InnPilot, contact us, or use our services. This may include your name, email address,
+          property details, and any information you choose to share in messages.
         </p>
 
-        <h2>2. How We Use Your Information</h2>
+        <h2>2. Request Access Submissions</h2>
         <p>
-          We use the information we collect to provide, maintain, and improve our services, to
-          process transactions, send you technical notices and support messages, and communicate
-          with you about products, services, and promotions.
+          When you submit a request access form on our website, we collect the information you
+          provide (name, email, property name, property location, and any optional message) to
+          process your access request. Submissions are processed through our form service provider.
         </p>
 
-        <h2>3. Information Sharing</h2>
+        <h2>3. Analytics</h2>
+        <p>
+          We use Plausible Analytics, a privacy-friendly analytics service, to understand how
+          visitors use our website. Plausible does not use cookies and does not collect personal
+          data. It tracks page views and basic usage patterns to help us improve our site.
+          Analytics data is processed in accordance with Plausible's privacy policy.
+        </p>
+
+        <h2>4. How We Use Your Information</h2>
+        <p>
+          We use the information we collect to respond to your access requests, provide
+          customer support, and improve our services. We do not sell your personal information.
+        </p>
+
+        <h2>5. Information Sharing</h2>
         <p>
           We do not sell your personal information. We may share your information with third-party
-          service providers who perform services on our behalf, such as payment processing, hosting,
+          service providers who perform services on our behalf, such as form processing, hosting,
           and analytics.
         </p>
 
-        <h2>4. Data Security</h2>
+        <h2>6. Data Security</h2>
         <p>
           We take reasonable measures to protect your personal information from unauthorised access,
           alteration, disclosure, or destruction. However, no method of transmission over the Internet
           is 100% secure.
         </p>
 
-        <h2>5. Your Rights</h2>
+        <h2>7. Your Rights</h2>
         <p>
           You have the right to access, correct, or delete your personal information. You may also
           opt out of certain communications from us. To exercise these rights, please contact us
-          at the address below.
+          through our website or WhatsApp.
         </p>
 
-        <h2>6. Changes to This Policy</h2>
+        <h2>8. Changes to This Policy</h2>
         <p>
           We may update this privacy policy from time to time. We will notify you of any changes
           by posting the new policy on this page and updating the effective date.
         </p>
 
-        <h2>7. Contact Us</h2>
-        <p>
-          If you have any questions about this privacy policy, please contact us through our
-          website or WhatsApp.
+        <p class="legal__note">
+          <strong>Note:</strong> This privacy policy is a general guide and may require review
+          by a legal professional to ensure compliance with applicable regulations for your
+          jurisdiction and business operations.
         </p>
       </div>
     </div>
@@ -90,5 +104,15 @@ import PageHero from "@/components/PageHero.astro";
     font-size: var(--text-base);
     line-height: var(--leading-normal);
     margin-bottom: var(--space-4);
+  }
+
+  .legal__note {
+    margin-top: var(--space-8);
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
   }
 </style>

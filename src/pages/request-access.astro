@@ -1,0 +1,635 @@
+---
+import Base from "@/layouts/Base.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="Request Access"
+  description="Request access to InnPilot — the hospitality operating system. InnPilot is currently available through invitation-based access."
+  canonical="https://inn-pilot.com/request-access/"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
+      { "@type": "ListItem", "position": 2, "name": "Request Access", "item": `${config.seo.url}/request-access/` },
+    ],
+  })} />
+
+  <section class="ra-hero">
+    <div class="container container--narrow">
+      <div class="ra-hero__content">
+        <span class="eyebrow reveal">Request Access</span>
+        <h1 class="ra-hero__title reveal reveal-delay-1">Request access to InnPilot</h1>
+        <p class="ra-hero__desc reveal reveal-delay-2">
+          InnPilot is currently available through invitation-based access.
+          Submit your details below and our team will get in touch.
+        </p>
+        <p class="ra-hero__note reveal reveal-delay-2">
+          Already have an account? <a href={config.urls.signIn} class="ra-hero__link">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ra-form-section section">
+    <div class="container container--narrow">
+      <div class="ra-form-card reveal">
+        <form
+          id="request-access-form"
+          class="ra-form"
+          method="POST"
+          action="/api/request-access"
+          novalidate
+        >
+          <div class="ra-form__group">
+            <label for="ra-name" class="ra-form__label">Full Name <span class="ra-form__required" aria-hidden="true">*</span></label>
+            <input
+              type="text"
+              id="ra-name"
+              name="name"
+              class="ra-form__input"
+              required
+              autocomplete="name"
+              placeholder="e.g. Priya Sharma"
+            />
+            <span class="ra-form__error" id="ra-name-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="ra-form__group">
+            <label for="ra-email" class="ra-form__label">Work Email <span class="ra-form__required" aria-hidden="true">*</span></label>
+            <input
+              type="email"
+              id="ra-email"
+              name="email"
+              class="ra-form__input"
+              required
+              autocomplete="email"
+              placeholder="priya@yourhotel.com"
+            />
+            <span class="ra-form__error" id="ra-email-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="ra-form__row">
+            <div class="ra-form__group">
+              <label for="ra-property" class="ra-form__label">Property / Hotel Name <span class="ra-form__required" aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="ra-property"
+                name="property_name"
+                class="ra-form__input"
+                required
+                placeholder="e.g. The Grand Heritage"
+              />
+              <span class="ra-form__error" id="ra-property-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="ra-form__group">
+              <label for="ra-location" class="ra-form__label">Property Location <span class="ra-form__required" aria-hidden="true">*</span></label>
+              <input
+                type="text"
+                id="ra-location"
+                name="property_location"
+                class="ra-form__input"
+                required
+                placeholder="e.g. Jaipur, Rajasthan"
+              />
+              <span class="ra-form__error" id="ra-location-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="ra-form__group">
+            <label for="ra-message" class="ra-form__label">Why are you interested in InnPilot? <span class="ra-form__optional">(optional)</span></label>
+            <textarea
+              id="ra-message"
+              name="message"
+              class="ra-form__input ra-form__textarea"
+              rows="4"
+              placeholder="Tell us a little about your property and what you're looking for..."
+            ></textarea>
+          </div>
+
+          <!-- Honeypot — hidden from humans, bots will fill it -->
+          <div class="ra-form__hp" aria-hidden="true" tabindex="-1">
+            <label for="ra-website">Website</label>
+            <input type="text" id="ra-website" name="_hp" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <!-- UTM hidden fields -->
+          <input type="hidden" name="utm_source" value="" />
+          <input type="hidden" name="utm_medium" value="" />
+          <input type="hidden" name="utm_campaign" value="" />
+          <input type="hidden" name="utm_content" value="" />
+          <input type="hidden" name="utm_term" value="" />
+
+          <div class="ra-form__actions">
+            <button type="submit" class="btn btn--primary btn--lg ra-form__submit" id="ra-submit">
+              <span class="ra-form__submit-text">Submit Request</span>
+              <span class="ra-form__submit-spinner" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" stroke-dasharray="30 14" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Success state -->
+        <div id="ra-success" class="ra-result ra-result--success" role="status" aria-live="polite" hidden>
+          <div class="ra-result__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" stroke="var(--color-accent)" stroke-width="2"/>
+              <path d="M15 24l6 6 12-12" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="ra-result__title">Request submitted</h2>
+          <p class="ra-result__desc">
+            Thank you for your interest in InnPilot. Our team will review your request and get back to you shortly.
+          </p>
+          <a href="/" class="btn btn--secondary">Back to Home</a>
+        </div>
+
+        <!-- Failure state -->
+        <div id="ra-error" class="ra-result ra-result--error" role="alert" aria-live="assertive" hidden>
+          <div class="ra-result__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <circle cx="24" cy="24" r="22" stroke="var(--color-error)" stroke-width="2"/>
+              <path d="M17 17l14 14M31 17L17 31" stroke="var(--color-error)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="ra-result__title">Something went wrong</h2>
+          <p class="ra-result__desc">
+            We couldn't process your request right now. Please try again or reach out via WhatsApp.
+          </p>
+          <div class="ra-result__actions">
+            <button onclick="document.getElementById('ra-error').hidden = true; document.getElementById('request-access-form').hidden = false;" class="btn btn--primary">
+              Try Again
+            </button>
+            {config.whatsapp.link && (
+              <a href={config.whatsapp.link} target="_blank" rel="noopener noreferrer" class="btn btn--secondary">
+                Chat on WhatsApp
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp fallback -->
+  <section class="ra-whatsapp section section--alt">
+    <div class="container container--narrow">
+      <div class="ra-whatsapp__inner reveal">
+        <div class="ra-whatsapp__content">
+          <h2 class="ra-whatsapp__title">Prefer WhatsApp?</h2>
+          <p class="ra-whatsapp__desc">
+            Chat with us directly and we'll help you get started with InnPilot.
+          </p>
+        </div>
+        {config.whatsapp.link ? (
+          <a
+            href={config.whatsapp.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--primary"
+            data-track="whatsapp_click"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Chat on WhatsApp
+          </a>
+        ) : (
+          <p class="ra-whatsapp__fallback">
+            WhatsApp is not currently configured. Please reach out through the form above.
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Hero ─────────────────────────────────────────────────────────────────── */
+
+  .ra-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    padding-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .ra-hero {
+      padding-top: calc(var(--header-height) + var(--space-20));
+      padding-bottom: var(--space-16);
+    }
+  }
+
+  .ra-hero__content {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .ra-hero__title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .ra-hero__desc {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-4);
+  }
+
+  .ra-hero__note {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .ra-hero__link {
+    color: var(--color-accent);
+    font-weight: 500;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .ra-hero__link:hover {
+    color: var(--color-accent-light);
+  }
+
+  /* ── Form Card ────────────────────────────────────────────────────────────── */
+
+  .ra-form-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .ra-form-card {
+      padding: var(--space-10);
+    }
+  }
+
+  /* ── Form Elements ────────────────────────────────────────────────────────── */
+
+  .ra-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .ra-form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .ra-form__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .ra-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .ra-form__label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .ra-form__required {
+    color: var(--color-error);
+  }
+
+  .ra-form__optional {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .ra-form__input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--duration-fast) var(--ease-out),
+      box-shadow var(--duration-fast) var(--ease-out);
+    outline: none;
+  }
+
+  .ra-form__input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .ra-form__input:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+  }
+
+  .ra-form__input[aria-invalid="true"],
+  .ra-form__input.is-invalid {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+  }
+
+  .ra-form__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .ra-form__error {
+    font-size: var(--text-xs);
+    color: var(--color-error);
+    min-height: 1rem;
+  }
+
+  .ra-form__hp {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .ra-form__actions {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: var(--space-2);
+  }
+
+  .ra-form__submit {
+    position: relative;
+    min-width: 180px;
+  }
+
+  .ra-form__submit.is-loading {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  .ra-form__submit.is-loading .ra-form__submit-text {
+    opacity: 0;
+  }
+
+  .ra-form__submit-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 0.8s linear infinite;
+  }
+
+  .ra-form__submit.is-loading .ra-form__submit-spinner {
+    display: block;
+  }
+
+  @keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  /* ── Result States ────────────────────────────────────────────────────────── */
+
+  .ra-result {
+    text-align: center;
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .ra-result__icon {
+    margin-bottom: var(--space-6);
+  }
+
+  .ra-result__title {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .ra-result__desc {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    max-width: 420px;
+    margin-inline: auto;
+    margin-bottom: var(--space-8);
+    line-height: var(--leading-normal);
+  }
+
+  .ra-result__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── WhatsApp Fallback ────────────────────────────────────────────────────── */
+
+  .ra-whatsapp__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    text-align: center;
+    padding: var(--space-8);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  @media (min-width: 640px) {
+    .ra-whatsapp__inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .ra-whatsapp__title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .ra-whatsapp__desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .ra-whatsapp__fallback {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .btn--lg {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+  }
+
+  @media (min-width: 768px) {
+    .btn--lg {
+      padding: var(--space-4) var(--space-10);
+      font-size: var(--text-lg);
+    }
+  }
+</style>
+
+<script>
+  function initRequestAccess() {
+    const form = document.getElementById("request-access-form") as HTMLFormElement | null;
+    const successEl = document.getElementById("ra-success");
+    const errorEl = document.getElementById("ra-error");
+    if (!form || !successEl || !errorEl) return;
+
+    const submitBtn = document.getElementById("ra-submit") as HTMLButtonElement | null;
+
+    // Track page view
+    if (typeof window.plausible === "function") {
+      window.plausible("request_access_view");
+    }
+
+    // Populate UTM fields from URL
+    const params = new URLSearchParams(window.location.search);
+    const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+    for (const key of utmKeys) {
+      const input = form.querySelector<HTMLInputElement>(`[name="${key}"]`);
+      const val = params.get(key);
+      if (input && val) input.value = val;
+    }
+
+    // Pre-fill plan context if present
+    const plan = params.get("plan");
+    if (plan) {
+      const messageField = form.querySelector<HTMLTextAreaElement>("[name='message']");
+      if (messageField && !messageField.value) {
+        messageField.placeholder = `Interested in the ${plan.charAt(0).toUpperCase() + plan.slice(1)} plan. Tell us about your property...`;
+      }
+    }
+
+    // Client-side validation
+    function validateField(input: HTMLInputElement | HTMLTextAreaElement): boolean {
+      const fieldErrorEl = document.getElementById(`${input.id}-error`);
+      if (fieldErrorEl) fieldErrorEl.textContent = "";
+      input.removeAttribute("aria-invalid");
+      input.removeAttribute("aria-describedby");
+      input.classList.remove("is-invalid");
+
+      if (input.required && !input.value.trim()) {
+        const label = input.closest(".ra-form__group")?.querySelector(".ra-form__label")?.textContent?.replace("*", "").replace("(optional)", "").trim() || "This field";
+        if (fieldErrorEl) fieldErrorEl.textContent = `${label} is required`;
+        input.setAttribute("aria-invalid", "true");
+        if (fieldErrorEl) input.setAttribute("aria-describedby", `${input.id}-error`);
+        input.classList.add("is-invalid");
+        return false;
+      }
+
+      if (input.type === "email" && input.value) {
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRe.test(input.value)) {
+          if (fieldErrorEl) fieldErrorEl.textContent = "Please enter a valid email address";
+          input.setAttribute("aria-invalid", "true");
+          if (fieldErrorEl) input.setAttribute("aria-describedby", `${input.id}-error`);
+          input.classList.add("is-invalid");
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    // Validate on blur
+    form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(".ra-form__input[required], .ra-form__input[type='email']").forEach((input) => {
+      input.addEventListener("blur", () => validateField(input));
+      input.addEventListener("input", () => {
+        if (input.getAttribute("aria-invalid") === "true") {
+          validateField(input);
+        }
+      });
+    });
+
+    // Handle submit
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Honeypot check
+      const hp = form.querySelector<HTMLInputElement>("[name='_hp']");
+      if (hp && hp.value) return;
+
+      // Validate all required fields
+      const requiredInputs = form.querySelectorAll<HTMLInputElement>(".ra-form__input[required], .ra-form__input[type='email']");
+      let allValid = true;
+      requiredInputs.forEach((input) => {
+        if (!validateField(input)) allValid = false;
+      });
+      if (!allValid) {
+        const firstInvalid = form.querySelector("[aria-invalid='true']");
+        firstInvalid?.focus();
+        return;
+      }
+
+      // Collect form data
+      const formData = new FormData(form);
+      const data: Record<string, string> = {};
+      for (const [key, value] of formData.entries()) {
+        if (typeof value === "string") data[key] = value;
+      }
+      // Add plan from URL if not in form
+      if (plan && !data.plan) data.plan = plan;
+
+      // Show loading
+      submitBtn?.classList.add("is-loading");
+
+      try {
+        const res = await fetch("/api/request-access", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json().catch(() => ({ ok: false }));
+
+        if (res.ok && result.ok) {
+          form.hidden = true;
+          successEl.hidden = false;
+          // Track success — no PII, only plan context
+          if (typeof window.plausible === "function") {
+            window.plausible("request_access_submit_success", {
+              props: { plan: data.plan || "unspecified" },
+            });
+          }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          throw new Error(result.error || `Submission failed: ${res.status}`);
+        }
+      } catch {
+        submitBtn?.classList.remove("is-loading");
+        form.hidden = true;
+        errorEl.hidden = false;
+        // Track error — no PII
+        if (typeof window.plausible === "function") {
+          window.plausible("request_access_submit_error");
+        }
+      }
+    });
+  }
+
+  initRequestAccess();
+  document.addEventListener("astro:page-load", initRequestAccess);
+</script>

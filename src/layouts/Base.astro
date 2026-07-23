@@ -64,6 +64,11 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
     <!-- Preload critical font -->
     <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Analytics (Plausible) — only when configured -->
+    {import.meta.env.PUBLIC_ANALYTICS_DOMAIN && (
+      <script defer data-domain={import.meta.env.PUBLIC_ANALYTICS_DOMAIN} src="https://plausible.io/js/script.tagged-events.js" />
+    )}
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -113,8 +118,24 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
         document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
       }
 
+      function initCTATracking() {
+        document.querySelectorAll<HTMLElement>("[data-track]").forEach((el) => {
+          el.addEventListener("click", () => {
+            const eventName = el.dataset.track;
+            if (!eventName) return;
+            if (typeof window.plausible === "function") {
+              window.plausible(eventName);
+            }
+          });
+        });
+      }
+
       initReveal();
-      document.addEventListener("astro:page-load", initReveal);
+      initCTATracking();
+      document.addEventListener("astro:page-load", () => {
+        initReveal();
+        initCTATracking();
+      });
     </script>
   </body>
 </html>

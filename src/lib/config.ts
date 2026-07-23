@@ -14,7 +14,7 @@ export const config = {
   urls: {
     website: "https://inn-pilot.com",
     saaSApp: import.meta.env.PUBLIC_SaaS_APP_URL || "https://app.inn-pilot.com",
-    startFree: import.meta.env.PUBLIC_START_FREE_URL || "https://app.inn-pilot.com/admin/login",
+    requestAccess: "/request-access/",
     signIn: import.meta.env.PUBLIC_SIGN_IN_URL || "https://app.inn-pilot.com/admin/login",
   },
 
@@ -30,6 +30,7 @@ export const config = {
   nav: [
     { label: "Platform", href: "/platform/" },
     { label: "Pricing", href: "/pricing/" },
+    { label: "Request Access", href: "/request-access/" },
   ],
 
   pillars: [
@@ -99,7 +100,9 @@ export const config = {
       { label: "Channel Manager", href: "/platform/#distribute" },
       { label: "Pricing", href: "/pricing/" },
     ],
-    company: [] as { label: string; href: string }[],
+    company: [
+      { label: "Request Access", href: "/request-access/" },
+    ] as { label: string; href: string }[],
     legal: [
       { label: "Privacy Policy", href: "/privacy/" },
       { label: "Terms of Service", href: "/terms/" },
