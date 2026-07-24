@@ -86,7 +86,6 @@ export const config = {
   freePlanFeatures: [
     "PMS for one property",
     "Website Booking Engine",
-    "Channel Manager",
     "Guest Profiles",
     "Room Management",
     "Service Requests",

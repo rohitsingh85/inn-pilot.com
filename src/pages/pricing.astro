@@ -12,48 +12,6 @@ import { config } from "@/lib/config";
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "InnPilot — Hospitality Operating System",
-    "description": "A hospitality operating system that brings property management, direct bookings, and channel distribution together in one connected platform.",
-    "brand": { "@type": "Organization", "name": "InnPilot" },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Free",
-        "price": "0",
-        "priceCurrency": "INR",
-        "description": "PMS, booking engine, and channel manager for one property.",
-        "availability": "https://schema.org/InStock",
-        "url": "https://app.inn-pilot.com/admin/login",
-      },
-      {
-        "@type": "Offer",
-        "name": "Starter",
-        "priceCurrency": "INR",
-        "description": "For growing properties needing automation and advanced tools.",
-        "availability": "https://schema.org/InStock",
-        "url": "https://inn-pilot.com/pricing/",
-      },
-      {
-        "@type": "Offer",
-        "name": "Professional",
-        "priceCurrency": "INR",
-        "description": "For multi-property operations with revenue management.",
-        "availability": "https://schema.org/InStock",
-        "url": "https://inn-pilot.com/pricing/",
-      },
-      {
-        "@type": "Offer",
-        "name": "Enterprise",
-        "priceCurrency": "INR",
-        "description": "Custom plan with dedicated support and advanced integrations.",
-        "availability": "https://schema.org/InStock",
-        "url": "https://inn-pilot.com/pricing/",
-      },
-    ],
-  })} />
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
@@ -90,10 +48,10 @@ import { config } from "@/lib/config";
     <div class="container container--narrow">
       <div class="pricing-cta__card reveal">
         <span class="eyebrow" style="color: var(--color-accent-subtle);">InnPilot Free</span>
-        <h2 class="pricing-cta__title">Start with the full core platform.</h2>
+        <h2 class="pricing-cta__title">Start with the core platform.</h2>
         <p class="pricing-cta__desc">
-          PMS, booking engine, and channel manager — included in the Free plan.
-          No feature gates. Operate one property completely.
+          PMS and booking engine included in the Free plan.
+          Upgrade to Starter to add channel distribution and revenue management.
         </p>
         <div class="pricing-cta__actions">
           <a href={config.urls.requestAccess} class="btn btn--primary btn--lg" data-track="request_access_click">
