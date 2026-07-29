@@ -6,20 +6,20 @@ import { config } from "@/lib/config";
 ---
 
 <Base
-  title="InnPilot Pricing — Hospitality Software Plans"
+  title="InnPilot Compare Plans — Hospitality Software Plans"
   description="InnPilot plans for every property size. Free, Starter, Professional, and Enterprise — choose the plan that fits your property operations and growth."
-  canonical="https://inn-pilot.com/pricing/"
+  canonical="https://inn-pilot.com/compare-plans/"
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
-      { "@type": "ListItem", "position": 2, "name": "Pricing", "item": `${config.seo.url}/pricing/` },
+      { "@type": "ListItem", "position": 2, "name": "Compare Plans", "item": `${config.seo.url}/compare-plans/` },
     ],
   })} />
   <PageHero
-    eyebrow="Pricing"
+    eyebrow="Compare Plans"
     title="Plans that grow with your property."
     description="Start with the Free plan. Upgrade when you need automation, advanced revenue management, or multi-property capabilities."
   />

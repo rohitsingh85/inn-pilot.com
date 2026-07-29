@@ -19,8 +19,8 @@ export const config = {
   },
 
   whatsapp: {
-    number: import.meta.env.WHATSAPP_NUMBER || "",
-    message: "Hi. I want to request access to InnPilot's free plan",
+    number: import.meta.env.WHATSAPP_NUMBER || "919899389636",
+    message: "Hello! I'm interested in InnPilot. I'd like to request access and learn more about the platform.",
     get link() {
       if (!this.number) return "";
       const digits = this.number.replace(/\D/g, "");
@@ -31,7 +31,7 @@ export const config = {
 
   nav: [
     { label: "Platform", href: "/platform/" },
-    { label: "Pricing", href: "/pricing/" },
+    { label: "Compare Plans", href: "/compare-plans/" },
     { label: "Request Access", href: "/request-access/" },
   ],
 
@@ -99,7 +99,7 @@ export const config = {
       { label: "PMS", href: "/platform/#operate" },
       { label: "Booking Engine", href: "/platform/#sell" },
       { label: "Channel Manager", href: "/platform/#distribute" },
-      { label: "Pricing", href: "/pricing/" },
+      { label: "Compare Plans", href: "/compare-plans/" },
     ],
     company: [
       { label: "About", href: "/about/" },
