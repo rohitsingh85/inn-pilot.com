@@ -77,46 +77,71 @@ import { config } from "@/lib/config";
 
 <script>
   function initPlanHighlight() {
-    const params = new URLSearchParams(window.location.search);
-    const planParam = params.get("plan");
-    if (!planParam) return;
-
     const grid = document.querySelector(".pricing-grid");
     if (!grid) return;
 
     const cards = grid.querySelectorAll(".pricing-card");
-    let matched = null;
 
-    cards.forEach((card) => {
-      const heading = card.querySelector(".pricing-card__plan");
-      if (heading && heading.textContent.trim().toLowerCase() === planParam.toLowerCase()) {
-        matched = card;
-      }
-    });
-
-    if (!matched) return;
-
-    cards.forEach((card) => {
-      card.classList.remove("pricing-card--highlighted");
-      const btn = card.querySelector(".pricing-card__btn");
-      if (btn) {
-        btn.classList.remove("btn--primary");
-        btn.classList.add("btn--secondary");
-      }
-    });
-
-    matched.classList.add("pricing-card--highlighted");
-    const matchedBtn = matched.querySelector(".pricing-card__btn");
-    if (matchedBtn) {
-      matchedBtn.classList.remove("btn--secondary");
-      matchedBtn.classList.add("btn--primary");
+    function clearHighlights() {
+      cards.forEach((card) => {
+        card.classList.remove("pricing-card--highlighted");
+        const btn = card.querySelector(".pricing-card__btn");
+        if (btn) {
+          btn.classList.remove("btn--primary");
+          btn.classList.add("btn--secondary");
+        }
+      });
     }
 
-    requestAnimationFrame(() => {
-      const header = document.querySelector(".header");
-      const headerH = header ? header.offsetHeight : 0;
-      const targetY = grid.getBoundingClientRect().top + window.scrollY - headerH - 16;
-      window.scrollTo({ top: targetY, behavior: "smooth" });
+    function highlightPlan(planName) {
+      let matched = null;
+      cards.forEach((card) => {
+        const heading = card.querySelector(".pricing-card__plan");
+        if (heading && heading.textContent.trim().toLowerCase() === planName.toLowerCase()) {
+          matched = card;
+        }
+      });
+      if (!matched) return false;
+
+      clearHighlights();
+      matched.classList.add("pricing-card--highlighted");
+      const matchedBtn = matched.querySelector(".pricing-card__btn");
+      if (matchedBtn) {
+        matchedBtn.classList.remove("btn--secondary");
+        matchedBtn.classList.add("btn--primary");
+      }
+      return true;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const planParam = params.get("plan");
+
+    if (planParam) {
+      highlightPlan(planParam);
+      requestAnimationFrame(() => {
+        const header = document.querySelector(".header");
+        const headerH = header ? header.offsetHeight : 0;
+        const targetY = grid.getBoundingClientRect().top + window.scrollY - headerH - 16;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+      });
+    } else {
+      highlightPlan("Free");
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener("click", function (e) {
+        if (e.target.closest(".pricing-card__btn") || e.target.closest("a")) return;
+
+        const heading = card.querySelector(".pricing-card__plan");
+        if (!heading) return;
+        const planName = heading.textContent.trim();
+
+        if (highlightPlan(planName)) {
+          const url = new URL(window.location);
+          url.searchParams.set("plan", planName.toLowerCase());
+          history.replaceState({}, "", url);
+        }
+      });
     });
   }
 
@@ -218,15 +243,4 @@ import { config } from "@/lib/config";
     position: relative;
   }
 
-  .btn--lg {
-    padding: var(--space-4) var(--space-8);
-    font-size: var(--text-base);
-  }
-
-  @media (min-width: 768px) {
-    .btn--lg {
-      padding: var(--space-4) var(--space-10);
-      font-size: var(--text-lg);
-    }
-  }
 </style>

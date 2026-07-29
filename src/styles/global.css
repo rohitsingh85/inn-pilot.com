@@ -209,6 +209,18 @@ p {
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
 }
 
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base);
+}
+
+@media (min-width: 768px) {
+  .btn--lg {
+    padding: var(--space-4) var(--space-10);
+    font-size: var(--text-lg);
+  }
+}
+
 /* ── Eyebrow ──────────────────────────────────────────────────────────────── */
 
 .eyebrow {
