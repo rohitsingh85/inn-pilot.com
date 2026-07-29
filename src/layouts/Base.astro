@@ -155,7 +155,9 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
       function initPageTracking() {
         if (typeof window.plausible !== "function") return;
         const path = window.location.pathname;
-        if (path === "/compare-plans/" || path === "/compare-plans") {
+        if (path === "/built-for/" || path === "/built-for") {
+          window.plausible("built_for_view");
+        } else if (path === "/compare-plans/" || path === "/compare-plans") {
           window.plausible("compare_plans_view");
         } else if (path.startsWith("/features/pms")) {
           window.plausible("feature_page_view", { props: { feature: "pms" } });

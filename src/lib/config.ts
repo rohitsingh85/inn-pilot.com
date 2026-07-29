@@ -30,9 +30,9 @@ export const config = {
   },
 
   nav: [
+    { label: "Built For", href: "/built-for/" },
     { label: "Platform", href: "/platform/" },
     { label: "Compare Plans", href: "/compare-plans/" },
-    { label: "Request Access", href: "/request-access/" },
   ],
 
   pillars: [

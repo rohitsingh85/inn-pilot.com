@@ -75,6 +75,55 @@ import { config } from "@/lib/config";
   </section>
 </Base>
 
+<script>
+  function initPlanHighlight() {
+    const params = new URLSearchParams(window.location.search);
+    const planParam = params.get("plan");
+    if (!planParam) return;
+
+    const grid = document.querySelector(".pricing-grid");
+    if (!grid) return;
+
+    const cards = grid.querySelectorAll(".pricing-card");
+    let matched = null;
+
+    cards.forEach((card) => {
+      const heading = card.querySelector(".pricing-card__plan");
+      if (heading && heading.textContent.trim().toLowerCase() === planParam.toLowerCase()) {
+        matched = card;
+      }
+    });
+
+    if (!matched) return;
+
+    cards.forEach((card) => {
+      card.classList.remove("pricing-card--highlighted");
+      const btn = card.querySelector(".pricing-card__btn");
+      if (btn) {
+        btn.classList.remove("btn--primary");
+        btn.classList.add("btn--secondary");
+      }
+    });
+
+    matched.classList.add("pricing-card--highlighted");
+    const matchedBtn = matched.querySelector(".pricing-card__btn");
+    if (matchedBtn) {
+      matchedBtn.classList.remove("btn--secondary");
+      matchedBtn.classList.add("btn--primary");
+    }
+
+    requestAnimationFrame(() => {
+      const header = document.querySelector(".header");
+      const headerH = header ? header.offsetHeight : 0;
+      const targetY = grid.getBoundingClientRect().top + window.scrollY - headerH - 16;
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initPlanHighlight);
+  initPlanHighlight();
+</script>
+
 <style>
   .pricing-cards {
     padding-top: 0;

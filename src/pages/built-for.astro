@@ -1,0 +1,369 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHero from "@/components/PageHero.astro";
+import PropertySection from "@/components/PropertySection.astro";
+import { config } from "@/lib/config";
+---
+
+<Base
+  title="Built For — Hospitality Software for Every Property Type"
+  description="InnPilot is built for homestays, guest houses, boutique hotels, and full-scale resorts. Whether you have 2 rooms or 200, manage your property from one connected system."
+  canonical="https://inn-pilot.com/built-for/"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Built For", item: `${config.seo.url}/built-for/` },
+  ]}
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Built For — Hospitality Software for Every Property Type",
+    "description": "InnPilot is built for homestays, guest houses, boutique hotels, and full-scale resorts. Whether you have 2 rooms or 200, manage your property from one connected system.",
+    "url": "https://inn-pilot.com/built-for/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
+        { "@type": "ListItem", "position": 2, "name": "Built For", "item": `${config.seo.url}/built-for/` }
+      ]
+    }
+  })} />
+
+  <PageHero
+    eyebrow="Built For"
+    title="Whether you have 2 rooms or 200, InnPilot helps you run your property more efficiently."
+    description="From your very first booking to running a full-scale hotel operation, InnPilot grows your business. Start free, simplify daily operations, and never outgrow your PMS."
+    descriptionMore="Every hospitality business is different. InnPilot is designed to solve the challenges that matter most, helping you earn more from every booking, reduce administrative work, and deliver a better guest experience."
+    primaryCta={{ label: "Request Access", href: config.urls.requestAccess }}
+    secondaryCta={{ label: "Compare Plans", href: "/compare-plans/" }}
+  />
+
+  <!-- ── Homestays & B&Bs ─────────────────────────────────────────────────── -->
+  <PropertySection
+    id="homestays"
+    imageUrl="/assets/images/homestay.webp"
+    imageAlt="A welcoming homestay property with comfortable guest accommodations"
+    eyebrow="Homestays & B&Bs"
+    subheading="Typically 2–6 rooms"
+    intro="Homestays are often run by families or owner-managers who personally handle almost every aspect of the guest experience. Every booking matters, every review matters, and every unnecessary expense hurts profitability."
+    problems={[
+      {
+        title: "The fear of overbooking",
+        problem: "Bookings arrive through OTAs, phone calls, WhatsApp and direct enquiries. One accidental overbooking can damage reputation, create guest dissatisfaction and cost money.",
+        solution: "InnPilot's PMS and Booking Engine work together to maintain accurate room availability in real time. When a reservation comes in from any source — phone, OTA, or your website — your inventory updates instantly. No more manual calendar checks, no more worrying about double bookings.",
+      },
+      {
+        title: "Too much money goes to software and OTA commissions",
+        problem: "Small properties operate on thin margins. Paying for expensive software while also giving away OTA commissions leaves very little profit.",
+        solution: "The Free plan includes a full PMS and Booking Engine with no time limit and no credit card required. Your own website booking engine captures direct bookings at zero commission. Over time, you reduce dependence on OTAs. If you do not already have a website, the InnPilot team can help create one.",
+      },
+      {
+        title: "Running everything yourself",
+        problem: "Owners often manage reservations, guest communication, housekeeping, maintenance and accounts personally. There is never enough time.",
+        solution: "InnPilot is designed the way hotel owners think — organised around front desk, reservations, and housekeeping, not software modules. Simple enough for your staff to learn quickly. Spend less time learning software and more time running your property.",
+      },
+    ]}
+    features={[
+      "Property Management System",
+      "Website Booking Engine",
+      "Guest Profiles",
+      "Room Management",
+      "Service Requests",
+      "Maintenance",
+      "Tax Engine",
+      "Operational Reports",
+    ]}
+    cta={{ label: "Explore the Free Plan", href: "/compare-plans/?plan=free" }}
+    recommendedPlan={{
+      plan: "Free",
+      description: "Perfect for independent homestays looking to organise reservations, reduce overbookings and start accepting direct bookings without paying for expensive software.",
+    }}
+  />
+
+  <!-- ── Guest Houses & Lodges ─────────────────────────────────────────────── -->
+  <PropertySection
+    id="guest-houses"
+    imageUrl="/assets/images/guesthouse.webp"
+    imageAlt="A charming guest house or lodge with inviting outdoor and indoor spaces"
+    eyebrow="Guest Houses & Lodges"
+    subheading="Typically 5–15 rooms"
+    intro="As occupancy grows, the informal systems that worked for a handful of rooms start to break down. You need more structure — but not the complexity or cost of enterprise software."
+    alt
+    problems={[
+      {
+        title: "Moving beyond spreadsheets",
+        problem: "Many guest houses start with a spreadsheet for bookings, a notebook for housekeeping, and a separate system for billing. As occupancy increases, keeping everything in sync becomes a source of errors and stress.",
+        solution: "InnPilot replaces disconnected systems with one platform. Reservations, housekeeping schedules, guest profiles, and billing live in the same place. Update once, and every part of the operation reflects the change.",
+      },
+      {
+        title: "Managing repeat guests without a system",
+        problem: "Return guests are the backbone of a guest house business, but without a proper system, preferences, past stays, and contact details are scattered across email threads, chat messages, and memory.",
+        solution: "Guest profiles in the PMS store history, preferences, and communication logs automatically. The next time a returning guest calls, their previous room type, special requests, and stay notes are right there — no searching required.",
+      },
+      {
+        title: "Keeping operations organised with a small team",
+        problem: "A small team handles check-ins, housekeeping, guest requests, and maintenance simultaneously. When information lives in different places, tasks fall through the cracks.",
+        solution: "Room status, housekeeping schedules, and maintenance requests are all visible from one dashboard. Staff see which rooms are due for check-out, which need cleaning, and what guests have requested — without asking each other or checking multiple lists.",
+      },
+    ]}
+    features={[
+      "Multi-channel reservation management",
+      "Real-time availability sync",
+      "Guest profile history",
+      "Housekeeping schedules",
+      "Room status tracking",
+      "Maintenance requests",
+      "Billing and invoicing",
+      "Revenue reports",
+    ]}
+    cta={{ label: "Explore the Free Plan", href: "/compare-plans/?plan=free" }}
+    recommendedPlan={{
+      plan: "Free",
+      description: "Ideal for growing guest houses that want to manage daily operations, improve occupancy and reduce dependence on OTAs.",
+    }}
+  />
+
+  <!-- ── Boutique Hotels ───────────────────────────────────────────────────── -->
+  <PropertySection
+    id="boutique-hotels"
+    imageUrl="/assets/images/boutique-hotel.webp"
+    imageAlt="A stylish boutique hotel with thoughtfully designed interiors"
+    eyebrow="Boutique Hotels"
+    subheading="Typically 15–50 rooms"
+    intro="Boutique properties compete on guest experience and personal service. Your software should support that level of care — not get in the way."
+    problems={[
+      {
+        title: "Guest experience depends on how well your team shares information",
+        problem: "Delivering personalised service requires front desk, housekeeping, and management to share guest information seamlessly. When teams work from different sources, guest preferences and special requests can get lost.",
+        solution: "Guest profiles automatically aggregate history, preferences, and communication logs. Every team member sees the same guest information. Special requests, past stays, and preferences follow the guest across every interaction — from booking to check-out.",
+      },
+      {
+        title: "Revenue optimisation without a dedicated revenue manager",
+        problem: "Most boutique hotels do not have a revenue manager on staff. Owners and general managers need to optimise rates across channels and seasons while running daily operations.",
+        solution: "Revenue management tools in the Professional plan provide forecasting, occupancy insights, and dynamic pricing suggestions. Operational reports give daily revenue snapshots without needing a finance team. The data flows automatically from your day-to-day operations.",
+      },
+      {
+        title: "Operational consistency across shifts and departments",
+        problem: "Different shifts and departments can mean different ways of doing things. Inconsistent check-in procedures, handoff gaps between shifts, and varying service standards create friction for guests and staff alike.",
+        solution: "A shared operational view means front desk, housekeeping, and maintenance all work from the same information. Night audit, room status updates, and billing follow consistent workflows. Your team delivers the same standard of service, every shift.",
+      },
+    ]}
+    features={[
+      "Guest profile management",
+      "Front desk operations",
+      "Housekeeping coordination",
+      "Billing and invoicing",
+      "Operational reports",
+      "Direct booking engine",
+      "Channel distribution",
+      "Night audit workflow",
+    ]}
+    cta={{ label: "Explore the Starter Plan", href: "/compare-plans/?plan=starter" }}
+    recommendedPlan={{
+      plan: "Starter",
+      description: "A great fit for boutique hotels ready to streamline operations, connect booking channels and manage a growing team more efficiently.",
+    }}
+  />
+
+  <!-- ── Hotels & Resorts ──────────────────────────────────────────────────── -->
+  <PropertySection
+    id="hotels-resorts"
+    imageUrl="/assets/images/large-hotel.webp"
+    imageAlt="A full-service hotel or resort with expansive facilities and grounds"
+    eyebrow="Hotels & Resorts"
+    subheading="Typically 50–200+ rooms"
+    intro="Larger properties face coordination challenges across departments, shifts, and distribution channels. You need an operational backbone that keeps everything connected without adding overhead."
+    alt
+    problems={[
+      {
+        title: "Department coordination creates friction",
+        problem: "Front desk, housekeeping, maintenance, and management often communicate through different channels. Room status updates, maintenance requests, and shift handoffs create delays and inconsistencies.",
+        solution: "The PMS connects every department through a shared operational view. Room status changes, maintenance requests, and housekeeping updates flow in real time. The front desk knows when a room is ready. Housekeeping knows which rooms are due for check-out. Everyone works from the same information.",
+      },
+      {
+        title: "Management needs visibility without being on-site",
+        problem: "Owners and general managers need to monitor performance, occupancy, and operational issues even when they are not at the property. Getting updates currently requires phone calls or waiting for end-of-day reports.",
+        solution: "Dashboards and operational reports in Professional and Enterprise plans provide remote visibility into occupancy, revenue, housekeeping status, and key metrics. Review daily performance from anywhere without disturbing the team.",
+      },
+      {
+        title: "Scaling without adding complexity",
+        problem: "Growing properties need to maintain service quality while adding rooms, staff, and distribution channels. More rooms should not mean more operational friction.",
+        solution: "Plans scale from Free to Enterprise as your property grows. Add channel distribution, automation, revenue management, and multi-property capabilities when you need them. The system grows with you — you never outgrow the platform.",
+      },
+    ]}
+    features={[
+      "Department-wide operational view",
+      "Real-time room status",
+      "Housekeeping management",
+      "Maintenance requests",
+      "Operational dashboards",
+      "Revenue reports",
+      "Multi-property support (Enterprise)",
+      "Advanced analytics (Professional+)",
+    ]}
+    cta={{ label: "Explore the Professional Plan", href: "/compare-plans/?plan=professional" }}
+    recommendedPlan={{
+      plan: "Professional",
+      description: "Designed for professionally managed properties that need advanced reporting, revenue management, operational visibility and deeper business insights.",
+    }}
+  />
+
+  <!-- ── Closing: Outcomes ─────────────────────────────────────────────────── -->
+  <section class="section bf-outcomes">
+    <div class="container container--narrow">
+      <div class="bf-outcomes__card reveal">
+        <span class="eyebrow" style="color: var(--color-accent-subtle);">Outcomes</span>
+        <h2 class="bf-outcomes__title">No matter what kind of property you run, InnPilot grows your business.</h2>
+        <p class="bf-outcomes__desc">
+          The software is a means to an end. What matters is what it helps you achieve.
+        </p>
+        <ul class="bf-outcomes__list">
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>More direct bookings from your own website</span>
+          </li>
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>Fewer overbookings and no more manual availability checks</span>
+          </li>
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>Less time on administrative work, more time on guests</span>
+          </li>
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>Better guest experiences through shared information</span>
+          </li>
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>Higher staff productivity from one connected system</span>
+          </li>
+          <li class="bf-outcomes__item">
+            <span class="bf-outcomes__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            <span>Better occupancy and profitability across seasons</span>
+          </li>
+        </ul>
+        <div class="bf-outcomes__actions">
+          <a href={config.urls.requestAccess} class="btn btn--primary btn--lg" data-track="request_access_click">
+            Request Access
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="/compare-plans/" class="btn btn--secondary">Compare Plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ── Outcomes Section ──────────────────────────────────────────────────── */
+
+  .bf-outcomes {
+    padding-bottom: var(--space-16);
+  }
+
+  .bf-outcomes__card {
+    background: var(--color-bg-dark);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .bf-outcomes__card {
+      padding: var(--space-16);
+    }
+  }
+
+  .bf-outcomes__card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(16, 185, 129, 0.12) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .bf-outcomes__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    color: white;
+    margin-bottom: var(--space-4);
+    position: relative;
+  }
+
+  .bf-outcomes__desc {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+    position: relative;
+  }
+
+  .bf-outcomes__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: var(--space-10);
+    text-align: left;
+    position: relative;
+  }
+
+  .bf-outcomes__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: var(--leading-normal);
+  }
+
+  .bf-outcomes__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+    margin-top: 2px;
+  }
+
+  .bf-outcomes__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  /* ── Hero Typography Override ─────────────────────────────────────────── */
+
+  :global(.page-hero__title) {
+    font-size: clamp(var(--text-3xl), 4.5vw, var(--text-5xl)) !important;
+    word-spacing: 0.06em !important;
+  }
+</style>

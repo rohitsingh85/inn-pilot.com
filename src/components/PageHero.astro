@@ -5,6 +5,7 @@ export interface Props {
   eyebrow: string;
   title: string;
   description?: string;
+  descriptionMore?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }
@@ -13,6 +14,7 @@ const {
   eyebrow,
   title,
   description,
+  descriptionMore,
   primaryCta = { label: "Request Access", href: config.urls.requestAccess },
   secondaryCta = { label: "Sign In", href: config.urls.signIn },
 } = Astro.props;
@@ -25,6 +27,9 @@ const {
       <h1 class="page-hero__title reveal reveal-delay-1">{title}</h1>
       {description && (
         <p class="page-hero__desc reveal reveal-delay-2">{description}</p>
+      )}
+      {descriptionMore && (
+        <p class="page-hero__desc page-hero__desc--more reveal reveal-delay-2">{descriptionMore}</p>
       )}
       <div class="page-hero__actions reveal reveal-delay-3">
         <a href={primaryCta.href} class="btn btn--primary btn--lg">
@@ -81,6 +86,12 @@ const {
     max-width: 560px;
     margin-inline: auto;
     margin-bottom: var(--space-8);
+  }
+
+  .page-hero__desc--more {
+    font-size: var(--text-base);
+    margin-top: calc(-1 * var(--space-4));
+    margin-bottom: var(--space-10);
   }
 
   .page-hero__actions {

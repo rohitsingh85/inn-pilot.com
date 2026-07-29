@@ -1,0 +1,343 @@
+---
+export interface Props {
+  id: string;
+  imageUrl: string;
+  imageAlt: string;
+  eyebrow: string;
+  subheading: string;
+  intro: string;
+  problems: Array<{
+    title: string;
+    problem: string;
+    solution: string;
+  }>;
+  features: string[];
+  cta: { label: string; href: string };
+  alt?: boolean;
+  recommendedPlan?: {
+    plan: string;
+    description: string;
+  };
+}
+
+const {
+  id,
+  imageUrl,
+  imageAlt,
+  eyebrow,
+  subheading,
+  intro,
+  problems,
+  features,
+  cta,
+  alt = false,
+  recommendedPlan,
+} = Astro.props;
+---
+
+<section class={`section ${alt ? "section--alt" : ""}`} id={id}>
+  <div class="container">
+    <div class="bps__grid">
+      <div class="bps__image-wrap reveal">
+        <img src={imageUrl} alt={imageAlt} class="bps__image" width="800" height="600" loading="lazy" decoding="async" />
+      </div>
+      <div class="bps__content">
+        <div class="bps__header reveal">
+          <span class="eyebrow">{eyebrow}</span>
+          <h2 class="bps__title">{subheading}</h2>
+          <p class="bps__intro">{intro}</p>
+        </div>
+
+        <div class="bps__problems">
+          {problems.map((p, i) => (
+            <div class="bps__problem-card reveal" style={`--reveal-delay: ${(i + 1) * 150}ms`}>
+              <div class="bps__problem-header">
+                <span class="bps__problem-num" aria-hidden="true">{(i + 1).toString().padStart(2, "0")}</span>
+                <h3 class="bps__problem-title">{p.title}</h3>
+              </div>
+              <div class="bps__problem-body">
+                <div class="bps__problem-desc">
+                  <span class="bps__label bps__label--problem">The challenge</span>
+                  <p>{p.problem}</p>
+                </div>
+                <div class="bps__solution-desc">
+                  <span class="bps__label bps__label--solution">InnPilot approach</span>
+                  <p>{p.solution}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="bps__features reveal">
+          <span class="bps__features-label">Key capabilities</span>
+          <ul class="bps__features-list">
+            {features.map((f) => (
+              <li class="bps__features-item">{f}</li>
+            ))}
+          </ul>
+        </div>
+
+        {recommendedPlan && (
+          <div class="bps__plan reveal">
+            <span class="bps__plan-label">Recommended Plan</span>
+            <span class="bps__plan-name">{recommendedPlan.plan}</span>
+            <p class="bps__plan-desc">{recommendedPlan.description}</p>
+          </div>
+        )}
+
+        <div class="bps__action reveal">
+          <a href={cta.href} class="btn btn--primary" data-track={`${id}_cta_click`}>
+            {cta.label}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bps__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .bps__grid {
+      flex-direction: row;
+      gap: var(--space-10);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bps__grid {
+      gap: var(--space-16);
+    }
+  }
+
+  .bps__image-wrap {
+    width: 100%;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  @media (min-width: 768px) {
+    .bps__image-wrap {
+      flex: 0 0 280px;
+      width: auto;
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-8));
+      align-self: flex-start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .bps__image-wrap {
+      flex-basis: 420px;
+    }
+  }
+
+  .bps__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .bps__content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .bps__header {
+    margin-bottom: var(--space-10);
+  }
+
+  .bps__title {
+    font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+
+  .bps__intro {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    max-width: 560px;
+  }
+
+  /* ── Problem Cards ──────────────────────────────────────────────────────── */
+
+  .bps__problems {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .bps__problem-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: border-color var(--duration-normal) var(--ease-out),
+      box-shadow var(--duration-normal) var(--ease-out);
+  }
+
+  .bps__problem-card:hover {
+    border-color: var(--color-border-glow);
+    box-shadow: var(--shadow-md);
+  }
+
+  .bps__problem-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .bps__problem-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-wide);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bps__problem-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+  }
+
+  .bps__problem-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .bps__problem-body {
+      flex-direction: row;
+      gap: var(--space-6);
+    }
+  }
+
+  .bps__problem-desc,
+  .bps__solution-desc {
+    flex: 1;
+  }
+
+  .bps__label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-2);
+  }
+
+  .bps__label--problem {
+    color: var(--color-text-muted);
+  }
+
+  .bps__label--solution {
+    color: var(--color-accent);
+  }
+
+  .bps__problem-desc p,
+  .bps__solution-desc p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Features ────────────────────────────────────────────────────────────── */
+
+  .bps__features {
+    margin-bottom: var(--space-8);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+  }
+
+  .bps__features-label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .bps__features-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .bps__features-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .bps__features-item::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* ── Recommended Plan ───────────────────────────────────────────────────── */
+
+  .bps__plan {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin-bottom: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+  }
+
+  .bps__plan-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+  }
+
+  .bps__plan-name {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: white;
+  }
+
+  .bps__plan-desc {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: var(--leading-normal);
+  }
+
+  .bps__action {
+    display: flex;
+  }
+</style>

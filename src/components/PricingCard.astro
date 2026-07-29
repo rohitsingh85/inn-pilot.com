@@ -18,7 +18,7 @@ const {
 } = Astro.props;
 ---
 
-<div class={`pricing-card ${highlighted ? "pricing-card--highlighted" : ""}`}>
+<div class={`pricing-card ${highlighted ? "pricing-card--highlighted" : ""}`} data-plan={plan.toLowerCase()}>
   <div class="pricing-card__header">
     <h2 class="pricing-card__plan">{plan}</h2>
     <p class="pricing-card__position">{position}</p>
