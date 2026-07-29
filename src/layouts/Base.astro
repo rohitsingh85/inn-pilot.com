@@ -11,6 +11,7 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   robots?: string;
+  breadcrumbs?: Array<{ name: string; item: string }>;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   canonical = config.seo.url,
   ogImage = config.seo.image,
   robots = "index, follow",
+  breadcrumbs = undefined,
 } = Astro.props;
 
 const resolvedTitle = title.includes(config.productName)
@@ -48,7 +50,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:site_name" content={config.productName} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="en_IN" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,7 +85,27 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
       "@type": "WebSite",
       "name": config.productName,
       "url": config.seo.url,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${config.seo.url}/?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      }
     })} />
+    {breadcrumbs && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": crumb.name,
+          "item": crumb.item,
+        })),
+      })} />
+    )}
     <slot name="head" />
   </head>
   <body>
@@ -130,11 +152,34 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
         });
       }
 
+      function initPageTracking() {
+        if (typeof window.plausible !== "function") return;
+        const path = window.location.pathname;
+        if (path === "/compare-plans/" || path === "/compare-plans") {
+          window.plausible("compare_plans_view");
+        } else if (path.startsWith("/features/pms")) {
+          window.plausible("feature_page_view", { props: { feature: "pms" } });
+        } else if (path.startsWith("/features/booking-engine")) {
+          window.plausible("feature_page_view", { props: { feature: "booking-engine" } });
+        } else if (path.startsWith("/features/channel-manager")) {
+          window.plausible("feature_page_view", { props: { feature: "channel-manager" } });
+        }
+      }
+
+      const pageTrackingFired = {};
+      function initPageTrackingOnce() {
+        if (pageTrackingFired[window.location.pathname]) return;
+        pageTrackingFired[window.location.pathname] = true;
+        initPageTracking();
+      }
+
       initReveal();
       initCTATracking();
+      initPageTrackingOnce();
       document.addEventListener("astro:page-load", () => {
         initReveal();
         initCTATracking();
+        initPageTrackingOnce();
       });
     </script>
   </body>

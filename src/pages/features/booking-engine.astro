@@ -8,16 +8,12 @@ import { config } from "@/lib/config";
   title="Hotel Booking Engine for Direct Bookings"
   description="InnPilot's booking engine lets hotels accept direct bookings with real-time availability, dynamic pricing, and a connected guest experience on your own website."
   canonical="https://inn-pilot.com/features/booking-engine/"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Platform", item: `${config.seo.url}/platform/` },
+    { name: "Booking Engine", item: `${config.seo.url}/features/booking-engine/` },
+  ]}
 >
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
-      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.seo.url}/platform/` },
-      { "@type": "ListItem", "position": 3, "name": "Booking Engine", "item": `${config.seo.url}/features/booking-engine/` },
-    ],
-  })} />
 
   <PageHero
     eyebrow="Website Booking Engine"
@@ -519,7 +515,7 @@ import { config } from "@/lib/config";
     </div>
   </section>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

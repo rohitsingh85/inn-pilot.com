@@ -8,8 +8,24 @@ import { config } from "@/lib/config";
   title="About"
   description="InnPilot is built by RENAISSANCE STRATEGICS CONSULTING. We build technology for hospitality businesses that want to operate and grow."
   canonical="https://inn-pilot.com/about/"
-  robots="index, follow"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "About", item: `${config.seo.url}/about/` },
+  ]}
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About InnPilot",
+    "description": "InnPilot is built by RENAISSANCE STRATEGICS CONSULTING. We build technology for hospitality businesses.",
+    "url": "https://inn-pilot.com/about/",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "RENAISSANCE STRATEGICS CONSULTING",
+      "description": "Technology company building software for hospitality businesses.",
+      "url": config.seo.url
+    }
+  })} />
   <PageHero
     eyebrow="About"
     title="Built for hospitality businesses."
@@ -107,19 +123,6 @@ import { config } from "@/lib/config";
     </div>
   </section>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About InnPilot",
-    "description": "InnPilot is built by RENAISSANCE STRATEGICS CONSULTING. We build technology for hospitality businesses.",
-    "url": "https://inn-pilot.com/about/",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "RENAISSANCE STRATEGICS CONSULTING",
-      "description": "Technology company building software for hospitality businesses.",
-      "url": config.seo.url
-    }
-  })} />
 </Base>
 
 <style>

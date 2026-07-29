@@ -8,16 +8,12 @@ import { config } from "@/lib/config";
   title="Hotel Property Management System"
   description="InnPilot PMS connects front desk, reservations, housekeeping, billing, and maintenance in one property management system for hotels and hospitality businesses."
   canonical="https://inn-pilot.com/features/pms/"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Platform", item: `${config.seo.url}/platform/` },
+    { name: "PMS", item: `${config.seo.url}/features/pms/` },
+  ]}
 >
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
-      { "@type": "ListItem", "position": 2, "name": "Platform", "item": `${config.seo.url}/platform/` },
-      { "@type": "ListItem", "position": 3, "name": "PMS", "item": `${config.seo.url}/features/pms/` },
-    ],
-  })} />
 
   <PageHero
     eyebrow="Property Management System"
@@ -547,7 +543,7 @@ import { config } from "@/lib/config";
     </div>
   </section>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

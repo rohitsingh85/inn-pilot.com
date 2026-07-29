@@ -6,9 +6,20 @@ import { config } from "@/lib/config";
 <Base
   title="Page Not Found"
   description="The page you're looking for doesn't exist or has been moved."
-  canonical="https://inn-pilot.com/404"
+  canonical="https://inn-pilot.com/404/"
   robots="noindex, nofollow"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Page Not Found", item: `${config.seo.url}/404/` },
+  ]}
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "url": "https://inn-pilot.com/404/"
+  })} />
   <section class="not-found">
     <div class="container container--narrow">
       <div class="not-found__inner reveal">

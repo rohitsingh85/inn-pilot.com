@@ -8,7 +8,9 @@ import FinalCTA from "@/components/FinalCTA.astro";
 import { config } from "@/lib/config";
 ---
 
-<Base canonical="https://inn-pilot.com/">
+<Base canonical="https://inn-pilot.com/" breadcrumbs={[
+  { name: "Home", item: config.seo.url },
+]}>
   <Hero />
   <Pillars />
   <ConnectedSystem />

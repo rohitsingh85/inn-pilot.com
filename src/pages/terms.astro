@@ -1,6 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PageHero from "@/components/PageHero.astro";
+import { config } from "@/lib/config";
 ---
 
 <Base
@@ -8,7 +9,18 @@ import PageHero from "@/components/PageHero.astro";
   description="InnPilot terms of service. Read the terms governing your use of our hospitality platform."
   canonical="https://inn-pilot.com/terms/"
   robots="noindex, follow"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Terms of Service", item: `${config.seo.url}/terms/` },
+  ]}
 >
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms of Service",
+    "description": "InnPilot terms of service. Read the terms governing your use of our hospitality platform.",
+    "url": "https://inn-pilot.com/terms/"
+  })} />
   <PageHero
     eyebrow="Legal"
     title="Terms of Service"
@@ -75,8 +87,7 @@ import PageHero from "@/components/PageHero.astro";
 
         <h2>9. Contact</h2>
         <p>
-          If you have any questions about these Terms of Service, please contact us through
-          our website or WhatsApp.
+          If you have any questions about these Terms of Service, please <a href="/platform/">visit our website</a> or reach out via WhatsApp.
         </p>
       </div>
     </div>

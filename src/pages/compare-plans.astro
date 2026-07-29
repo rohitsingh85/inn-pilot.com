@@ -9,14 +9,23 @@ import { config } from "@/lib/config";
   title="InnPilot Compare Plans — Hospitality Software Plans"
   description="InnPilot plans for every property size. Free, Starter, Professional, and Enterprise — choose the plan that fits your property operations and growth."
   canonical="https://inn-pilot.com/compare-plans/"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Compare Plans", item: `${config.seo.url}/compare-plans/` },
+  ]}
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
+    "@type": "ItemList",
+    "name": "InnPilot Plans",
+    "description": "Free, Starter, Professional, and Enterprise plans for hospitality properties of every size.",
+    "url": "https://inn-pilot.com/compare-plans/",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
-      { "@type": "ListItem", "position": 2, "name": "Compare Plans", "item": `${config.seo.url}/compare-plans/` },
-    ],
+      { "@type": "ListItem", "position": 1, "name": "Free" },
+      { "@type": "ListItem", "position": 2, "name": "Starter" },
+      { "@type": "ListItem", "position": 3, "name": "Professional" },
+      { "@type": "ListItem", "position": 4, "name": "Enterprise" }
+    ]
   })} />
   <PageHero
     eyebrow="Compare Plans"

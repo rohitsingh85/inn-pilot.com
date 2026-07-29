@@ -112,4 +112,68 @@ export const config = {
   },
 } as const;
 
+export const pricingPlans = [
+  {
+    plan: "Free",
+    position: "Operate one property completely.",
+    features: [
+      "Property Management System",
+      "Website Booking Engine",
+      "Guest Profiles",
+      "Room Management",
+      "Service Requests",
+      "Maintenance",
+      "Tax Engine",
+      "Operational Reports",
+    ],
+    highlighted: true,
+    cta: { label: "Request Access", href: "/request-access/?plan=free" },
+  },
+  {
+    plan: "Starter",
+    position: "Optimise revenue and operations.",
+    features: [
+      "Everything in Free",
+      "Channel Manager",
+      "Room Assignment",
+      "Revenue Management",
+      "Inventory",
+      "Procurement",
+      "Activities",
+    ],
+    cta: { label: "Request Access", href: "/request-access/?plan=starter" },
+  },
+  {
+    plan: "Professional",
+    position: "Automation and smarter decisions.",
+    features: [
+      "Everything in Starter",
+      "Commission Management",
+      "Operations Dashboard",
+      "Advanced Business Reports",
+      "Dynamic Pricing",
+      "Forecasting",
+      "WhatsApp Communication",
+      "Third-party Integrations",
+    ],
+    cta: { label: "Request Access", href: "/request-access/?plan=professional" },
+  },
+  {
+    plan: "Enterprise",
+    position: "Run hotel groups at scale.",
+    features: [
+      "Everything in Professional",
+      "AI Revenue Advisor",
+      "Multi-property",
+      "Loyalty",
+      "Smart Alerts",
+      "Business Insights",
+      "Advanced Reports",
+      "White Label",
+      "Custom Domain",
+    ],
+    cta: { label: "Request Access", href: "/request-access/?plan=enterprise" },
+  },
+];
+
 export type Pillar = (typeof config.pillars)[number];

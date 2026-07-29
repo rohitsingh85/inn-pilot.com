@@ -1,16 +1,18 @@
 ---
 import { config } from "@/lib/config";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="header" id="header">
   <div class="header__inner container">
     <a href="/" class="header__logo" aria-label={`${config.productName} — Home`}>
-      <img src="/assets/logos/innpilot-logo.svg" alt="" class="header__logo-img" width="140" height="28" loading="eager" />
+      <img src="/assets/logos/innpilot-logo.svg" alt="" class="header__logo-img" width="140" height="28" loading="eager" decoding="async" fetchpriority="high" />
     </a>
 
     <nav class="header__nav" aria-label="Main navigation">
       {config.nav.map((item) => (
-        <a href={item.href} class="header__nav-link">{item.label}</a>
+        <a href={item.href} class="header__nav-link" aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
       ))}
     </nav>
 
@@ -37,14 +39,14 @@ import { config } from "@/lib/config";
   <div class="mobile-menu__overlay" data-menu-overlay></div>
   <nav class="mobile-menu__panel" aria-label="Mobile navigation">
     <div class="mobile-menu__header-bar">
-      <img src="/assets/logos/innpilot-logo.svg" alt="" class="mobile-menu__logo-img" width="120" height="24" />
+      <img src="/assets/logos/innpilot-logo.svg" alt="" class="mobile-menu__logo-img" width="120" height="24" decoding="async" />
         <button class="mobile-menu__close" aria-label="Close menu" type="button" data-menu-close>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
     </div>
     <div class="mobile-menu__links">
       {config.nav.map((item) => (
-        <a href={item.href} class="mobile-menu__link">{item.label}</a>
+        <a href={item.href} class="mobile-menu__link" aria-current={currentPath === item.href ? "page" : undefined}>{item.label}</a>
       ))}
     </div>
     <div class="mobile-menu__actions">

@@ -7,14 +7,17 @@ import { config } from "@/lib/config";
   title="Request Access"
   description="Request access to InnPilot — the hospitality operating system. InnPilot is currently available through invitation-based access."
   canonical="https://inn-pilot.com/request-access/"
+  breadcrumbs={[
+    { name: "Home", item: config.seo.url },
+    { name: "Request Access", item: `${config.seo.url}/request-access/` },
+  ]}
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": config.seo.url },
-      { "@type": "ListItem", "position": 2, "name": "Request Access", "item": `${config.seo.url}/request-access/` },
-    ],
+    "@type": "WebPage",
+    "name": "Request Access",
+    "description": "Request access to InnPilot — the hospitality operating system. InnPilot is currently available through invitation-based access.",
+    "url": "https://inn-pilot.com/request-access/"
   })} />
 
   <section class="ra-hero">
