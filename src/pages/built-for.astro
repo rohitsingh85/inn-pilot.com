@@ -326,13 +326,19 @@ import { config } from "@/lib/config";
 
   .bf-outcomes__list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--space-4);
     max-width: 600px;
     margin-inline: auto;
     margin-bottom: var(--space-10);
     text-align: left;
     position: relative;
+  }
+
+  @media (min-width: 640px) {
+    .bf-outcomes__list {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   .bf-outcomes__item {

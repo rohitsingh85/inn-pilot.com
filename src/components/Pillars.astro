@@ -12,7 +12,7 @@ const icons = {
   <div class="container">
     <div class="section-header">
       <span class="eyebrow reveal">The Platform</span>
-      <h2 class="reveal reveal-delay-1" style="white-space: nowrap;">One system. Three essential jobs.</h2>
+      <h2 class="reveal reveal-delay-1">One system. Three essential jobs.</h2>
       <p class="reveal reveal-delay-2">
         Every property needs to operate, sell, and distribute. InnPilot connects all three
         so your team works from one place.
@@ -66,6 +66,10 @@ const icons = {
     .pillars__grid {
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-6);
+    }
+
+    .pillars .section-header h2 {
+      white-space: nowrap;
     }
   }
 

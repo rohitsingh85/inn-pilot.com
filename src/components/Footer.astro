@@ -108,8 +108,14 @@ const year = new Date().getFullYear();
 
   .footer__columns {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .footer__columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .footer__column-title {
@@ -138,6 +144,7 @@ const year = new Date().getFullYear();
 
   .footer__actions {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-4);
     padding-bottom: var(--space-8);
     margin-bottom: var(--space-8);
@@ -165,6 +172,7 @@ const year = new Date().getFullYear();
 
   .footer__bottom-links {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--space-4);
   }
 
