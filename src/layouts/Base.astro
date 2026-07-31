@@ -60,6 +60,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
@@ -87,7 +88,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${config.seo.url}${og
       "name": config.productName,
       "description": config.seo.description,
       "url": config.seo.url,
-      "logo": `${config.seo.url}/assets/logos/innpilot-logo.svg`,
+      "logo": `${config.seo.url}/assets/logos/innpilot-logo.webp`,
     })} />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",

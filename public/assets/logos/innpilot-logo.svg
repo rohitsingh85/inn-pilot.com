@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40">
-  <g transform="translate(4, 5)">
-    <path d="M16 2 L18 5 L27 16 L22 16 L22 29 L10 29 L10 16 L5 16 L14 5 Z" fill="#047857"/>
-  </g>
-  <text x="38" y="26" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700">
-    <tspan fill="#0f172a">Inn</tspan><tspan fill="#047857">Pilot</tspan>
-  </text>
-</svg>
