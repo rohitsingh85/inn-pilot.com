@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__logo" aria-label={`${config.productName} — Home`}>
-          <img src="/assets/logos/innpilot-logo.webp" alt="" class="footer__logo-img" width="32" height="32" loading="lazy" decoding="async" />
+          <img src="/assets/logos/innpilot-logo.png" alt="" class="footer__logo-img" width="44" height="44" loading="lazy" decoding="async" />
         </a>
         <p class="footer__tagline">{config.brandLine}</p>
       </div>
@@ -49,7 +49,7 @@ const year = new Date().getFullYear();
 
     <div class="footer__actions">
       <a href={config.urls.requestAccess} class="btn btn--primary" data-track="request_access_click">Request Access</a>
-      <a href={config.urls.signIn} class="btn btn--secondary" data-track="sign_in_click" target="_blank" rel="noopener noreferrer">Sign In</a>
+      <a href={config.urls.signIn} class="btn btn--secondary" data-track="sign_in_click" target="_blank" rel="noopener noreferrer">Log in</a>
     </div>
 
     <div class="footer__bottom">
@@ -92,13 +92,17 @@ const year = new Date().getFullYear();
   }
 
   .footer__logo {
-    display: block;
+    display: inline-block;
+    padding: 4px;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     margin-bottom: var(--space-3);
   }
 
   .footer__logo-img {
-    height: 32px;
-    width: auto;
+    height: 44px;
+    width: 44px;
   }
 
   .footer__tagline {

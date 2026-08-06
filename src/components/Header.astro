@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname;
 <header class="header" id="header">
   <div class="header__inner container">
     <a href="/" class="header__logo" aria-label={`${config.productName} — Home`}>
-      <img src="/assets/logos/innpilot-logo.webp" alt="" class="header__logo-img" width="32" height="32" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="/assets/logos/innpilot-logo.png" alt="" class="header__logo-img" width="44" height="44" loading="eager" decoding="async" fetchpriority="high" />
     </a>
 
     <nav class="header__nav" aria-label="Main navigation">
@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <div class="header__actions">
-      <a href={config.urls.signIn} class="btn btn--ghost header__sign-in" data-track="sign_in_click" target="_blank" rel="noopener noreferrer">Sign In</a>
+      <a href={config.urls.signIn} class="btn btn--ghost header__sign-in" data-track="sign_in_click" target="_blank" rel="noopener noreferrer">Log in</a>
       <a href={config.urls.requestAccess} class="btn btn--primary header__cta" data-track="request_access_click">Request Access</a>
     </div>
 
@@ -39,7 +39,9 @@ const currentPath = Astro.url.pathname;
   <div class="mobile-menu__overlay" data-menu-overlay></div>
   <nav class="mobile-menu__panel" aria-label="Mobile navigation">
     <div class="mobile-menu__header-bar">
-      <img src="/assets/logos/innpilot-logo.webp" alt="" class="mobile-menu__logo-img" width="28" height="28" decoding="async" />
+      <span class="mobile-menu__logo">
+        <img src="/assets/logos/innpilot-logo.png" alt="" class="mobile-menu__logo-img" width="42" height="42" decoding="async" />
+      </span>
         <button class="mobile-menu__close" aria-label="Close menu" type="button" data-menu-close>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
@@ -51,7 +53,7 @@ const currentPath = Astro.url.pathname;
     </div>
     <div class="mobile-menu__actions">
       <a href={config.urls.requestAccess} class="btn btn--primary mobile-menu__cta" data-track="request_access_click">Request Access</a>
-      <a href={config.urls.signIn} class="btn btn--secondary mobile-menu__sign-in" target="_blank" rel="noopener noreferrer">Sign In</a>
+      <a href={config.urls.signIn} class="btn btn--secondary mobile-menu__sign-in" target="_blank" rel="noopener noreferrer">Log in</a>
     </div>
   </nav>
 </div>
@@ -84,11 +86,15 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    padding: 4px;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .header__logo-img {
-    height: 32px;
-    width: auto;
+    height: 44px;
+    width: 44px;
   }
 
   /* ── Desktop Nav ─────────────────────────────────────────────────────────── */
@@ -246,9 +252,18 @@ const currentPath = Astro.url.pathname;
     background: var(--color-bg);
   }
 
+  .mobile-menu__logo {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
   .mobile-menu__logo-img {
-    height: 28px;
-    width: auto;
+    height: 42px;
+    width: 42px;
   }
 
   .mobile-menu__close {
