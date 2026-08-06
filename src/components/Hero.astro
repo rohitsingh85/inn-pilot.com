@@ -49,90 +49,155 @@ import { config } from "@/lib/config";
           <span class="hero__ui-url">app.inn-pilot.com</span>
         </div>
         <div class="hero__ui-body">
-          <!-- Sidebar -->
+          <!-- InnPilot sidebar -->
           <div class="hero__ui-sidebar">
-            <div class="hero__ui-sidebar-logo"></div>
-            <div class="hero__ui-nav-items">
-              <div class="hero__ui-nav-item hero__ui-nav-item--active"></div>
-              <div class="hero__ui-nav-item"></div>
-              <div class="hero__ui-nav-item"></div>
-              <div class="hero__ui-nav-item"></div>
-              <div class="hero__ui-nav-item"></div>
+            <div class="hero__ui-brand">
+              <img src="/assets/logos/innpilot-logo.png" alt="" width="22" height="22" decoding="async" class="hero__ui-brand-logo" />
             </div>
+            <ul class="hero__ui-nav-list">
+              <li class="hero__ui-nav-item hero__ui-nav-item--active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                <span>Dashboard</span>
+              </li>
+              <li class="hero__ui-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span>Reservations</span>
+              </li>
+              <li class="hero__ui-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Guests</span>
+              </li>
+              <li class="hero__ui-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v13H3V9z"/><path d="M9 22V12h6v10"/></svg>
+                <span>Rooms</span>
+              </li>
+              <li class="hero__ui-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                <span>Housekeeping</span>
+              </li>
+              <li class="hero__ui-nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                <span>Revenue</span>
+              </li>
+            </ul>
           </div>
           <!-- Main content -->
           <div class="hero__ui-main">
-            <!-- Stats row -->
-            <div class="hero__ui-stats">
-              <div class="hero__ui-stat">
-                <span class="hero__ui-stat-label">Occupancy</span>
-                <span class="hero__ui-stat-value hero__ui-stat-value--accent">87%</span>
+            <div class="hero__ui-greeting">
+              <div class="hero__ui-greeting-text">
+                <span class="hero__ui-hello">Good morning</span>
+                <span class="hero__ui-name">The Corbett Retreat</span>
               </div>
-              <div class="hero__ui-stat">
-                <span class="hero__ui-stat-label">Revenue</span>
-                <span class="hero__ui-stat-value">₹2.4L</span>
+              <span class="hero__ui-chip">Night audit complete ✓</span>
+            </div>
+
+            <div class="hero__ui-kpis">
+              <div class="hero__ui-kpi">
+                <span class="hero__ui-kpi-label">Occupancy</span>
+                <span class="hero__ui-kpi-value">94<span class="hero__ui-kpi-unit">%</span></span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+6.2% vs last week</span>
               </div>
-              <div class="hero__ui-stat">
-                <span class="hero__ui-stat-label">Arrivals</span>
-                <span class="hero__ui-stat-value">12</span>
+              <div class="hero__ui-kpi">
+                <span class="hero__ui-kpi-label">ADR</span>
+                <span class="hero__ui-kpi-value">₹6,480</span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+3.1%</span>
+              </div>
+              <div class="hero__ui-kpi">
+                <span class="hero__ui-kpi-label">RevPAR</span>
+                <span class="hero__ui-kpi-value">₹6,091</span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+8.7%</span>
+              </div>
+              <div class="hero__ui-kpi">
+                <span class="hero__ui-kpi-label">In-house</span>
+                <span class="hero__ui-kpi-value">23<span class="hero__ui-kpi-unit">/25</span></span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--neutral">2 arrivals today</span>
               </div>
             </div>
-            <!-- Chart area -->
-            <div class="hero__ui-chart">
-              <div class="hero__ui-chart-header">
-                <span class="hero__ui-chart-title">Weekly Revenue</span>
-                <span class="hero__ui-chart-badge">+18%</span>
+
+            <div class="hero__ui-grid">
+              <div class="hero__ui-card">
+                <div class="hero__ui-card-head">
+                  <span class="hero__ui-card-title">Revenue · last 14 days</span>
+                  <span class="hero__ui-legend">
+                    <i class="hero__ui-legend-dot hero__ui-legend-dot--actual"></i>Actual
+                    <i class="hero__ui-legend-dot hero__ui-legend-dot--forecast"></i>Forecast
+                  </span>
+                </div>
+                <div class="hero__ui-chart">
+                  <div class="hero__ui-bars">
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:32%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:44%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:38%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:55%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:48%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:66%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:60%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:78%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:70%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:88%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:82%"></span>
+                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:100%"></span>
+                  </div>
+                </div>
               </div>
-              <svg viewBox="0 0 360 80" fill="none" class="hero__ui-chart-line" aria-hidden="true">
-                <defs>
-                  <linearGradient id="heroChartGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.12" />
-                    <stop offset="100%" stop-color="var(--color-accent)" stop-opacity="0" />
-                  </linearGradient>
-                </defs>
-                <polygon
-                  points="0,65 30,58 60,60 90,42 120,45 150,35 180,38 210,22 240,25 270,18 300,20 330,12 360,14 360,80 0,80"
-                  fill="url(#heroChartGrad)"
-                />
-                <polyline
-                  points="0,65 30,58 60,60 90,42 120,45 150,35 180,38 210,22 240,25 270,18 300,20 330,12 360,14"
-                  stroke="var(--color-accent)"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </div>
-            <!-- Room grid -->
-            <div class="hero__ui-rooms">
-              <div class="hero__ui-rooms-header">
-                <span class="hero__ui-rooms-title">Room Status</span>
-                <span class="hero__ui-rooms-date">Today</span>
-              </div>
-              <div class="hero__ui-room-grid">
-                <span class="hero__ui-room hero__ui-room--occupied" title="101 — Occupied">101</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="102 — Occupied">102</span>
-                <span class="hero__ui-room hero__ui-room--available" title="103 — Available">103</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="104 — Occupied">104</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="105 — Occupied">105</span>
-                <span class="hero__ui-room hero__ui-room--available" title="106 — Available">106</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="201 — Occupied">201</span>
-                <span class="hero__ui-room hero__ui-room--maintenance" title="202 — Maintenance">202</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="203 — Occupied">203</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="204 — Occupied">204</span>
-                <span class="hero__ui-room hero__ui-room--available" title="205 — Available">205</span>
-                <span class="hero__ui-room hero__ui-room--occupied" title="206 — Occupied">206</span>
-              </div>
-              <div class="hero__ui-room-legend">
-                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--occupied"></i>Occupied</span>
-                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--available"></i>Available</span>
-                <span class="hero__ui-legend-item"><i class="hero__ui-legend-dot hero__ui-legend-dot--maintenance"></i>Maintenance</span>
+
+              <div class="hero__ui-card">
+                <div class="hero__ui-card-head">
+                  <span class="hero__ui-card-title">Today's arrivals</span>
+                  <span class="hero__ui-chip hero__ui-chip--subtle">3 rooms</span>
+                </div>
+                <ul class="hero__ui-arrivals">
+                  <li class="hero__ui-guest">
+                    <span class="hero__ui-ava hero__ui-ava--g" aria-hidden="true">A</span>
+                    <div class="hero__ui-guest-info">
+                      <b class="hero__ui-guest-name">Anita &amp; Raj</b>
+                      <small class="hero__ui-guest-room">Garden Suite · 4 nights</small>
+                    </div>
+                    <span class="hero__ui-tag hero__ui-tag--ready">Ready</span>
+                  </li>
+                  <li class="hero__ui-guest">
+                    <span class="hero__ui-ava hero__ui-ava--c" aria-hidden="true">D</span>
+                    <div class="hero__ui-guest-info">
+                      <b class="hero__ui-guest-name">David Carter</b>
+                      <small class="hero__ui-guest-room">River View · 2 nights</small>
+                    </div>
+                    <span class="hero__ui-tag hero__ui-tag--wait">Checking</span>
+                  </li>
+                  <li class="hero__ui-guest">
+                    <span class="hero__ui-ava hero__ui-ava--p" aria-hidden="true">M</span>
+                    <div class="hero__ui-guest-info">
+                      <b class="hero__ui-guest-name">Meera Joshi</b>
+                      <small class="hero__ui-guest-room">Studio · 1 night</small>
+                    </div>
+                    <span class="hero__ui-tag hero__ui-tag--wait">In route</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Floating cards -->
+      <div class="hero__ui-float hero__ui-float--a">
+        <span class="hero__ui-float-icon hero__ui-float-icon--green">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </span>
+        <div class="hero__ui-float-text">
+          <b>Payment captured</b>
+          <small>₹12,400 · Razorpay</small>
+        </div>
+      </div>
+      <div class="hero__ui-float hero__ui-float--b">
+        <span class="hero__ui-float-icon hero__ui-float-icon--purple">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </span>
+        <div class="hero__ui-float-text">
+          <b>Rate suggestion</b>
+          <small>+8% · Fri peak</small>
+        </div>
+      </div>
+
       <div class="hero__glow"></div>
     </div>
   </div>
@@ -170,6 +235,7 @@ import { config } from "@/lib/config";
     .hero .container {
       flex-direction: row;
       gap: var(--space-16);
+      align-items: center;
     }
   }
 
@@ -284,20 +350,21 @@ import { config } from "@/lib/config";
 
   .hero__ui-body {
     display: flex;
-    min-height: 320px;
+    min-height: 360px;
   }
 
   @media (min-width: 768px) {
     .hero__ui-body {
-      min-height: 380px;
+      min-height: 420px;
     }
   }
 
-  /* Sidebar */
+  /* ── Sidebar ─────────────────────────────────────────────────────────────── */
+
   .hero__ui-sidebar {
-    width: 52px;
+    width: 46px;
     background: var(--color-bg-dark);
-    padding: var(--space-3) var(--space-2);
+    padding: var(--space-4) var(--space-2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -307,47 +374,85 @@ import { config } from "@/lib/config";
 
   @media (min-width: 768px) {
     .hero__ui-sidebar {
-      width: 64px;
+      width: 132px;
       padding: var(--space-4) var(--space-3);
+      align-items: stretch;
     }
   }
 
-  .hero__ui-sidebar-logo {
-    width: 28px;
-    height: 28px;
-    border-radius: var(--radius-sm);
-    background: var(--color-accent);
-    opacity: 0.9;
+  .hero__ui-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero__ui-nav-items {
+  @media (min-width: 768px) {
+    .hero__ui-brand {
+      justify-content: flex-start;
+      padding-inline: var(--space-1);
+    }
+  }
+
+  .hero__ui-brand-logo {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+  }
+
+  .hero__ui-nav-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: 4px;
     width: 100%;
-    align-items: center;
   }
 
   .hero__ui-nav-item {
-    width: 32px;
-    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) 0;
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-muted);
+    font-size: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .hero__ui-nav-item svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 767px) {
+    .hero__ui-nav-item span {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-nav-item {
+      justify-content: flex-start;
+      padding: var(--space-2) var(--space-2);
+      font-size: 11px;
+    }
   }
 
   .hero__ui-nav-item--active {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: inset 2px 0 0 var(--color-accent);
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
   }
 
-  /* Main content */
+  /* ── Main content ────────────────────────────────────────────────────────── */
+
   .hero__ui-main {
     flex: 1;
+    min-width: 0;
     padding: var(--space-4);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    min-width: 0;
   }
 
   @media (min-width: 768px) {
@@ -357,188 +462,353 @@ import { config } from "@/lib/config";
     }
   }
 
-  /* Stats row */
-  .hero__ui-stats {
+  /* Greeting + night-audit status */
+  .hero__ui-greeting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+  }
+
+  .hero__ui-greeting-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .hero__ui-hello {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+
+  .hero__ui-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-name {
+      font-size: 14px;
+    }
+  }
+
+  .hero__ui-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+    padding: 3px 8px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .hero__ui-chip--subtle {
+    color: var(--color-text-secondary);
+    background: var(--color-surface-raised);
+  }
+
+  /* KPI cards */
+  .hero__ui-kpis {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2);
   }
 
   @media (min-width: 768px) {
-    .hero__ui-stats {
+    .hero__ui-kpis {
+      grid-template-columns: repeat(4, 1fr);
       gap: var(--space-3);
     }
   }
 
-  .hero__ui-stat {
-    padding: var(--space-3);
-    border-radius: var(--radius-md);
+  .hero__ui-kpi {
     background: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
 
-  .hero__ui-stat-label {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--color-text-muted);
+  .hero__ui-kpi-label {
+    font-size: 9px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
   }
 
-  .hero__ui-stat-value {
+  .hero__ui-kpi-value {
     font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--color-text);
+    font-weight: 800;
     letter-spacing: -0.02em;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
   }
 
   @media (min-width: 768px) {
-    .hero__ui-stat-value {
-      font-size: var(--text-xl);
+    .hero__ui-kpi-value {
+      font-size: 20px;
     }
   }
 
-  .hero__ui-stat-value--accent {
-    color: var(--color-accent);
-  }
-
-  /* Chart area */
-  .hero__ui-chart {
-    border-radius: var(--radius-md);
-    background: var(--color-bg-subtle);
-    padding: var(--space-3);
-    min-height: 80px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .hero__ui-chart-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .hero__ui-chart-title {
+  .hero__ui-kpi-unit {
     font-size: 11px;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-  }
-
-  .hero__ui-chart-badge {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--color-accent);
-    background: var(--color-accent-subtle);
-    padding: 2px 6px;
-    border-radius: var(--radius-sm);
-  }
-
-  .hero__ui-chart-line {
-    width: 100%;
-    flex: 1;
-  }
-
-  /* Room grid */
-  .hero__ui-rooms {
-    border-radius: var(--radius-md);
-    background: var(--color-bg-subtle);
-    padding: var(--space-3);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .hero__ui-rooms-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .hero__ui-rooms-title {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--color-text-secondary);
-  }
-
-  .hero__ui-rooms-date {
-    font-size: 10px;
+    font-weight: 700;
     color: var(--color-text-muted);
   }
 
-  .hero__ui-room-grid {
+  .hero__ui-kpi-trend {
+    font-size: 9px;
+    font-weight: 600;
+  }
+
+  .hero__ui-kpi-trend--up {
+    color: var(--color-success);
+  }
+
+  .hero__ui-kpi-trend--neutral {
+    color: var(--color-text-muted);
+  }
+
+  /* Chart + arrivals */
+  .hero__ui-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
   }
 
   @media (min-width: 768px) {
-    .hero__ui-room-grid {
-      grid-template-columns: repeat(6, 1fr);
+    .hero__ui-grid {
+      grid-template-columns: 1.7fr 1fr;
     }
   }
 
-  .hero__ui-room {
+  .hero__ui-card {
+    background: var(--color-bg-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-card-head {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 9px;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-card-title {
+    font-size: 11px;
     font-weight: 600;
-    padding: 5px 0;
-    border-radius: 4px;
-    letter-spacing: 0.02em;
-  }
-
-  .hero__ui-room--occupied {
-    background: var(--color-accent);
-    color: white;
-  }
-
-  .hero__ui-room--available {
-    background: var(--color-surface);
     color: var(--color-text-secondary);
-    border: 1px solid var(--color-border);
+    white-space: nowrap;
   }
 
-  .hero__ui-room--maintenance {
-    background: rgba(251, 191, 36, 0.15);
-    color: #fbbf24;
-  }
-
-  .hero__ui-room-legend {
-    display: flex;
-    gap: var(--space-3);
-    margin-top: 2px;
-  }
-
-  .hero__ui-legend-item {
-    display: flex;
+  .hero__ui-legend {
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     font-size: 9px;
     color: var(--color-text-muted);
+    white-space: nowrap;
   }
 
   .hero__ui-legend-dot {
     width: 6px;
     height: 6px;
     border-radius: 2px;
-    display: inline-block;
   }
 
-  .hero__ui-legend-dot--occupied {
+  .hero__ui-legend-dot--actual {
     background: var(--color-accent);
   }
 
-  .hero__ui-legend-dot--available {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+  .hero__ui-legend-dot--forecast {
+    background: #22d3ee;
   }
 
-  .hero__ui-legend-dot--maintenance {
-    background: #fbbf24;
+  /* 14-day revenue bars */
+  .hero__ui-chart {
+    height: 64px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero__ui-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero__ui-bar {
+    flex: 1;
+    height: var(--h);
+    border-radius: 3px 3px 0 0;
+    min-height: 4px;
+  }
+
+  .hero__ui-bar--actual {
+    background: var(--color-accent);
+  }
+
+  .hero__ui-bar--forecast {
+    background: #22d3ee;
+    opacity: 0.85;
+  }
+
+  /* Today's arrivals */
+  .hero__ui-arrivals {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-guest {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .hero__ui-ava {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .hero__ui-ava--g { background: var(--color-accent); }
+  .hero__ui-ava--c { background: #22d3ee; }
+  .hero__ui-ava--p { background: #a855f7; }
+
+  .hero__ui-guest-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__ui-guest-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hero__ui-guest-room {
+    font-size: 9px;
+    color: var(--color-text-muted);
+  }
+
+  .hero__ui-tag {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .hero__ui-tag--ready {
+    background: rgba(74, 222, 128, 0.12);
+    color: var(--color-success);
+  }
+
+  .hero__ui-tag--wait {
+    background: rgba(251, 191, 36, 0.12);
+    color: var(--color-warning);
+  }
+
+  /* ── Floating cards ──────────────────────────────────────────────────────── */
+
+  .hero__ui-float {
+    position: absolute;
+    z-index: 2;
+    display: none;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-float {
+      display: flex;
+    }
+  }
+
+  .hero__ui-float--a {
+    top: 20%;
+    right: -12px;
+    animation: hero-float 6s ease-in-out infinite;
+  }
+
+  .hero__ui-float--b {
+    bottom: 12%;
+    left: -12px;
+    animation: hero-float 7s ease-in-out 1.2s infinite;
+  }
+
+  .hero__ui-float-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .hero__ui-float-icon--green {
+    background: rgba(74, 222, 128, 0.14);
+    color: var(--color-success);
+  }
+
+  .hero__ui-float-icon--purple {
+    background: rgba(168, 85, 247, 0.14);
+    color: #c084fc;
+  }
+
+  .hero__ui-float-text b {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .hero__ui-float-text small {
+    font-size: 10px;
+    color: var(--color-text-muted);
+  }
+
+  @keyframes hero-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 
   /* Glow effect */

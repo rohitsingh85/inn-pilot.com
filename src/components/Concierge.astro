@@ -1,0 +1,261 @@
+---
+import { config } from "@/lib/config";
+
+const checks = [
+  "Natural-language concierge on WhatsApp & SMS",
+  "Smart fallback to human staff when it matters",
+  "Forecast-aware rate recommendations with explainability",
+  "Automated arrival reminders and post-stay reviews",
+];
+---
+
+<section class="concierge section" id="concierge" aria-labelledby="concierge-title">
+  <div class="container">
+    <div class="concierge__grid">
+      <div class="concierge__copy reveal">
+        <span class="eyebrow">AI + WhatsApp concierge</span>
+        <h2 class="concierge__title" id="concierge-title">
+          Guests message.<br />You just get the reservation.
+        </h2>
+        <p class="concierge__sub">
+          InnPilot's WhatsApp assistant answers guests in your voice — room service, checkout, folio
+          balances, concierge booking — and routes anything complex to your team. AI revenue
+          suggestions tell you when to raise or hold rates.
+        </p>
+        <ul class="concierge__checks">
+          {checks.map((check) => (
+            <li class="concierge__check">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M7 10l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{check}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="concierge__actions">
+          <a
+            href={config.urls.requestAccess}
+            class="btn btn--primary btn--lg"
+            data-track="concierge_cta"
+          >
+            Request Access
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="concierge__visual reveal reveal-delay-1" aria-hidden="true">
+        <div class="concierge__phone">
+          <div class="chat-card">
+            <div class="chat-card__head">
+              <span class="chat-card__ava">G</span>
+              <div class="chat-card__meta">
+                <b>Guest · WhatsApp</b>
+                <small class="chat-card__online"><i aria-hidden="true"></i>online</small>
+              </div>
+            </div>
+            <div class="chat-card__body">
+              <p class="chat-card__msg chat-card__msg--in">Hi! Could I get room service tonight around 9?</p>
+              <p class="chat-card__msg chat-card__msg--out">Of course! I've booked dinner for two to your room at 9 PM 🍽</p>
+              <p class="chat-card__msg chat-card__msg--in">Perfect, thank you. Also can I check out late tomorrow?</p>
+              <p class="chat-card__msg chat-card__msg--out">You're all set — late checkout until 2 PM. Enjoy your evening!</p>
+              <p class="chat-card__msg chat-card__msg--note">Handled by InnPilot AI · no staff needed</p>
+            </div>
+          </div>
+          <div class="concierge__glow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .concierge__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .concierge__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+
+  .concierge__copy {
+    max-width: 560px;
+  }
+
+  .concierge__title {
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+
+  .concierge__sub {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-8);
+  }
+
+  .concierge__checks {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+  }
+
+  .concierge__check {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .concierge__check svg {
+    flex-shrink: 0;
+    color: var(--color-accent);
+  }
+
+  .concierge__actions {
+    display: flex;
+  }
+
+  /* ── WhatsApp chat card ──────────────────────────────────────────────────── */
+
+  .concierge__visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .concierge__phone {
+    position: relative;
+    width: min(400px, 100%);
+  }
+
+  .chat-card {
+    position: relative;
+    z-index: 1;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl), 0 0 0 1px var(--color-border);
+  }
+
+  .chat-card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-subtle);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .chat-card__ava {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .chat-card__meta b {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .chat-card__meta small {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .chat-card__online {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .chat-card__online i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-whatsapp);
+  }
+
+  .chat-card__body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .chat-card__msg {
+    max-width: 80%;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    border-radius: var(--radius-lg);
+  }
+
+  .chat-card__msg--in {
+    align-self: flex-start;
+    background: var(--color-bg-subtle);
+    color: var(--color-text);
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-card__msg--out {
+    align-self: flex-end;
+    background: var(--color-accent);
+    color: #0a0f1a;
+    font-weight: 500;
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-card__msg--note {
+    align-self: center;
+    max-width: 100%;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: var(--space-1) 0;
+  }
+
+  .concierge__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130%;
+    height: 130%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(37, 211, 102, 0.08) 0%,
+      transparent 60%
+    );
+    opacity: 0.7;
+    pointer-events: none;
+  }
+</style>
