@@ -116,6 +116,8 @@ export const pricingPlans = [
   {
     plan: "Free",
     position: "Operate one property completely.",
+    price: "Free",
+    billing: "",
     features: [
       "Property Management System",
       "Website Booking Engine",
@@ -132,6 +134,8 @@ export const pricingPlans = [
   {
     plan: "Starter",
     position: "Optimise revenue and operations.",
+    price: "₹2,999",
+    billing: "/month + GST",
     features: [
       "Everything in Free",
       "Channel Manager",
@@ -146,6 +150,8 @@ export const pricingPlans = [
   {
     plan: "Professional",
     position: "Automation and smarter decisions.",
+    price: "₹7,999",
+    billing: "/month + GST",
     features: [
       "Everything in Starter",
       "Commission Management",
@@ -161,6 +167,8 @@ export const pricingPlans = [
   {
     plan: "Enterprise",
     position: "Run hotel groups at scale.",
+    price: "₹20,999",
+    billing: "/month + GST",
     features: [
       "Everything in Professional",
       "AI Revenue Advisor",

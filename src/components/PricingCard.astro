@@ -4,6 +4,8 @@ import { config } from "@/lib/config";
 export interface Props {
   plan: string;
   position: string;
+  price?: string;
+  billing?: string;
   features: string[];
   highlighted?: boolean;
   cta?: { label: string; href: string };
@@ -12,6 +14,8 @@ export interface Props {
 const {
   plan,
   position,
+  price,
+  billing,
   features,
   highlighted = false,
   cta = { label: "Request Access", href: "/request-access/" },
@@ -22,6 +26,12 @@ const {
   <div class="pricing-card__header">
     <h2 class="pricing-card__plan">{plan}</h2>
     <p class="pricing-card__position">{position}</p>
+    {price && (
+      <div class="pricing-card__price">
+        <span class="pricing-card__amount">{price}</span>
+        {billing && <span class="pricing-card__billing">{billing}</span>}
+      </div>
+    )}
   </div>
   <ul class="pricing-card__features" aria-label={`${plan} plan includes`}>
     {features.map((feature) => (
@@ -84,6 +94,28 @@ const {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     line-height: var(--leading-normal);
+  }
+
+  .pricing-card__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .pricing-card__amount {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    line-height: 1.1;
+  }
+
+  .pricing-card__billing {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
   }
 
   .pricing-card__features {
