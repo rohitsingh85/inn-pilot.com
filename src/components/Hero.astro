@@ -53,6 +53,7 @@ import { config } from "@/lib/config";
           <div class="hero__ui-sidebar">
             <div class="hero__ui-brand">
               <img src="/assets/logos/innpilot-logo.png" alt="" width="22" height="22" decoding="async" class="hero__ui-brand-logo" />
+              <span class="hero__ui-brand-name">InnPilot</span>
             </div>
             <ul class="hero__ui-nav-list">
               <li class="hero__ui-nav-item hero__ui-nav-item--active">
@@ -80,37 +81,55 @@ import { config } from "@/lib/config";
                 <span>Revenue</span>
               </li>
             </ul>
+            <div class="hero__ui-nav-footer">
+              <span class="hero__ui-nav-item" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Settings</span>
+              </span>
+            </div>
           </div>
           <!-- Main content -->
           <div class="hero__ui-main">
-            <div class="hero__ui-greeting">
-              <div class="hero__ui-greeting-text">
-                <span class="hero__ui-hello">Good morning</span>
-                <span class="hero__ui-name">The Corbett Retreat</span>
+            <div class="hero__ui-header">
+              <div class="hero__ui-header-left">
+                <div class="hero__ui-greeting">
+                  <span class="hero__ui-hello">Good morning</span>
+                  <span class="hero__ui-name">The Corbett Retreat</span>
+                </div>
+                <span class="hero__ui-date">Fri, 7 Aug 2026</span>
               </div>
-              <span class="hero__ui-chip">Night audit complete ✓</span>
+              <div class="hero__ui-chips">
+                <span class="hero__ui-chip hero__ui-chip--audit">Night audit complete ✓</span>
+                <span class="hero__ui-chip hero__ui-chip--occ">94% Occ</span>
+                <span class="hero__ui-chip hero__ui-chip--arrivals">3 arrivals</span>
+                <span class="hero__ui-chip hero__ui-chip--departures">2 departures</span>
+              </div>
             </div>
 
             <div class="hero__ui-kpis">
               <div class="hero__ui-kpi">
                 <span class="hero__ui-kpi-label">Occupancy</span>
                 <span class="hero__ui-kpi-value">94<span class="hero__ui-kpi-unit">%</span></span>
-                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+6.2% vs last week</span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">▲ +6.2% vs last week</span>
+                <span class="hero__ui-kpi-sub">23 / 25 rooms</span>
               </div>
               <div class="hero__ui-kpi">
                 <span class="hero__ui-kpi-label">ADR</span>
                 <span class="hero__ui-kpi-value">₹6,480</span>
-                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+3.1%</span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">▲ +3.1%</span>
+                <span class="hero__ui-kpi-sub">Month to date</span>
               </div>
               <div class="hero__ui-kpi">
                 <span class="hero__ui-kpi-label">RevPAR</span>
                 <span class="hero__ui-kpi-value">₹6,091</span>
-                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">+8.7%</span>
+                <span class="hero__ui-kpi-trend hero__ui-kpi-trend--up">▲ +8.7%</span>
+                <span class="hero__ui-kpi-sub">Month to date</span>
               </div>
               <div class="hero__ui-kpi">
                 <span class="hero__ui-kpi-label">In-house</span>
                 <span class="hero__ui-kpi-value">23<span class="hero__ui-kpi-unit">/25</span></span>
                 <span class="hero__ui-kpi-trend hero__ui-kpi-trend--neutral">2 arrivals today</span>
+                <span class="hero__ui-kpi-sub">Guests checked in</span>
               </div>
             </div>
 
@@ -138,13 +157,27 @@ import { config } from "@/lib/config";
                     <span class="hero__ui-bar hero__ui-bar--actual" style="--h:82%"></span>
                     <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:100%"></span>
                   </div>
+                  <div class="hero__ui-chart-labels" aria-hidden="true">
+                    <span class="hero__ui-chart-label">Mon</span>
+                    <span class="hero__ui-chart-label">Tue</span>
+                    <span class="hero__ui-chart-label">Wed</span>
+                    <span class="hero__ui-chart-label">Thu</span>
+                    <span class="hero__ui-chart-label">Fri</span>
+                    <span class="hero__ui-chart-label">Sat</span>
+                    <span class="hero__ui-chart-label">Sun</span>
+                    <span class="hero__ui-chart-label">Mon</span>
+                    <span class="hero__ui-chart-label">Tue</span>
+                    <span class="hero__ui-chart-label">Wed</span>
+                    <span class="hero__ui-chart-label">Thu</span>
+                    <span class="hero__ui-chart-label">Fri</span>
+                  </div>
                 </div>
               </div>
 
               <div class="hero__ui-card">
                 <div class="hero__ui-card-head">
                   <span class="hero__ui-card-title">Today's arrivals</span>
-                  <span class="hero__ui-chip hero__ui-chip--subtle">3 rooms</span>
+                  <span class="hero__ui-chip hero__ui-chip--count">3 rooms</span>
                 </div>
                 <ul class="hero__ui-arrivals">
                   <li class="hero__ui-guest">
@@ -172,6 +205,7 @@ import { config } from "@/lib/config";
                     <span class="hero__ui-tag hero__ui-tag--wait">In route</span>
                   </li>
                 </ul>
+                <span class="hero__ui-arrivals-link">View all arrivals →</span>
               </div>
             </div>
           </div>
@@ -179,22 +213,24 @@ import { config } from "@/lib/config";
       </div>
 
       <!-- Floating cards -->
-      <div class="hero__ui-float hero__ui-float--a">
-        <span class="hero__ui-float-icon hero__ui-float-icon--green">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </span>
-        <div class="hero__ui-float-text">
-          <b>Payment captured</b>
-          <small>₹12,400 · Razorpay</small>
+      <div class="hero__ui-toasts">
+        <div class="hero__ui-float hero__ui-float--a">
+          <span class="hero__ui-float-icon hero__ui-float-icon--green">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </span>
+          <div class="hero__ui-float-text">
+            <b>Payment captured</b>
+            <small>₹12,400 · Razorpay</small>
+          </div>
         </div>
-      </div>
-      <div class="hero__ui-float hero__ui-float--b">
-        <span class="hero__ui-float-icon hero__ui-float-icon--purple">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </span>
-        <div class="hero__ui-float-text">
-          <b>Rate suggestion</b>
-          <small>+8% · Fri peak</small>
+        <div class="hero__ui-float hero__ui-float--b">
+          <span class="hero__ui-float-icon hero__ui-float-icon--purple">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </span>
+          <div class="hero__ui-float-text">
+            <b>Rate suggestion</b>
+            <small>+8% · Fri peak</small>
+          </div>
         </div>
       </div>
 
@@ -306,7 +342,7 @@ import { config } from "@/lib/config";
     border: 1px solid var(--color-border);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-xl), 0 0 0 1px var(--color-border);
+    box-shadow: var(--shadow-xl), 0 0 0 1px rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 1;
   }
@@ -316,8 +352,8 @@ import { config } from "@/lib/config";
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    background: var(--color-bg-subtle);
+    padding: 8px 12px;
+    background: var(--color-bg-dark);
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -332,51 +368,54 @@ import { config } from "@/lib/config";
     border-radius: var(--radius-full);
   }
 
-  .hero__ui-dot--red { background: #fca5a5; }
-  .hero__ui-dot--yellow { background: #fde68a; }
-  .hero__ui-dot--green { background: #86efac; }
+  .hero__ui-dot--red { background: #f87171; }
+  .hero__ui-dot--yellow { background: #fbbf24; }
+  .hero__ui-dot--green { background: #34d399; }
 
   .hero__ui-url {
     flex: 1;
+    max-width: 260px;
     text-align: center;
     font-size: 11px;
     font-weight: 500;
-    color: var(--color-text-muted);
-    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    background: var(--color-bg-subtle);
     padding: 4px var(--space-3);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-full);
     border: 1px solid var(--color-border-light);
   }
 
   .hero__ui-body {
     display: flex;
-    min-height: 360px;
+    min-height: 400px;
+    background: var(--color-bg);
   }
 
   @media (min-width: 768px) {
     .hero__ui-body {
-      min-height: 420px;
+      min-height: 460px;
     }
   }
 
   /* ── Sidebar ─────────────────────────────────────────────────────────────── */
 
   .hero__ui-sidebar {
-    width: 46px;
-    background: var(--color-bg-dark);
-    padding: var(--space-4) var(--space-2);
+    width: 44px;
+    background: linear-gradient(185deg, #064e3b 0%, #022c22 100%);
+    padding: var(--space-3) var(--space-2);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-3);
     flex-shrink: 0;
   }
 
   @media (min-width: 768px) {
     .hero__ui-sidebar {
-      width: 132px;
+      width: 168px;
       padding: var(--space-4) var(--space-3);
       align-items: stretch;
+      gap: var(--space-4);
     }
   }
 
@@ -389,39 +428,58 @@ import { config } from "@/lib/config";
   @media (min-width: 768px) {
     .hero__ui-brand {
       justify-content: flex-start;
-      padding-inline: var(--space-1);
+      gap: var(--space-2);
+      padding: var(--space-1);
     }
   }
 
   .hero__ui-brand-logo {
     width: 22px;
     height: 22px;
-    border-radius: 5px;
+    border-radius: 6px;
+  }
+
+  .hero__ui-brand-name {
+    display: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-brand-name {
+      display: inline;
+    }
   }
 
   .hero__ui-nav-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3px;
     width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .hero__ui-nav-item {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    padding: var(--space-2) 0;
+    padding: 7px 0;
     border-radius: var(--radius-md);
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.72);
     font-size: 10px;
     font-weight: 500;
     white-space: nowrap;
   }
 
   .hero__ui-nav-item svg {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     flex-shrink: 0;
   }
 
@@ -434,14 +492,29 @@ import { config } from "@/lib/config";
   @media (min-width: 768px) {
     .hero__ui-nav-item {
       justify-content: flex-start;
-      padding: var(--space-2) var(--space-2);
+      padding: 8px var(--space-2);
       font-size: 11px;
     }
   }
 
   .hero__ui-nav-item--active {
-    background: var(--color-accent-subtle);
-    color: var(--color-accent);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+  }
+
+  .hero__ui-nav-item--active::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 3px;
+    height: 16px;
+    border-radius: var(--radius-full);
+    background: #34d399;
+  }
+
+  .hero__ui-nav-footer {
+    margin-top: auto;
+    width: 100%;
   }
 
   /* ── Main content ────────────────────────────────────────────────────────── */
@@ -462,18 +535,28 @@ import { config } from "@/lib/config";
     }
   }
 
-  /* Greeting + night-audit status */
-  .hero__ui-greeting {
+  /* Header: greeting + date + status chips */
+  .hero__ui-header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: var(--space-3);
   }
 
-  .hero__ui-greeting-text {
+  .hero__ui-header-left {
     display: flex;
     flex-direction: column;
+    gap: 2px;
     min-width: 0;
+  }
+
+  .hero__ui-greeting {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    min-width: 0;
+    flex-wrap: wrap;
   }
 
   .hero__ui-hello {
@@ -485,7 +568,7 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-name {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--color-text);
     letter-spacing: -0.01em;
@@ -496,26 +579,45 @@ import { config } from "@/lib/config";
 
   @media (min-width: 768px) {
     .hero__ui-name {
-      font-size: 14px;
+      font-size: 17px;
     }
+  }
+
+  .hero__ui-date {
+    font-size: 11px;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hero__ui-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 
   .hero__ui-chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     font-size: 9px;
     font-weight: 600;
-    color: var(--color-accent);
-    background: var(--color-accent-subtle);
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: var(--radius-full);
     white-space: nowrap;
+    background: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
   }
 
-  .hero__ui-chip--subtle {
-    color: var(--color-text-secondary);
-    background: var(--color-surface-raised);
+  .hero__ui-chip--audit {
+    background: rgba(74, 222, 128, 0.1);
+    border-color: rgba(74, 222, 128, 0.24);
+    color: #4ade80;
+  }
+
+  .hero__ui-chip--count {
+    font-size: 8px;
+    padding: 2px 8px;
   }
 
   /* KPI cards */
@@ -534,11 +636,12 @@ import { config } from "@/lib/config";
 
   .hero__ui-kpi {
     background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border-light);
     border-radius: var(--radius-md);
-    padding: var(--space-3);
+    padding: var(--space-2) var(--space-3);
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
   }
 
   .hero__ui-kpi-label {
@@ -550,11 +653,12 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-kpi-value {
-    font-size: var(--text-lg);
+    font-size: 17px;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--color-text);
     font-variant-numeric: tabular-nums;
+    line-height: 1.1;
   }
 
   @media (min-width: 768px) {
@@ -572,6 +676,7 @@ import { config } from "@/lib/config";
   .hero__ui-kpi-trend {
     font-size: 9px;
     font-weight: 600;
+    line-height: 1.2;
   }
 
   .hero__ui-kpi-trend--up {
@@ -579,6 +684,11 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-kpi-trend--neutral {
+    color: var(--color-text-muted);
+  }
+
+  .hero__ui-kpi-sub {
+    font-size: 10px;
     color: var(--color-text-muted);
   }
 
@@ -597,6 +707,7 @@ import { config } from "@/lib/config";
 
   .hero__ui-card {
     background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border-light);
     border-radius: var(--radius-md);
     padding: var(--space-3);
     display: flex;
@@ -643,9 +754,9 @@ import { config } from "@/lib/config";
 
   /* 14-day revenue bars */
   .hero__ui-chart {
-    height: 64px;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    gap: 6px;
   }
 
   .hero__ui-bars {
@@ -653,13 +764,20 @@ import { config } from "@/lib/config";
     align-items: flex-end;
     gap: 4px;
     width: 100%;
-    height: 100%;
+    height: 88px;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-bars {
+      height: 96px;
+      gap: 6px;
+    }
   }
 
   .hero__ui-bar {
     flex: 1;
     height: var(--h);
-    border-radius: 3px 3px 0 0;
+    border-radius: 4px 4px 0 0;
     min-height: 4px;
   }
 
@@ -672,27 +790,52 @@ import { config } from "@/lib/config";
     opacity: 0.85;
   }
 
+  .hero__ui-chart-labels {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-chart-labels {
+      gap: 6px;
+    }
+  }
+
+  .hero__ui-chart-label {
+    flex: 1;
+    text-align: center;
+    font-size: 8px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
   /* Today's arrivals */
   .hero__ui-arrivals {
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .hero__ui-guest {
     display: flex;
     align-items: center;
     gap: var(--space-2);
+    padding: 4px 0;
   }
 
   .hero__ui-ava {
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     color: white;
     flex-shrink: 0;
@@ -707,6 +850,7 @@ import { config } from "@/lib/config";
     min-width: 0;
     display: flex;
     flex-direction: column;
+    gap: 1px;
   }
 
   .hero__ui-guest-name {
@@ -721,12 +865,15 @@ import { config } from "@/lib/config";
   .hero__ui-guest-room {
     font-size: 9px;
     color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .hero__ui-tag {
     font-size: 8px;
     font-weight: 700;
-    padding: 2px 6px;
+    padding: 2px 7px;
     border-radius: var(--radius-full);
     white-space: nowrap;
   }
@@ -741,37 +888,33 @@ import { config } from "@/lib/config";
     color: var(--color-warning);
   }
 
+  .hero__ui-arrivals-link {
+    margin-top: auto;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--color-accent);
+    padding-top: var(--space-1);
+  }
+
   /* ── Floating cards ──────────────────────────────────────────────────────── */
 
+  .hero__ui-toasts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    margin-top: var(--space-4);
+  }
+
   .hero__ui-float {
-    position: absolute;
-    z-index: 2;
-    display: none;
+    display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
+    padding: var(--space-2) var(--space-3);
     background: var(--color-surface-raised);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
-  }
-
-  @media (min-width: 768px) {
-    .hero__ui-float {
-      display: flex;
-    }
-  }
-
-  .hero__ui-float--a {
-    top: 20%;
-    right: -12px;
-    animation: hero-float 6s ease-in-out infinite;
-  }
-
-  .hero__ui-float--b {
-    bottom: 12%;
-    left: -12px;
-    animation: hero-float 7s ease-in-out 1.2s infinite;
   }
 
   .hero__ui-float-icon {
@@ -804,6 +947,33 @@ import { config } from "@/lib/config";
   .hero__ui-float-text small {
     font-size: 10px;
     color: var(--color-text-muted);
+  }
+
+  @media (min-width: 1024px) {
+    .hero__ui-toasts {
+      position: absolute;
+      inset: 0;
+      margin-top: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero__ui-float {
+      position: absolute;
+      padding: var(--space-2) var(--space-4);
+    }
+
+    .hero__ui-float--a {
+      top: 24%;
+      right: -16px;
+      animation: hero-float 6s ease-in-out infinite;
+    }
+
+    .hero__ui-float--b {
+      bottom: 10%;
+      left: -16px;
+      animation: hero-float 7s ease-in-out 1.2s infinite;
+    }
   }
 
   @keyframes hero-float {
