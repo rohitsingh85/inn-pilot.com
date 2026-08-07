@@ -134,7 +134,7 @@ export const pricingPlans = [
   {
     plan: "Starter",
     position: "Optimise revenue and operations.",
-    price: "₹2,999",
+    price: "₹4,999",
     billing: "/month + GST",
     features: [
       "Everything in Free",
@@ -150,7 +150,7 @@ export const pricingPlans = [
   {
     plan: "Professional",
     position: "Automation and smarter decisions.",
-    price: "₹7,999",
+    price: "₹9,999",
     billing: "/month + GST",
     features: [
       "Everything in Starter",
@@ -167,7 +167,7 @@ export const pricingPlans = [
   {
     plan: "Enterprise",
     position: "Run hotel groups at scale.",
-    price: "₹20,999",
+    price: "₹19,999",
     billing: "/month + GST",
     features: [
       "Everything in Professional",
