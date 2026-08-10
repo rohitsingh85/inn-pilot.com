@@ -55,7 +55,7 @@ import { config } from "@/lib/config";
     <div class="hero__visual reveal reveal-delay-2" aria-hidden="true">
       <div class="hero__ui">
         <!-- Browser chrome -->
-        <div class="hero__ui-bar">
+        <div class="hero__ui-chrome-bar">
           <div class="hero__ui-dots">
             <span class="hero__ui-dot hero__ui-dot--red"></span>
             <span class="hero__ui-dot hero__ui-dot--yellow"></span>
@@ -158,19 +158,27 @@ import { config } from "@/lib/config";
                   </span>
                 </div>
                 <div class="hero__ui-chart">
-                  <div class="hero__ui-bars">
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:32%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:44%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:38%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:55%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:48%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:66%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:60%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:78%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:70%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:88%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--actual" style="--h:82%"></span>
-                    <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:100%"></span>
+                  <div class="hero__ui-chart-plot" style="--chart-cols: 12">
+                    <div class="hero__ui-chart-grid" aria-hidden="true"></div>
+                    <div class="hero__ui-chart-yscale" aria-hidden="true">
+                      <span>₹40K</span>
+                      <span>₹20K</span>
+                      <span>₹0</span>
+                    </div>
+                    <div class="hero__ui-bars" aria-hidden="true">
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:32%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:44%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:38%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:55%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:48%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:66%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:60%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:78%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:70%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast" style="--h:88%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--actual" style="--h:82%"></span>
+                      <span class="hero__ui-bar hero__ui-bar--forecast hero__ui-bar--today" style="--h:100%"></span>
+                    </div>
                   </div>
                   <div class="hero__ui-chart-labels" aria-hidden="true">
                     <span class="hero__ui-chart-label">Mon</span>
@@ -399,7 +407,7 @@ import { config } from "@/lib/config";
   }
 
   /* Browser chrome */
-  .hero__ui-bar {
+  .hero__ui-chrome-bar {
     display: flex;
     align-items: center;
     gap: var(--space-3);
@@ -439,7 +447,9 @@ import { config } from "@/lib/config";
   .hero__ui-body {
     display: flex;
     min-height: 400px;
-    background: var(--color-bg);
+    background:
+      radial-gradient(520px 220px at 8% 0%, rgba(16, 185, 129, 0.07), transparent 70%),
+      var(--color-bg);
   }
 
   @media (min-width: 768px) {
@@ -549,7 +559,7 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-nav-item--active {
-    background: rgba(255, 255, 255, 0.12);
+    background: linear-gradient(90deg, rgba(52, 211, 153, 0.18), rgba(52, 211, 153, 0.04));
     color: #fff;
   }
 
@@ -686,25 +696,27 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-kpi {
-    background: var(--color-bg-subtle);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-md);
-    padding: var(--space-2) var(--space-3);
+    background: linear-gradient(180deg, #161d33 0%, #101728 100%);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 10px;
+    padding: 10px 12px 12px;
     display: flex;
     flex-direction: column;
     gap: 3px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 4px 14px rgba(2, 6, 23, 0.4);
   }
 
   .hero__ui-kpi-label {
-    font-size: 9px;
-    font-weight: 600;
+    font-size: 9.5px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+    letter-spacing: 0.07em;
+    color: #7d8db1;
   }
 
   .hero__ui-kpi-value {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--color-text);
@@ -714,7 +726,7 @@ import { config } from "@/lib/config";
 
   @media (min-width: 768px) {
     .hero__ui-kpi-value {
-      font-size: 20px;
+      font-size: 21px;
     }
   }
 
@@ -725,7 +737,7 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-kpi-trend {
-    font-size: 9px;
+    font-size: 9.5px;
     font-weight: 600;
     line-height: 1.2;
   }
@@ -752,18 +764,21 @@ import { config } from "@/lib/config";
 
   @media (min-width: 768px) {
     .hero__ui-grid {
-      grid-template-columns: 1.7fr 1fr;
+      grid-template-columns: 2fr 1fr;
     }
   }
 
   .hero__ui-card {
-    background: var(--color-bg-subtle);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--radius-md);
-    padding: var(--space-3);
+    min-width: 0;
+    background: linear-gradient(180deg, #161d33 0%, #101728 100%);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 12px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: 12px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      0 4px 14px rgba(2, 6, 23, 0.4);
   }
 
   .hero__ui-card-head {
@@ -771,13 +786,28 @@ import { config } from "@/lib/config";
     align-items: center;
     justify-content: space-between;
     gap: var(--space-2);
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
   }
 
   .hero__ui-card-title {
-    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: #cbd5e1;
     white-space: nowrap;
+  }
+
+  .hero__ui-card-title::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, #34d399, #10b981);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    flex-shrink: 0;
   }
 
   .hero__ui-legend {
@@ -785,66 +815,200 @@ import { config } from "@/lib/config";
     align-items: center;
     gap: 6px;
     font-size: 9px;
+    font-weight: 500;
     color: var(--color-text-muted);
     white-space: nowrap;
   }
 
   .hero__ui-legend-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 2px;
   }
 
   .hero__ui-legend-dot--actual {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, #34d399, #10b981);
   }
 
   .hero__ui-legend-dot--forecast {
-    background: #22d3ee;
+    background: linear-gradient(135deg, #22d3ee, #0891b2);
   }
 
-  /* 14-day revenue bars */
+  /* 14-day revenue chart */
   .hero__ui-chart {
+    --chart-axis-w: 0px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-  }
-
-  .hero__ui-bars {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    width: 100%;
-    height: 88px;
+    gap: 8px;
   }
 
   @media (min-width: 768px) {
-    .hero__ui-bars {
-      height: 96px;
+    .hero__ui-chart {
+      --chart-axis-w: 26px;
+    }
+  }
+
+  .hero__ui-chart-plot {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--chart-cols, 12), minmax(0, 1fr));
+    grid-template-rows: 100%;
+    align-items: end;
+    gap: 4px;
+    height: 100px;
+    padding-left: var(--chart-axis-w);
+  }
+
+  @media (min-width: 768px) {
+    .hero__ui-chart-plot {
+      height: 122px;
       gap: 6px;
     }
   }
 
+  @media (min-width: 1280px) {
+    .hero__ui-chart-plot {
+      height: 134px;
+    }
+  }
+
+  .hero__ui-chart-grid {
+    position: absolute;
+    inset: 0 0 0 var(--chart-axis-w);
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(148, 163, 184, 0.14) 0,
+      rgba(148, 163, 184, 0.14) 1px,
+      transparent 1px,
+      transparent 25%
+    );
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 40%,
+      rgba(0, 0, 0, 0.35) 82%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.95) 40%,
+      rgba(0, 0, 0, 0.35) 82%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero__ui-chart-plot::after {
+    content: "";
+    position: absolute;
+    left: var(--chart-axis-w);
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: rgba(148, 163, 184, 0.28);
+  }
+
+  .hero__ui-chart-yscale {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--chart-axis-w);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hero__ui-bars {
+    display: contents;
+  }
+
   .hero__ui-bar {
-    flex: 1;
+    position: relative;
+    z-index: 1;
+    grid-row: 1;
+    align-self: end;
     height: var(--h);
-    border-radius: 4px 4px 0 0;
     min-height: 4px;
+    border-radius: 5px 5px 3px 3px;
+    transition: filter var(--duration-fast) var(--ease-out),
+      transform var(--duration-fast) var(--ease-out);
   }
 
   .hero__ui-bar--actual {
-    background: var(--color-accent);
+    background: linear-gradient(180deg, #34d399 0%, #10b981 55%, #0d9668 100%);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.28);
+  }
+
+  .hero__ui-bar--actual::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 14%;
+    right: 14%;
+    height: 42%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), transparent);
+    opacity: 0.32;
   }
 
   .hero__ui-bar--forecast {
-    background: #22d3ee;
-    opacity: 0.85;
+    background: linear-gradient(180deg, #22d3ee 0%, #0891b2 60%, #0e7490 100%);
+    box-shadow: 0 2px 8px rgba(34, 211, 238, 0.22);
+  }
+
+  .hero__ui-bar--today {
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.55),
+      0 4px 14px rgba(16, 185, 129, 0.45);
+  }
+
+  .hero__ui-bar--today::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    bottom: 0;
+    width: 1.5px;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    background: linear-gradient(
+      180deg,
+      rgba(52, 211, 153, 0.75),
+      rgba(52, 211, 153, 0.14)
+    );
+  }
+
+  .hero__ui-bar--today::after {
+    content: "Today";
+    position: absolute;
+    left: 50%;
+    top: 3px;
+    transform: translateX(-50%);
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #6ee7b7;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.16);
+    border: 1px solid rgba(52, 211, 153, 0.35);
+    white-space: nowrap;
+  }
+
+  .hero__ui-bar:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
   }
 
   .hero__ui-chart-labels {
     display: flex;
     gap: 4px;
-    width: 100%;
+    padding-left: var(--chart-axis-w);
   }
 
   @media (min-width: 768px) {
@@ -855,6 +1019,7 @@ import { config } from "@/lib/config";
 
   .hero__ui-chart-label {
     flex: 1;
+    min-width: 0;
     text-align: center;
     font-size: 8px;
     font-weight: 500;
@@ -866,7 +1031,6 @@ import { config } from "@/lib/config";
   .hero__ui-arrivals {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -876,12 +1040,17 @@ import { config } from "@/lib/config";
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    padding: 4px 0;
+    padding: 6px 2px;
+    border-bottom: 1px dashed rgba(148, 163, 184, 0.14);
+  }
+
+  .hero__ui-guest:last-child {
+    border-bottom: none;
   }
 
   .hero__ui-ava {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -890,11 +1059,13 @@ import { config } from "@/lib/config";
     font-weight: 700;
     color: white;
     flex-shrink: 0;
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.16),
+      0 2px 6px rgba(2, 6, 23, 0.45);
   }
 
-  .hero__ui-ava--g { background: var(--color-accent); }
-  .hero__ui-ava--c { background: #22d3ee; }
-  .hero__ui-ava--p { background: #a855f7; }
+  .hero__ui-ava--g { background: linear-gradient(135deg, #34d399, #0d9668); }
+  .hero__ui-ava--c { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+  .hero__ui-ava--p { background: linear-gradient(135deg, #c084fc, #9333ea); }
 
   .hero__ui-guest-info {
     flex: 1;
@@ -905,7 +1076,7 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-guest-name {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 600;
     color: var(--color-text);
     white-space: nowrap;
@@ -914,7 +1085,7 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-guest-room {
-    font-size: 9px;
+    font-size: 9.5px;
     color: var(--color-text-muted);
     white-space: nowrap;
     overflow: hidden;
@@ -927,15 +1098,18 @@ import { config } from "@/lib/config";
     padding: 2px 7px;
     border-radius: var(--radius-full);
     white-space: nowrap;
+    border: 1px solid transparent;
   }
 
   .hero__ui-tag--ready {
     background: rgba(74, 222, 128, 0.12);
+    border-color: rgba(74, 222, 128, 0.25);
     color: var(--color-success);
   }
 
   .hero__ui-tag--wait {
-    background: rgba(251, 191, 36, 0.12);
+    background: rgba(251, 191, 36, 0.1);
+    border-color: rgba(251, 191, 36, 0.25);
     color: var(--color-warning);
   }
 
@@ -962,10 +1136,10 @@ import { config } from "@/lib/config";
     align-items: center;
     gap: var(--space-3);
     padding: var(--space-2) var(--space-3);
-    background: var(--color-surface-raised);
-    border: 1px solid var(--color-border);
+    background: linear-gradient(180deg, #1a2035 0%, #151b2e 100%);
+    border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), var(--shadow-xl);
   }
 
   .hero__ui-float-icon {
@@ -979,12 +1153,12 @@ import { config } from "@/lib/config";
   }
 
   .hero__ui-float-icon--green {
-    background: rgba(74, 222, 128, 0.14);
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.22), rgba(16, 185, 129, 0.1));
     color: var(--color-success);
   }
 
   .hero__ui-float-icon--purple {
-    background: rgba(168, 85, 247, 0.14);
+    background: linear-gradient(135deg, rgba(192, 132, 252, 0.22), rgba(147, 51, 234, 0.1));
     color: #c084fc;
   }
 
