@@ -85,7 +85,13 @@ const currentPath = Astro.url.pathname;
   .header__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+    width: 104px;
+    height: 104px;
     padding: 4px;
     background: #ffffff;
     border-radius: var(--radius-lg);
@@ -93,8 +99,20 @@ const currentPath = Astro.url.pathname;
   }
 
   .header__logo-img {
-    height: 44px;
-    width: 44px;
+    height: 96px;
+    width: 96px;
+  }
+
+  @media (min-width: 768px) {
+    .header__logo {
+      width: 124px;
+      height: 124px;
+    }
+
+    .header__logo-img {
+      height: 116px;
+      width: 116px;
+    }
   }
 
   /* ── Desktop Nav ─────────────────────────────────────────────────────────── */

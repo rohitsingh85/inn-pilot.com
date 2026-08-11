@@ -5,21 +5,6 @@ import { config } from "@/lib/config";
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero__content">
-      <div class="hero__brand reveal">
-        <a href="/" class="hero__brand-link" aria-label={`${config.productName} — Home`}>
-          <img
-            src="/assets/logos/innpilot-logo.png"
-            alt=""
-            width="116"
-            height="116"
-            class="hero__brand-img"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </a>
-      </div>
-
       <span class="eyebrow reveal">Hospitality Operating System</span>
 
       <h1 class="hero__title reveal reveal-delay-1">
@@ -351,41 +336,6 @@ import { config } from "@/lib/config";
   .hero__microcopy-link:hover {
     color: var(--color-accent-light);
   }
-
-  /* ── Hero brand ──────────────────────────────────────────────────────────── */
-
-  .hero__brand {
-    margin-bottom: var(--space-8);
-  }
-
-  .hero__brand-link {
-    display: inline-flex;
-    padding: 10px;
-    background: #ffffff;
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-xl);
-    transition: transform var(--duration-normal) var(--ease-out),
-      box-shadow var(--duration-normal) var(--ease-out);
-  }
-
-  .hero__brand-link:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-2xl);
-  }
-
-  .hero__brand-img {
-    display: block;
-    width: 96px;
-    height: 96px;
-  }
-
-  @media (min-width: 768px) {
-    .hero__brand-img {
-      width: 116px;
-      height: 116px;
-    }
-  }
-
 
   /* ── Dashboard Visual ────────────────────────────────────────────────────── */
 
